@@ -2,6 +2,11 @@
 
 Todas las modificaciones notables a este proyecto serán documentadas en este archivo según el estándar [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] - 2026-09-23 (Actualización de Número Oficial de WhatsApp)
+
+### Contacto & Canales de Venta
+- **Número de Contacto Oficial**: Se actualizó el número de WhatsApp a `+58 412-5080900` (`+584125080900`) en todas las páginas del sitio (`index.html`, `nosotros.html`, `menu.html`, `galeria.html`, `contacto.html`), tanto en las barras de navegación (`nav__cta`) como en las fichas y botones de llamada a la acción (CTA).
+
 ## [1.2.0] - 2026-09-23 (Automatización de Despliegue sin Comentarios & Respaldo de Módulo)
 
 ### Infraestructura & Automatización CI/CD
