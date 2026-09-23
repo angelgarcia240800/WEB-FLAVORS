@@ -2,6 +2,15 @@
 
 Todas las modificaciones notables a este proyecto serán documentadas en este archivo según el estándar [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-09-23 (Automatización de Despliegue sin Comentarios & Respaldo de Módulo)
+
+### Infraestructura & Automatización CI/CD
+- **Limpieza Automática de Comentarios en Producción**: Se incorporó un paso en el pipeline de GitHub Actions (`deploy.yml`) que elimina automáticamente los comentarios HTML (`<!-- ... -->`) y CSS (`/* ... */`) de los archivos antes de desplegarlos en GitHub Pages.
+- **Preservación del Código Fuente Local**: La base de código en el repositorio conserva todos los comentarios explicativos y educativos para el equipo y tutores académicos.
+
+### Módulos & Documentación
+- **Respaldo de Sección de Comentarios (Web3Forms)**: El código completo del formulario de Web3Forms y el muro de opiniones fue respaldado en `SECCION_COMENTARIOS_WEB3FORMS.md` para ser incorporado cuando el equipo lo decida.
+
 ## [1.1.0] - 2026-09-23 (Mejoras y Correcciones del Carrusel en Nosotros)
 
 ### Frontend & Experiencia de Usuario (Puro HTML y CSS)

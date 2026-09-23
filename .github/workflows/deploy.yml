@@ -32,6 +32,32 @@ jobs:
         with:
           enablement: true
 
+      - name: Limpiar comentarios del código para producción
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const dir = './web';
+          
+          function cleanFile(filePath) {
+            let content = fs.readFileSync(filePath, 'utf8');
+            if (filePath.endsWith('.html')) {
+              content = content.replace(/<!--[\s\S]*?-->/g, '');
+            } else if (filePath.endsWith('.css')) {
+              content = content.replace(/\/\*[\s\S]*?\*\//g, '');
+            }
+            fs.writeFileSync(filePath, content, 'utf8');
+          }
+
+          fs.readdirSync(dir).forEach(file => {
+            const fullPath = path.join(dir, file);
+            if (fs.statSync(fullPath).isFile() && (file.endsWith('.html') || file.endsWith('.css'))) {
+              cleanFile(fullPath);
+              console.log('Comentarios eliminados en: ' + file);
+            }
+          });
+          "
+
       - name: Subir artefacto de Pages
         uses: actions/upload-pages-artifact@v3
         with:
