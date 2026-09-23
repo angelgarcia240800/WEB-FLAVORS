@@ -47,6 +47,13 @@
     <section class="section nosotros">
       <div class="nosotros__media reveal-up">
         <div class="media-card carousel" aria-label="Carrusel sobre nosotros">
+          <!-- Controles en puro HTML (radio buttons ocultos) -->
+          <input type="radio" name="carrusel" id="carrusel-1" class="carousel__radio">
+          <input type="radio" name="carrusel" id="carrusel-2" class="carousel__radio">
+          <input type="radio" name="carrusel" id="carrusel-3" class="carousel__radio">
+          <input type="radio" name="carrusel" id="carrusel-4" class="carousel__radio">
+
+          <!-- Pista con fotos (incluye clon para bucle continuo suave) -->
           <div class="carousel__track">
             <div class="carousel__slide">
               <img src="assets/nosotros-carrusel-1.jpg" alt="Preparación artesanal en Batidos Flavors" loading="lazy">
@@ -65,11 +72,35 @@
               <img src="assets/nosotros-carrusel-1.jpg" alt="" loading="lazy">
             </div>
           </div>
-          <div class="carousel__indicators" aria-hidden="true">
-            <span class="carousel__dot"></span>
-            <span class="carousel__dot"></span>
-            <span class="carousel__dot"></span>
-            <span class="carousel__dot"></span>
+
+          <!-- Flechas para cambiar de foto (puro HTML y CSS) -->
+          <div class="carousel__nav carousel__nav--default">
+            <label for="carrusel-4" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
+            <label for="carrusel-2" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
+          </div>
+          <div class="carousel__nav carousel__nav--1">
+            <label for="carrusel-4" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
+            <label for="carrusel-2" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
+          </div>
+          <div class="carousel__nav carousel__nav--2">
+            <label for="carrusel-1" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
+            <label for="carrusel-3" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
+          </div>
+          <div class="carousel__nav carousel__nav--3">
+            <label for="carrusel-2" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
+            <label for="carrusel-4" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
+          </div>
+          <div class="carousel__nav carousel__nav--4">
+            <label for="carrusel-3" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
+            <label for="carrusel-1" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
+          </div>
+
+          <!-- Círculos inferiores para seleccionar foto -->
+          <div class="carousel__indicators" aria-label="Seleccionar foto">
+            <label for="carrusel-1" class="carousel__dot carousel__dot--1" aria-label="Ver foto 1"></label>
+            <label for="carrusel-2" class="carousel__dot carousel__dot--2" aria-label="Ver foto 2"></label>
+            <label for="carrusel-3" class="carousel__dot carousel__dot--3" aria-label="Ver foto 3"></label>
+            <label for="carrusel-4" class="carousel__dot carousel__dot--4" aria-label="Ver foto 4"></label>
           </div>
         </div>
         <div class="badge-float"><b>Socio-productivo</b><span>iniciativa local</span></div>
@@ -199,3 +230,5 @@
       <p>Mejores ingredientes, mejor sabor.</p>
     </div>
   </footer>
+</body>
+</html>
