@@ -260,7 +260,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   background: var(--grad-soft);
 }
 
-/* --- Carrusel automático puro CSS --- */
+/* --- Carrusel automático e interactivo (Puro HTML + CSS · Sin JavaScript) --- */
 .carousel {
   position: relative;
   aspect-ratio: 4/5;
@@ -268,19 +268,32 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   background: var(--grad-soft);
+  user-select: none;
+  -webkit-user-select: none;
 }
+
+/* Radio buttons ocultos para control en puro HTML (display: none evita saltos bruscos de scroll en la pantalla) */
+.carousel__radio {
+  display: none;
+}
+
 .carousel__track {
   display: flex;
   width: 500%;
   height: 100%;
   will-change: transform;
+  transition: transform 0.6s cubic-bezier(.22, 1, .36, 1);
   -webkit-animation: carouselSlide 12s cubic-bezier(.77, 0, .175, 1) infinite;
   animation: carouselSlide 12s cubic-bezier(.77, 0, .175, 1) infinite;
 }
-.carousel:hover .carousel__track {
+
+/* Al poner el mouse encima se pausan tanto las fotos como los circulitos */
+.carousel:hover .carousel__track,
+.carousel:hover .carousel__dot {
   -webkit-animation-play-state: paused;
   animation-play-state: paused;
 }
+
 .carousel__slide {
   width: 20%;
   height: 100%;
@@ -307,7 +320,84 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   z-index: 2;
 }
 
-/* Indicadores visuales sincronizados */
+/* Flechitas para mover las fotos (puro HTML y CSS) */
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, .5);
+  color: var(--pink-deep);
+  font-size: 1.15rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .15);
+  transition: all .25s var(--ease);
+}
+.carousel__arrow:hover {
+  background: var(--pink);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel__arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+.carousel__arrow--prev {
+  left: 12px;
+}
+.carousel__arrow--next {
+  right: 12px;
+}
+
+/* Control de visualización de flechas según foto activa */
+.carousel__nav {
+  display: none;
+}
+.carousel__nav--default {
+  display: block;
+}
+#carrusel-1:checked ~ .carousel__nav--default,
+#carrusel-2:checked ~ .carousel__nav--default,
+#carrusel-3:checked ~ .carousel__nav--default,
+#carrusel-4:checked ~ .carousel__nav--default {
+  display: none;
+}
+#carrusel-1:checked ~ .carousel__nav--1 { display: block; }
+#carrusel-2:checked ~ .carousel__nav--2 { display: block; }
+#carrusel-3:checked ~ .carousel__nav--3 { display: block; }
+#carrusel-4:checked ~ .carousel__nav--4 { display: block; }
+
+/* Selección de foto al hacer clic en flechas o círculos */
+#carrusel-1:checked ~ .carousel__track {
+  -webkit-animation: none;
+  animation: none;
+  transform: translateX(0);
+}
+#carrusel-2:checked ~ .carousel__track {
+  -webkit-animation: none;
+  animation: none;
+  transform: translateX(-20%);
+}
+#carrusel-3:checked ~ .carousel__track {
+  -webkit-animation: none;
+  animation: none;
+  transform: translateX(-40%);
+}
+#carrusel-4:checked ~ .carousel__track {
+  -webkit-animation: none;
+  animation: none;
+  transform: translateX(-60%);
+}
+
+/* Círculos indicadores inferiores */
 .carousel__indicators {
   position: absolute;
   bottom: 16px;
@@ -328,12 +418,41 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   height: 8px;
   border-radius: 50%;
   background: rgba(255, 255, 255, .45);
+  cursor: pointer;
+  display: inline-block;
   transition: all .35s var(--ease);
 }
+.carousel__dot:hover {
+  background: rgba(255, 255, 255, .8);
+}
+
+/* Animación sincronizada de circulitos en modo automático */
 .carousel__dot:nth-child(1) { animation: dotActive1 12s infinite; }
 .carousel__dot:nth-child(2) { animation: dotActive2 12s infinite; }
 .carousel__dot:nth-child(3) { animation: dotActive3 12s infinite; }
 .carousel__dot:nth-child(4) { animation: dotActive4 12s infinite; }
+
+/* Al seleccionar manualmente se detiene la animación de los círculos */
+#carrusel-1:checked ~ .carousel__indicators .carousel__dot,
+#carrusel-2:checked ~ .carousel__indicators .carousel__dot,
+#carrusel-3:checked ~ .carousel__indicators .carousel__dot,
+#carrusel-4:checked ~ .carousel__indicators .carousel__dot {
+  -webkit-animation: none;
+  animation: none;
+  background: rgba(255, 255, 255, .45);
+  width: 8px;
+  border-radius: 50%;
+}
+
+/* Resaltar en blanco el círculo seleccionado */
+#carrusel-1:checked ~ .carousel__indicators .carousel__dot--1,
+#carrusel-2:checked ~ .carousel__indicators .carousel__dot--2,
+#carrusel-3:checked ~ .carousel__indicators .carousel__dot--3,
+#carrusel-4:checked ~ .carousel__indicators .carousel__dot--4 {
+  background: #fff;
+  width: 22px;
+  border-radius: 10px;
+}
 
 @keyframes dotActive1 {
   0%, 20%, 98%, 100% { background: #fff; width: 22px; border-radius: 10px; }
