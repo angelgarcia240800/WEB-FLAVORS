@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería de Batidos Flavors: fotos de nuestros batidos, especiales y postres caseros en Quíbor, estado Lara." />
+  <meta name="theme-color" content="#e6147f" />
+  <title>Galería · Batidos Flavors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span><span class="grain"></span>
+  </div>
+
+  <header class="nav">
+    <a href="index.html" class="nav__brand" aria-label="Batidos Flavors — inicio">
+      <img src="assets/logo.png" alt="Logo Batidos Flavors" class="logo-mark" width="46" height="46" />
+      <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav__check" />
+    <label for="nav-toggle" class="nav__burger" aria-label="Abrir menú"><span></span><span></span><span></span></label>
+    <nav class="nav__menu">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="menu.html">Menú &amp; Precios</a>
+      <a href="galeria.html" class="is-active">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="https://wa.me/584120000000?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="nav__cta">Pedir ahora</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner">
+      <div class="hero__mesh" aria-hidden="true"></div>
+      <div class="page-banner__inner reveal">
+        <h1>Para ver y <span class="script">antojarse</span></h1>
+        <p>Un vistazo a lo que preparamos cada día. Síguenos en Instagram para ver más.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="gallery">
+        <figure class="g-item g-tall reveal-up" style="--img:url('assets/galeria-1.jpg')"><figcaption>Piña con leche · ¡Nuevo sabor!</figcaption></figure>
+        <figure class="g-item reveal-up" style="--img:url('assets/galeria-2.jpg')"><figcaption>Choco Brownie · Puro chocolate</figcaption></figure>
+        <figure class="g-item reveal-up" style="--img:url('assets/galeria-3.jpg')"><figcaption>Toddy Oreo · El favorito</figcaption></figure>
+        <figure class="g-item reveal-up" style="--img:url('assets/galeria-4.jpg')"><figcaption>Fresas con crema · Crema sedosa</figcaption></figure>
+        <figure class="g-item g-wide reveal-up" style="--img:url('assets/galeria-7.jpg')"><figcaption>Tus sabores favoritos · Fresa, parchita y mora</figcaption></figure>
+        <figure class="g-item reveal-up" style="--img:url('assets/galeria-6.jpg')"><figcaption>Pie de parchita · Topping crujiente de galleta</figcaption></figure>
+        <figure class="g-item g-wide reveal-up" style="--img:url('assets/galeria-5.jpg')"><figcaption>Yogurt Flavors · Mermelada 100% natural</figcaption></figure>
+        <figure class="g-item g-wide reveal-up" style="--img:url('assets/galeria-8.jpg')"><figcaption>Sabor que despierta tus sentidos · Batidos artesanales</figcaption></figure>
+      </div>
+
+      <div class="menu__cta reveal-up">
+        <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener" class="btn btn--solid">Ver más en Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <!-- Columna 1: Universidad e Integrantes -->
+      <div class="footer__academic">
+        <div class="footer__uni-header">
+          <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+          <div class="footer__uni-text">
+            <p class="uni-country">República Bolivariana de Venezuela</p>
+            <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
+            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+          </div>
+        </div>
+        <div class="footer__team">
+          <h4>Integrantes:</h4>
+          <p>Rodríguez José Alfredo · C.I: 23.845.022</p>
+          <p>García Ángel · C.I: 27.761.943</p>
+          <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+        </div>
+      </div>
+
+      <!-- Columna 2: Marca Batidos Flavors (al medio) -->
+      <div class="footer__brand">
+        <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
+        <p>Mejores ingredientes, mejor sabor. Batidos artesanales y postres caseros en Quíbor, estado Lara.</p>
+      </div>
+
+      <!-- Columna 3: Síguenos -->
+      <div class="footer__social">
+        <h4>Síguenos</h4>
+        <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener">Instagram @flavors_30</a>
+        <p class="footer__loc">Quíbor, Edo. Lara · Venezuela</p>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
+      <p>Mejores ingredientes, mejor sabor.</p>
+    </div>
+  </footer>

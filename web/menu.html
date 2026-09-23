@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Menú y precios de Batidos Flavors: batidos, especiales de la casa y postres caseros en Quíbor, estado Lara." />
+  <meta name="theme-color" content="#e6147f" />
+  <title>Menú &amp; Precios · Batidos Flavors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span><span class="grain"></span>
+  </div>
+
+  <header class="nav">
+    <a href="index.html" class="nav__brand" aria-label="Batidos Flavors — inicio">
+      <img src="assets/logo.png" alt="Logo Batidos Flavors" class="logo-mark" width="46" height="46" />
+      <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav__check" />
+    <label for="nav-toggle" class="nav__burger" aria-label="Abrir menú"><span></span><span></span><span></span></label>
+    <nav class="nav__menu">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="menu.html" class="is-active">Menú &amp; Precios</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="https://wa.me/584120000000?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="nav__cta">Pedir ahora</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- BANNER -->
+    <section class="page-banner">
+      <div class="hero__mesh" aria-hidden="true"></div>
+      <div class="page-banner__inner reveal">
+        <h1>Nuestro <span class="script">menú</span></h1>
+        <p>Batidos, especiales de la casa y postres caseros. Todo preparado al momento.</p>
+      </div>
+    </section>
+
+   <!-- TARJETAS DESTACADAS -->
+    <section class="section" style="padding-top:0;">
+      <div class="cards">
+        <article class="card reveal-up">
+          <div class="card__img">
+            <img src="assets/menu-pie-limon.png" alt="Pie de Limón" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="tag">Especial de la casa</span>
+            <h3>Pie de Limón</h3>
+            <p>Cremosidad pura con galleta triturada, crema y toque refrescante de limón natural.</p>
+          </div>
+        </article>
+        <article class="card reveal-up">
+          <div class="card__img">
+            <img src="assets/menu-fresa-brownie.png" alt="Fresas con Crema &amp; Brownie" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="tag">Favorito</span>
+            <h3>Fresas con Crema &amp; Brownie</h3>
+            <p>Fresas frescas, crema sedosa, chispas de chocolate y trozos de brownie.</p>
+          </div>
+        </article>
+        <article class="card reveal-up">
+          <div class="card__img">
+            <img src="assets/menu-yogur-cereal.png" alt="Yogurt natural &amp; con Frutas" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="tag">Fit &amp; fresco</span>
+            <h3>Yogurt natural &amp; con Frutas</h3>
+            <p>Yogurt natural con frutas 100% naturales, rico y ligero.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LISTA DE PRECIOS -->
+    <div class="price-block">
+
+      <div class="price-cat reveal-up">
+        <div class="price-cat__head">
+          <span class="ic">🥤</span>
+          <div><h2>Batidos</h2><p>A base de frutas naturales</p></div>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><div class="price-row__name"><b>Batido de Chocolate</b><p>Cacao intenso con base cremosa.</p></div><div class="price-row__val">$2.50</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Batido de Fresa</b><p>Fresa natural, dulce y refrescante.</p></div><div class="price-row__val">$2.50</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Batido de Parchita</b><p>Cítrico y equilibrado.</p></div><div class="price-row__val">$2.50</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Batido Mixto</b><span class="price-row__tag">Combina 2 frutas</span><p>Tú eliges la combinación.</p></div><div class="price-row__val">$3.00</div></div>
+        </div>
+      </div>
+
+      <div class="price-cat reveal-up">
+        <div class="price-cat__head">
+          <span class="ic">⭐</span>
+          <div><h2>Especiales de la casa</h2><p>Nuestras creaciones más pedidas.</p></div>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><div class="price-row__name"><b>Pie de Limón</b><span class="price-row__tag">Top</span><p>Con galleta triturada, crema y toque cítrico.</p></div><div class="price-row__val">$3.50</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Fresas con Crema &amp; Brownie</b><p>Fresas, crema, chocolate y brownie.</p></div><div class="price-row__val">$4.00</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Fresas con Chocolate</b><p>Fresas naturales bañadas en chocolate.</p></div><div class="price-row__val">$3.50</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Yogurt con Frutos</b><p>Yogurt, fresas, arándanos y cereal.</p></div><div class="price-row__val">$3.00</div></div>
+        </div>
+      </div>
+
+      <div class="price-cat reveal-up">
+        <div class="price-cat__head">
+          <span class="ic">🍰</span>
+          <div><h2>Postres caseros</h2><p>Para acompañar o llevar a casa.</p></div>
+        </div>
+        <div class="price-list">
+          <div class="price-row"><div class="price-row__name"><b>Quesillo</b><p>Porción individual.</p></div><div class="price-row__val">$2.00</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Torta</b><p>Porción del sabor del día.</p></div><div class="price-row__val">$2.50</div></div>
+          <div class="price-row"><div class="price-row__name"><b>Brownie</b><p>Chocolate intenso, textura húmeda.</p></div><div class="price-row__val">$2.00</div></div>
+        </div>
+      </div>
+
+      <p class="price-note reveal-up">💡 Los precios son referenciales y pueden variar. Consulta el menú y el precio del día en nuestro Instagram <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener" style="color:var(--pink); font-weight:600;">@flavors_30</a>.</p>
+
+      <div class="menu__cta reveal-up">
+        <a href="https://wa.me/584120000000?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="btn btn--solid">Pedir por WhatsApp</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <!-- Columna 1: Universidad e Integrantes -->
+      <div class="footer__academic">
+        <div class="footer__uni-header">
+          <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+          <div class="footer__uni-text">
+            <p class="uni-country">República Bolivariana de Venezuela</p>
+            <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
+            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+          </div>
+        </div>
+        <div class="footer__team">
+          <h4>Integrantes:</h4>
+          <p>Rodríguez José Alfredo · C.I: 23.845.022</p>
+          <p>García Ángel · C.I: 27.761.943</p>
+          <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+        </div>
+      </div>
+
+      <!-- Columna 2: Marca Batidos Flavors (al medio) -->
+      <div class="footer__brand">
+        <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
+        <p>Mejores ingredientes, mejor sabor. Batidos artesanales y postres caseros en Quíbor, estado Lara.</p>
+      </div>
+
+      <!-- Columna 3: Síguenos -->
+      <div class="footer__social">
+        <h4>Síguenos</h4>
+        <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener">Instagram @flavors_30</a>
+        <p class="footer__loc">Quíbor, Edo. Lara · Venezuela</p>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
+      <p>Mejores ingredientes, mejor sabor.</p>
+    </div>
+  </footer>
