@@ -1,8 +1,3 @@
-/* =========================================================
-   BATIDOS FLAVORS — Hoja de estilos
-   Solo HTML + CSS · Animaciones nativas (sin JavaScript)
-   Paleta: rosa magenta + crema + rosa suave (identidad Flavors)
-   ========================================================= */
 
 /* ---------- Tokens de diseño ---------- */
 :root {
@@ -565,21 +560,20 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 .feature p { color: var(--plum-soft); font-size: .92rem; }
 
 /* =========================================================
-   GALERÍA (mosaico)
+   GALERÍA (mosaico vertical uniforme)
    ========================================================= */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 220px;
-  grid-auto-flow: dense;
-  gap: 1.1rem;
+  gap: 1.2rem;
 }
 .g-item {
   position: relative;
+  aspect-ratio: 3 / 4; /* Hace que cada tarjeta sea vertical y proporcional */
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
-  background: var(--img) center / cover no-repeat, var(--grad-soft);
+  background: var(--img) center / cover no-repeat;
   box-shadow: var(--shadow-sm);
   transition: transform .35s var(--ease), box-shadow .35s var(--ease);
 }
@@ -619,8 +613,10 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 .g-item:hover::after {
   opacity: .25;
 }
-.g-tall { grid-row: span 2; }
-.g-wide { grid-column: span 2; }
+
+/* Neutraliza las clases para que ninguna tarjeta se ensanche */
+.g-tall { grid-row: auto; }
+.g-wide { grid-column: auto; }
 
 /* =========================================================
    TESTIMONIOS

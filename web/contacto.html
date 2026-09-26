@@ -37,57 +37,79 @@
     <section class="page-banner">
       <div class="hero__mesh" aria-hidden="true"></div>
       <div class="page-banner__inner reveal">
-        <h1>Haz tu <span class="script">pedido</span></h1>
+        <h1>Haz tu Pedido</h1>
         <p>Escríbenos, elige tu creación y pásala a buscar o te la llevamos en Quíbor.</p>
       </div>
     </section>
 
-    <section class="section" style="padding-top:0;">
-      <div class="contacto__card reveal-up">
-        <div class="contacto__copy">
-          <span class="eyebrow eyebrow--light">¿List@ para tu antojo?</span>
+  <section class="section" style="padding-top:0;">
+      <div class="contacto__card reveal-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: stretch; background: var(--grad-hot); border-radius: var(--radius-lg); padding: 2.5rem; color: #fff;">
+        
+        <!-- Columna Izquierda: Información de contacto -->
+        <div class="contacto__copy" style="display: flex; flex-direction: column; justify-content: center;">
+          <span class="eyebrow eyebrow--light" style="display: inline-block; width: fit-content; margin-bottom: 1rem;">¿List@ para tu antojo?</span>
           <h2>Estamos a un mensaje de distancia</h2>
           <p>Realiza tu pedido por Instagram o WhatsApp. Te confirmamos disponibilidad y lo dejamos listo para que lo disfrutes recién hecho.</p>
-          <ul class="contact-list">
+          
+          <ul class="contact-list" style="margin-bottom: 1.5rem;">
+            <!-- Ubicación con enlace directo a Google Maps -->
             <li>
               <span class="ci" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
               </span>
-              <div><b>Ubicación</b><span>Quíbor — Municipio Jiménez, Edo. Lara</span></div>
+              <div>
+                <b>Ubicación</b>
+                <a href="https://maps.google.com/?q=9.928171,-69.615425" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline; text-underline-offset: 3px;">
+                  Av. El Estadium — Quíbor, Edo. Lara
+                </a>
+              </div>
             </li>
+
+            <!-- Instagram -->
             <li>
               <span class="ci" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </span>
-              <div><b>Instagram</b><a href="https://instagram.com/flavors_30" target="_blank" rel="noopener">@flavors_30</a></div>
+              <div>
+                <b>Instagram</b>
+                <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener">@flavors_30</a>
+              </div>
             </li>
+
+            <!-- WhatsApp -->
             <li>
               <span class="ci" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.69-1.11-4.43-3.85-4.57-4.03-.13-.18-1.09-1.45-1.09-2.77s.69-1.96.93-2.23c.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.39-.06.6.46.23.54.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.29-.27.45-.14.16-.29.35-.41.47-.14.13-.28.28-.12.55.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.13.45.2.52.31.06.11.06.65-.18 1.33z"/></svg>
               </span>
-              <div><b>WhatsApp / Pedidos</b><a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">+58 412-5080900 (WhatsApp)</a></div>
-            </li>
-            <li>
-              <span class="ci" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-              </span>
-              <div><b>Horario</b><span>Consulta disponibilidad del día en Instagram</span></div>
+              <div>
+                <b>WhatsApp / Pedidos</b>
+                <a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">+58 412-5080900 (WhatsApp)</a>
+              </div>
             </li>
           </ul>
+
           <div class="contacto__actions" style="display:flex; gap:.7rem; flex-wrap:wrap;">
             <a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="btn btn--solid">Pedir por WhatsApp</a>
             <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener" class="btn btn--ghost" style="background:rgba(255,255,255,.15); color:#fff; border-color:rgba(255,255,255,.4);">Instagram</a>
           </div>
         </div>
-        <div class="contacto__map">
+
+        <!-- Columna Derecha: Cuadro interactivo con Google Maps online -->
+        <div class="contacto__map" style="display: block; width: 100%; min-height: 380px; height: 100%; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.2); background: #ffffff;">
           <iframe
-            title="Ubicación de Batidos Flavors en Quíbor, estado Lara"
-            src="https://www.google.com/maps?q=Qu%C3%ADbor,+Estado+Lara,+Venezuela&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            title="Mapa interactivo Batidos Flavors"
+            width="100%"
+            height="100%"
+            style="border: 0; width: 100%; height: 100%; min-height: 380px; display: block;"
+            src="https://maps.google.com/maps?q=9.928171,-69.615425&hl=es&z=17&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
+
       </div>
     </section>
-  </main>
 
    <!-- ============ FOOTER ============ -->
   <footer class="footer">
