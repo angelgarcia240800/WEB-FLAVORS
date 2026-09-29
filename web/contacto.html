@@ -42,16 +42,16 @@
       </div>
     </section>
 
-  <section class="section" style="padding-top:0;">
-      <div class="contacto__card reveal-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: stretch; background: var(--grad-hot); border-radius: var(--radius-lg); padding: 2.5rem; color: #fff;">
+  <section class="section section--flush-top">
+      <div class="contacto__card reveal-up">
         
         <!-- Columna Izquierda: Información de contacto -->
-        <div class="contacto__copy" style="display: flex; flex-direction: column; justify-content: center;">
-          <span class="eyebrow eyebrow--light" style="display: inline-block; width: fit-content; margin-bottom: 1rem;">¿List@ para tu antojo?</span>
+        <div class="contacto__copy">
+          <span class="eyebrow eyebrow--light">¿List@ para tu antojo?</span>
           <h2>Estamos a un mensaje de distancia</h2>
           <p>Realiza tu pedido por Instagram o WhatsApp. Te confirmamos disponibilidad y lo dejamos listo para que lo disfrutes recién hecho.</p>
           
-          <ul class="contact-list" style="margin-bottom: 1.5rem;">
+          <ul class="contact-list">
             <!-- Ubicación con enlace directo a Google Maps -->
             <li>
               <span class="ci" aria-hidden="true">
@@ -59,7 +59,7 @@
               </span>
               <div>
                 <b>Ubicación</b>
-                <a href="https://maps.google.com/?q=9.928171,-69.615425" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline; text-underline-offset: 3px;">
+                <a href="https://maps.google.com/?q=9.928171,-69.615425" target="_blank" rel="noopener">
                   Av. El Estadium — Quíbor, Edo. Lara
                 </a>
               </div>
@@ -88,19 +88,18 @@
             </li>
           </ul>
 
-          <div class="contacto__actions" style="display:flex; gap:.7rem; flex-wrap:wrap;">
+          <div class="contacto__actions">
             <a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="btn btn--solid">Pedir por WhatsApp</a>
-            <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener" class="btn btn--ghost" style="background:rgba(255,255,255,.15); color:#fff; border-color:rgba(255,255,255,.4);">Instagram</a>
+            <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener" class="btn btn--ghost btn--ghost-light">Instagram</a>
           </div>
         </div>
 
         <!-- Columna Derecha: Cuadro interactivo con Google Maps online -->
-        <div class="contacto__map" style="display: block; width: 100%; min-height: 380px; height: 100%; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.2); background: #ffffff;">
+        <div class="contacto__map">
           <iframe
             title="Mapa interactivo Batidos Flavors"
             width="100%"
             height="100%"
-            style="border: 0; width: 100%; height: 100%; min-height: 380px; display: block;"
             src="https://maps.google.com/maps?q=9.928171,-69.615425&hl=es&z=17&output=embed"
             allowfullscreen=""
             loading="lazy"
