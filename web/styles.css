@@ -267,25 +267,16 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   -webkit-user-select: none;
 }
 
-/* Radio buttons ocultos para control en puro HTML (display: none evita saltos bruscos de scroll en la pantalla) */
-.carousel__radio {
-  display: none;
-}
-
 .carousel__track {
   display: flex;
   width: 500%;
   height: 100%;
   will-change: transform;
-  transition: transform 0.6s cubic-bezier(.22, 1, .36, 1);
-  -webkit-animation: carouselSlide 12s cubic-bezier(.77, 0, .175, 1) infinite;
   animation: carouselSlide 12s cubic-bezier(.77, 0, .175, 1) infinite;
 }
 
-/* Al poner el mouse encima se pausan tanto las fotos como los circulitos */
-.carousel:hover .carousel__track,
-.carousel:hover .carousel__dot {
-  -webkit-animation-play-state: paused;
+/* Al poner el mouse encima se pausa la reproducción */
+.carousel:hover .carousel__track {
   animation-play-state: paused;
 }
 
@@ -304,184 +295,13 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   display: block;
 }
 
-/* Sombreado inferior para legibilidad */
-.carousel::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 26%;
-  background: linear-gradient(to top, rgba(58, 34, 48, .35), transparent);
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* Flechitas para mover las fotos (puro HTML y CSS) */
-.carousel__arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, .5);
-  color: var(--pink-deep);
-  font-size: 1.15rem;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  z-index: 4;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, .15);
-  transition: all .25s var(--ease);
-}
-.carousel__arrow:hover {
-  background: var(--pink);
-  color: #fff;
-  transform: translateY(-50%) scale(1.1);
-}
-.carousel__arrow:active {
-  transform: translateY(-50%) scale(0.95);
-}
-.carousel__arrow--prev {
-  left: 12px;
-}
-.carousel__arrow--next {
-  right: 12px;
-}
-
-/* Control de visualización de flechas según foto activa */
-.carousel__nav {
-  display: none;
-}
-.carousel__nav--default {
-  display: block;
-}
-#carrusel-1:checked ~ .carousel__nav--default,
-#carrusel-2:checked ~ .carousel__nav--default,
-#carrusel-3:checked ~ .carousel__nav--default,
-#carrusel-4:checked ~ .carousel__nav--default {
-  display: none;
-}
-#carrusel-1:checked ~ .carousel__nav--1 { display: block; }
-#carrusel-2:checked ~ .carousel__nav--2 { display: block; }
-#carrusel-3:checked ~ .carousel__nav--3 { display: block; }
-#carrusel-4:checked ~ .carousel__nav--4 { display: block; }
-
-/* Selección de foto al hacer clic en flechas o círculos */
-#carrusel-1:checked ~ .carousel__track {
-  -webkit-animation: none;
-  animation: none;
-  transform: translateX(0);
-}
-#carrusel-2:checked ~ .carousel__track {
-  -webkit-animation: none;
-  animation: none;
-  transform: translateX(-20%);
-}
-#carrusel-3:checked ~ .carousel__track {
-  -webkit-animation: none;
-  animation: none;
-  transform: translateX(-40%);
-}
-#carrusel-4:checked ~ .carousel__track {
-  -webkit-animation: none;
-  animation: none;
-  transform: translateX(-60%);
-}
-
-/* Círculos indicadores inferiores */
-.carousel__indicators {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 3;
-  padding: 6px 14px;
-  background: rgba(58, 34, 48, .42);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 100px;
-}
-.carousel__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .45);
-  cursor: pointer;
-  display: inline-block;
-  transition: all .35s var(--ease);
-}
-.carousel__dot:hover {
-  background: rgba(255, 255, 255, .8);
-}
-
-/* Animación sincronizada de circulitos en modo automático */
-.carousel__dot:nth-child(1) { animation: dotActive1 12s infinite; }
-.carousel__dot:nth-child(2) { animation: dotActive2 12s infinite; }
-.carousel__dot:nth-child(3) { animation: dotActive3 12s infinite; }
-.carousel__dot:nth-child(4) { animation: dotActive4 12s infinite; }
-
-/* Al seleccionar manualmente se detiene la animación de los círculos */
-#carrusel-1:checked ~ .carousel__indicators .carousel__dot,
-#carrusel-2:checked ~ .carousel__indicators .carousel__dot,
-#carrusel-3:checked ~ .carousel__indicators .carousel__dot,
-#carrusel-4:checked ~ .carousel__indicators .carousel__dot {
-  -webkit-animation: none;
-  animation: none;
-  background: rgba(255, 255, 255, .45);
-  width: 8px;
-  border-radius: 50%;
-}
-
-/* Resaltar en blanco el círculo seleccionado */
-#carrusel-1:checked ~ .carousel__indicators .carousel__dot--1,
-#carrusel-2:checked ~ .carousel__indicators .carousel__dot--2,
-#carrusel-3:checked ~ .carousel__indicators .carousel__dot--3,
-#carrusel-4:checked ~ .carousel__indicators .carousel__dot--4 {
-  background: #fff;
-  width: 22px;
-  border-radius: 10px;
-}
-
-@keyframes dotActive1 {
-  0%, 20%, 98%, 100% { background: #fff; width: 22px; border-radius: 10px; }
-  25%, 94% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-}
-@keyframes dotActive2 {
-  0%, 20% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-  25%, 45% { background: #fff; width: 22px; border-radius: 10px; }
-  49%, 100% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-}
-@keyframes dotActive3 {
-  0%, 45% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-  50%, 70% { background: #fff; width: 22px; border-radius: 10px; }
-  74%, 100% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-}
-@keyframes dotActive4 {
-  0%, 70% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-  75%, 95% { background: #fff; width: 22px; border-radius: 10px; }
-  98%, 100% { background: rgba(255,255,255,.45); width: 8px; border-radius: 50%; }
-}
-
-@-webkit-keyframes carouselSlide {
-  0%, 20%   { -webkit-transform: translateX(0); transform: translateX(0); }
-  25%, 45%  { -webkit-transform: translateX(-20%); transform: translateX(-20%); }
-  50%, 70%  { -webkit-transform: translateX(-40%); transform: translateX(-40%); }
-  75%, 95%  { -webkit-transform: translateX(-60%); transform: translateX(-60%); }
-  100%      { -webkit-transform: translateX(-80%); transform: translateX(-80%); }
-}
+/* Animación automática de desplazamiento */
 @keyframes carouselSlide {
-  0%, 20%   { -webkit-transform: translateX(0); transform: translateX(0); }
-  25%, 45%  { -webkit-transform: translateX(-20%); transform: translateX(-20%); }
-  50%, 70%  { -webkit-transform: translateX(-40%); transform: translateX(-40%); }
-  75%, 95%  { -webkit-transform: translateX(-60%); transform: translateX(-60%); }
-  100%      { -webkit-transform: translateX(-80%); transform: translateX(-80%); }
+  0%, 20%   { transform: translateX(0); }
+  25%, 45%  { transform: translateX(-20%); }
+  50%, 70%  { transform: translateX(-40%); }
+  75%, 95%  { transform: translateX(-60%); }
+  100%      { transform: translateX(-80%); }
 }
 
 .nosotros__copy h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
