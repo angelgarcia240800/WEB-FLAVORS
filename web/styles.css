@@ -116,7 +116,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 }
 .nav__cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background: var(--grad-hot) !important; }
 
-/* Menú móvil (checkbox hack, sin JS) */
+/* Menú móvil */
 .nav__check, .nav__burger { display: none; }
 .nav__burger { width: 40px; height: 40px; border-radius: 12px; cursor: pointer;
   flex-direction: column; gap: 5px; align-items: center; justify-content: center; background: rgba(230,20,127,.08); }
@@ -242,7 +242,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 .eyebrow--light { color: #fff; background: rgba(255,255,255,.2); }
 
 /* =========================================================
-   NOSOTROS & CARRUSEL (Puro CSS, 0% JS)
+   NOSOTROS & CARRUSEL
    ========================================================= */
 .nosotros { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .nosotros__media { position: relative; }
@@ -255,7 +255,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   background: var(--grad-soft);
 }
 
-/* --- Carrusel automático e interactivo (Puro HTML + CSS · Sin JavaScript) --- */
+/* Carrusel de fotos */
 .carousel {
   position: relative;
   aspect-ratio: 4/5;
@@ -561,7 +561,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 }
 
 /* =========================================================
-   SECCIÓN DE COMENTARIOS & FORMULARIO WEB3FORMS (Puro HTML/CSS)
+   SECCIÓN DE COMENTARIOS
    ========================================================= */
 .comentarios { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
 .comentarios__grid {
@@ -669,7 +669,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 }
 
 /* =========================================================
-   MODAL DE CONFIRMACIÓN (PURO CSS CON :target)
+   MODAL DE CONFIRMACIÓN
    ========================================================= */
 .modal {
   position: fixed;
@@ -892,7 +892,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 .d1{animation-delay:.05s} .d2{animation-delay:.18s} .d3{animation-delay:.32s}
 .d4{animation-delay:.5s} .d5{animation-delay:.66s} .d6{animation-delay:.8s}
 
-/* Revelado al hacer scroll — Scroll-driven animations nativas seguras */
+/* Revelado al hacer scroll */
 .reveal-up { opacity: 1; transform: none; }
 @supports (animation-timeline: view()) {
   .reveal-up {
@@ -902,7 +902,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   }
 }
 
-/* Respeto a preferencias de movimiento reducido */
+/* Preferencias de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 }
