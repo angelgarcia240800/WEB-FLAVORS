@@ -741,6 +741,114 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
 }
 
 /* =========================================================
+   SECCIÓN DE COMENTARIOS & FORMULARIO WEB3FORMS (Puro HTML/CSS)
+   ========================================================= */
+.comentarios { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+.comentarios__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(1.8rem, 4vw, 3rem);
+  align-items: start;
+}
+
+/* Caja del Formulario */
+.comentarios__form-box {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: clamp(1.8rem, 3.5vw, 2.5rem);
+  box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--pink);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.comentarios__form-box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.comentarios__form-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(230, 20, 127, 0.1);
+}
+.comentarios__icon {
+  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--grad-soft);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+.comentarios__form-head h3 {
+  font-size: 1.3rem;
+  color: var(--plum);
+  margin-bottom: .2rem;
+}
+.comentarios__form-head p {
+  font-size: .88rem;
+  color: var(--plum-soft);
+}
+
+/* Estilos de inputs del formulario */
+.form-flavors {
+  display: grid;
+  gap: 1.15rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.form-group label {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--plum);
+}
+.form-flavors textarea {
+  width: 100%;
+  padding: .85rem 1.1rem;
+  font-family: var(--font);
+  font-size: .92rem;
+  color: var(--plum);
+  background: var(--pink-bg);
+  border: 1.5px solid rgba(230, 20, 127, 0.16);
+  border-radius: 14px;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s;
+}
+.form-flavors textarea:focus {
+  border-color: var(--pink);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(230, 20, 127, 0.12);
+}
+.btn--block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  padding: .95rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+.form-honeypot {
+  display: none;
+}
+
+/* Feed / Muro de Opiniones sencillo */
+.comentarios__feed {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 .footer { background: var(--plum); color: rgba(255,255,255,.78); margin-top: 2rem; }
@@ -887,6 +995,7 @@ h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -.02em; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .contacto__card { grid-template-columns: 1fr; }
+  .comentarios__grid { grid-template-columns: 1fr; }
   .footer__inner { grid-template-columns: 1fr 1fr; }
 }
 

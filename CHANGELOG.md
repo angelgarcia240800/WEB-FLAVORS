@@ -2,6 +2,18 @@
 
 Todas las modificaciones notables a este proyecto serán documentadas en este archivo según el estándar [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-10-15 (Eslogan Oficial, Servicio de Delivery, Módulo de Comentarios Web3Forms y Clarificación de Canales)
+
+### Canales de Venta & Mensajería
+- **Eslogan en Llamadas a la Acción**: Se incorporó el eslogan *"No te quedes con el antojo, no te quedes sin probar... ¡Escríbenos y pide el tuyo ya!"* en las secciones de llamada a la acción de Inicio (`index.html`) y Contacto (`contacto.html`).
+- **Clarificación de Canales (Pedidos exclusivos por WhatsApp)**: Se especificó que los pedidos se gestionan única y exclusivamente a través de WhatsApp, posicionando la cuenta de Instagram exclusivamente como una vitrina fotográfica de productos del día.
+- **Servicio de Delivery en Quíbor**: Se destacó el servicio de entregas a domicilio en Quíbor tanto en la pastilla superior del Hero (`index.html`), como en la ficha descriptiva de Contacto (`contacto.html`) y notas del Menú (`menu.html`).
+- **Retiro de Emoji 💡**: Se retiró el emoji decorativo de la nota de precios en `menu.html` y se limpió el marcado HTML.
+
+### Módulos & Formularios
+- **Módulo de Comentarios Minimalista (Web3Forms + Opiniones Sencillas)**: Se integró en `contacto.html` un formulario limpio centrado exclusivamente en el mensaje/sugerencia del usuario, prescindiendo de campos personales. Las opiniones se unificaron al formato visual sencillo y elegante de Inicio (`— Cliente Flavors`), con animación de revelado suave al hacer scroll.
+- **Estilos en styles.css**: Se añadieron los estilos optimizados y limpios dentro de `styles.css` con diseño responsive adaptado a móviles y pantallas grandes, reutilizando el componente de citas y sin estilos inline.
+
 ## [1.2.1] - 2026-09-23 (Actualización de Número Oficial de WhatsApp)
 
 ### Contacto & Canales de Venta
