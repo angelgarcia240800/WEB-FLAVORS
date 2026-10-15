@@ -145,8 +145,8 @@
             <input type="hidden" name="access_key" value="ee206d40-eca7-43f6-a774-2c4587c92f54" />
             <input type="hidden" name="subject" value="Nuevo comentario recibido en Batidos Flavors" />
             <input type="hidden" name="from_name" value="Web Batidos Flavors" />
-            <!-- Redirección personalizada a página de éxito propia -->
-            <input type="hidden" name="redirect" value="https://batidosflavors.shop/gracias.html" />
+            <!-- Redirección al modal de éxito propio con :target en contacto.html -->
+            <input type="hidden" name="redirect" value="https://batidosflavors.shop/contacto.html#enviado" />
             <!-- Protección anti-spam Honeypot -->
             <input type="checkbox" name="botcheck" class="form-honeypot" />
 
@@ -178,6 +178,20 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ MODAL DE CONFIRMACIÓN (PURO HTML/CSS CON :target) ============ -->
+    <div id="enviado" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <a href="#" class="modal__backdrop" aria-label="Cerrar modal"></a>
+      <div class="modal__dialog">
+        <a href="#" class="modal__close" aria-label="Cerrar ventana">&times;</a>
+        <div class="modal__icon" aria-hidden="true">✓</div>
+        <h3 id="modal-title">¡Comentario Enviado!</h3>
+        <p>Muchas gracias por escribirnos. Tu opinión o sugerencia ha sido recibida con éxito por nuestro equipo en Quíbor.</p>
+        <div class="modal__actions">
+          <a href="#" class="btn btn--solid">Aceptar</a>
+        </div>
+      </div>
+    </div>
   </main>
 
    <!-- ============ FOOTER ============ -->
