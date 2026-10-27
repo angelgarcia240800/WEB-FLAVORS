@@ -129,7 +129,7 @@
 
       <div class="comentarios__grid">
         <!-- Formulario de comentarios -->
-        <div class="comentarios__form-box reveal-up">
+        <div class="comentarios__form-box reveal-up" onclick="if(!event.target.closest('button')) document.getElementById('comentario').focus();">
           <div class="comentarios__form-head">
             <span class="comentarios__icon" aria-hidden="true">✍️</span>
             <div>
@@ -148,10 +148,10 @@
             <!-- Filtro anti-spam -->
             <input type="checkbox" name="botcheck" class="form-honeypot" />
 
-            <div class="form-group">
-              <label for="comentario">Tu comentario o sugerencia *</label>
+            <label for="comentario" class="form-group">
+              <span class="form-group__label">Tu comentario o sugerencia *</span>
               <textarea id="comentario" name="comentario" rows="5" placeholder="Cuéntanos qué te pareció el sabor, la textura, la atención..." required></textarea>
-            </div>
+            </label>
 
             <button type="submit" class="btn btn--solid btn--block">Enviar comentario</button>
           </form>
