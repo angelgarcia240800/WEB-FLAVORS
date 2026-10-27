@@ -44,7 +44,7 @@
     </section>
 
    <!-- TARJETAS DESTACADAS -->
-    <section class="section section--flush-top">
+    <section class="section">
       <div class="cards">
         <article class="card reveal-up">
           <div class="card__img">
@@ -128,43 +128,51 @@
     </div>
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ============ FOOTER (4 COLUMNAS) ============ -->
   <footer class="footer">
     <div class="footer__inner">
-      <!-- Columna 1: Universidad e Integrantes -->
-      <div class="footer__academic">
-        <div class="footer__uni-header">
-          <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
-          <div class="footer__uni-text">
-            <p class="uni-country">República Bolivariana de Venezuela</p>
-            <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
-            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
-          </div>
-        </div>
-        <div class="footer__team">
-          <h4>Integrantes:</h4>
-          <p>Rodríguez José Alfredo · C.I: 23.845.022</p>
-          <p>García Ángel · C.I: 27.761.943</p>
-          <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+      <!-- Columna 1: Universidad (UPTAEB) con logo ampliado -->
+      <div class="footer__col footer__uni">
+        <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+        <div class="footer__uni-text">
+          <p class="uni-country">República Bolivariana de Venezuela</p>
+          <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
+          <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
         </div>
       </div>
 
-      <!-- Columna 2: Marca Batidos Flavors (al medio) -->
-      <div class="footer__brand">
+      <!-- Columna 2: Equipo de Proyecto / Autores -->
+      <div class="footer__col footer__team">
+        <h4>Equipo del Proyecto</h4>
+        <p>Rodríguez José Alfredo · C.I: 23.845.022</p>
+        <p>García Ángel · C.I: 27.761.943</p>
+        <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+        <p class="footer__career">PNF en Informática · Trayecto II</p>
+      </div>
+
+      <!-- Columna 3: Marca Batidos Flavors -->
+      <div class="footer__col footer__brand">
         <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
-        <p>Mejores ingredientes, mejor sabor. Batidos artesanales y postres caseros en Quíbor, estado Lara.</p>
+        <p>Batidos artesanales a base de frutas 100% naturales, yogurt casero y repostería artesanal en Quíbor, estado Lara.</p>
       </div>
 
-      <!-- Columna 3: Síguenos -->
-      <div class="footer__social">
+      <!-- Columna 4: Síguenos y Contacto -->
+      <div class="footer__col footer__social">
         <h4>Síguenos</h4>
         <a href="assets/instagram.png" target="_blank" rel="noopener">Instagram @flavors_30</a>
-        <p class="footer__loc">Quíbor, Edo. Lara · Venezuela</p>
+        <a href="assets/whatsapp.png" target="_blank" rel="noopener">WhatsApp / Pedidos</a>
+        <p class="footer__loc">Quíbor, Municipio Jiménez · Estado Lara</p>
       </div>
     </div>
 
+    <!-- Base inferior con botón Volver arriba -->
     <div class="footer__base">
       <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
-      <p>Mejores ingredientes, mejor sabor.</p>
+      <a href="#" class="footer__top-link">Volver arriba ↑</a>
     </div>
   </footer>
+
+  <!-- Botón flotante para volver arriba -->
+  <a href="#" class="btn-top" aria-label="Volver arriba" title="Volver arriba"><span>Volver arriba</span> ↑</a>
+</body>
+</html>
