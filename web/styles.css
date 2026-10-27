@@ -293,9 +293,9 @@ h4 {
   max-width: var(--maxw);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 2.5rem;
+  align-items: center;
 }
 
 .pill {
@@ -376,10 +376,10 @@ h4 {
 
 .cup-stage {
   position: relative;
-  width: 320px;
-  height: 320px;
-  max-width: 85vw;
-  max-height: 85vw;
+  width: 400px;
+  height: 400px;
+  max-width: 88vw;
+  max-height: 88vw;
   display: grid;
   place-items: center;
 }
@@ -398,12 +398,12 @@ h4 {
 
 .cup-photo {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 325px;
+  height: 325px;
   border-radius: 50%;
   overflow: hidden;
   background: var(--cream);
-  border: 7px solid #ffffff;
+  border: 9px solid #ffffff;
   box-shadow: var(--shadow-md);
   display: grid;
   place-items: center;
@@ -420,27 +420,27 @@ h4 {
   position: absolute;
   background: #ffffff;
   color: var(--plum);
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  padding: 0.45rem 0.85rem;
+  padding: 0.5rem 0.95rem;
   border-radius: 100px;
   box-shadow: var(--shadow-md);
   border: 1px solid rgba(230, 20, 127, 0.12);
 }
 
 .chip-a {
-  top: 4%;
-  left: -2%;
+  top: 2%;
+  left: -4%;
 }
 
 .chip-b {
-  top: 45%;
-  right: -6%;
+  top: 48%;
+  right: -8%;
 }
 
 .chip-c {
-  bottom: 6%;
-  left: 4%;
+  bottom: 3%;
+  left: 2%;
 }
 
 .sparkle {
@@ -451,20 +451,21 @@ h4 {
 }
 
 .s1 {
-  top: 12%;
-  right: 14%;
+  top: 10%;
+  right: 12%;
+  font-size: 1.5rem;
 }
 
 .s2 {
-  bottom: 18%;
-  right: 8%;
-  font-size: 1rem;
+  bottom: 16%;
+  right: 6%;
+  font-size: 1.2rem;
 }
 
 .s3 {
-  top: 28%;
-  left: 6%;
-  font-size: 1.5rem;
+  top: 26%;
+  left: 3%;
+  font-size: 1.7rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -1482,15 +1483,31 @@ h4 {
   color: rgba(255, 255, 255, 0.75);
 }
 
+/* Botón Volver arriba en cápsula dentro del Footer */
+.footer__top-btn,
 .footer__top-link {
-  color: #ffd9ec;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 100px;
+  background: var(--pink);
+  color: #ffffff;
+  font-size: 0.85rem;
   font-weight: 600;
-  transition: color 0.2s;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s var(--ease), background 0.2s, box-shadow 0.2s;
 }
 
+.footer__top-btn:hover,
 .footer__top-link:hover {
+  transform: translateY(-2px);
+  background: var(--pink-deep);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
   color: #ffffff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1619,6 +1636,17 @@ h4 {
 }
 
 @media (max-width: 640px) {
+  .cup-stage {
+    width: 310px;
+    height: 310px;
+  }
+
+  .cup-photo {
+    width: 250px;
+    height: 250px;
+    border-width: 7px;
+  }
+
   .nav__burger {
     display: flex;
   }
@@ -1686,10 +1714,5 @@ h4 {
     text-align: center;
   }
 
-  .btn-top {
-    bottom: 16px;
-    right: 16px;
-    padding: 0.45rem 0.95rem;
-    font-size: 0.8rem;
-  }
+  
 }
