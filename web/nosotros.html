@@ -6,6 +6,9 @@
   <meta name="description" content="Conoce Batidos Flavors: una marca de batidos artesanales y postres caseros nacida en Quíbor, obsesionada con los mejores ingredientes." />
   <meta name="theme-color" content="#e6147f" />
   <title>Nosotros · Batidos Flavors</title>
+  <!-- Favicon / Icono de pestaña -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
@@ -46,14 +49,8 @@
     <!-- HISTORIA -->
     <section class="section nosotros">
       <div class="nosotros__media reveal-up">
-        <div class="media-card carousel" aria-label="Carrusel sobre nosotros">
-          <!-- Controles en puro HTML (radio buttons ocultos) -->
-          <input type="radio" name="carrusel" id="carrusel-1" class="carousel__radio">
-          <input type="radio" name="carrusel" id="carrusel-2" class="carousel__radio">
-          <input type="radio" name="carrusel" id="carrusel-3" class="carousel__radio">
-          <input type="radio" name="carrusel" id="carrusel-4" class="carousel__radio">
-
-          <!-- Pista con fotos (incluye clon para bucle continuo suave) -->
+        <div class="media-card carousel" aria-label="Galería fotográfica de Batidos Flavors">
+          <!-- Carrusel de fotos -->
           <div class="carousel__track">
             <div class="carousel__slide">
               <img src="assets/nosotros-carrusel-1.jpg" alt="Preparación artesanal en Batidos Flavors" loading="lazy">
@@ -67,71 +64,39 @@
             <div class="carousel__slide">
               <img src="assets/nosotros-carrusel-4.jpg" alt="Atención y dedicación en Quíbor" loading="lazy">
             </div>
-            <!-- Slide clon para bucle infinito suave -->
+            <!-- Duplicado para bucle -->
             <div class="carousel__slide" aria-hidden="true">
               <img src="assets/nosotros-carrusel-1.jpg" alt="" loading="lazy">
             </div>
-          </div>
-
-          <!-- Flechas para cambiar de foto (puro HTML y CSS) -->
-          <div class="carousel__nav carousel__nav--default">
-            <label for="carrusel-4" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
-            <label for="carrusel-2" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
-          </div>
-          <div class="carousel__nav carousel__nav--1">
-            <label for="carrusel-4" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
-            <label for="carrusel-2" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
-          </div>
-          <div class="carousel__nav carousel__nav--2">
-            <label for="carrusel-1" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
-            <label for="carrusel-3" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
-          </div>
-          <div class="carousel__nav carousel__nav--3">
-            <label for="carrusel-2" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
-            <label for="carrusel-4" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
-          </div>
-          <div class="carousel__nav carousel__nav--4">
-            <label for="carrusel-3" class="carousel__arrow carousel__arrow--prev" aria-label="Foto anterior">&#10094;</label>
-            <label for="carrusel-1" class="carousel__arrow carousel__arrow--next" aria-label="Foto siguiente">&#10095;</label>
-          </div>
-
-          <!-- Círculos inferiores para seleccionar foto -->
-          <div class="carousel__indicators" aria-label="Seleccionar foto">
-            <label for="carrusel-1" class="carousel__dot carousel__dot--1" aria-label="Ver foto 1"></label>
-            <label for="carrusel-2" class="carousel__dot carousel__dot--2" aria-label="Ver foto 2"></label>
-            <label for="carrusel-3" class="carousel__dot carousel__dot--3" aria-label="Ver foto 3"></label>
-            <label for="carrusel-4" class="carousel__dot carousel__dot--4" aria-label="Ver foto 4"></label>
           </div>
         </div>
       </div>
       <div class="nosotros__copy reveal-up">
         <span class="eyebrow">Nuestra historia</span>
       <h2>Frutas naturales, Esfuerzo, Familiar y el Amor por lo nuestro</h2>
-        
         <p>
-         <p style="text-indent: 30px;">
-  <strong>Flavors</strong> se enmarca dentro de la categoría de <strong>emprendimiento socio-productivo</strong>, concebido 
-  en su origen como una iniciativa familiar orientada a fortalecer la economía del hogar y responder a las limitaciones 
-  del mercado laboral formal. Con sede en el <strong>Barrio Santa Isabel (Parroquia Coronel Mariano Peraza, 
-  Municipio Jiménez)</strong>, el proyecto experimentó una evolución progresiva que trascendió la mera generación 
-  de ingresos económicos, consolidándose como un motor de desarrollo local y dinamismo comercial para todo su entorno.
-</p>
+          <strong>Flavors</strong> se enmarca dentro de la categoría de <strong>emprendimiento socio-productivo</strong>, concebido 
+          en su origen como una iniciativa familiar orientada a fortalecer la economía del hogar y responder a las limitaciones 
+          del mercado laboral formal. Con sede en el <strong>Barrio Santa Isabel (Parroquia Coronel Mariano Peraza, 
+          Municipio Jiménez)</strong>, el proyecto experimentó una evolución progresiva que trascendió la mera generación 
+          de ingresos económicos, consolidándose como un motor de desarrollo local y dinamismo comercial para todo su entorno.
+        </p>
 
-<p style="text-indent: 30px;">
-  Nuestra labor principal se concentra en la elaboración y comercialización artesanal de <strong>batidos a 
-  base de frutas 100% naturales y yogurt</strong>, complementada con una línea tradicional de repostería casera que 
-  incluye tortas, quesillos y pie de parchita. Esta diversificación de productos accesibles y de alta demanda 
-  nos permite atender los gustos de la comunidad, manteniendo un estándar estricto de frescura sin recurrir a aditivos 
-  artificiales.
-</p>
+        <p>
+          Nuestra labor principal se concentra en la elaboración y comercialización artesanal de <strong>batidos a 
+          base de frutas 100% naturales y yogurt</strong>, complementada con una línea tradicional de repostería casera que 
+          incluye tortas, quesillos y pie de parchita. Esta diversificación de productos accesibles y de alta demanda 
+          nos permite atender los gustos de la comunidad, manteniendo un estándar estricto de frescura sin recurrir a aditivos 
+          artificiales.
+        </p>
 
-<p style="text-indent: 30px;">
-  Más allá de la producción, asumimos una función social activa: generamos espacios de encuentro vecinal, dinamizamos el 
-  comercio del sector e impulsamos la incorporación de herramientas tecnológicas. Tras identificar las dificultades de los 
-  canales tradicionales y la saturación de consultas repetitivas, desarrollamos esta plataforma web informativa para que 
-  nuestros clientes cuenten con un catálogo estructurado, consulta permanente de productos, precios transparentes y atención 
-  directa.
-</p>
+        <p>
+          Más allá de la producción, asumimos una función social activa: generamos espacios de encuentro vecinal, dinamizamos el 
+          comercio del sector e impulsamos la incorporación de herramientas tecnológicas. Tras identificar las dificultades de los 
+          canales tradicionales y la saturación de consultas repetitivas, desarrollamos esta plataforma web informativa para que 
+          nuestros clientes cuenten con un catálogo estructurado, consulta permanente de productos, precios transparentes y atención 
+          directa.
+        </p>
 
         <ul class="checks">
           <li>Iniciativa socio-productiva nacida del esfuerzo familiar en Santa Isabel</li>
@@ -176,59 +141,62 @@
 
     <!-- CTA -->
     <section class="section">
-      <div class="contacto__card reveal-up" style="grid-template-columns:1fr;">
-        <div class="contacto__copy" style="text-align:center; max-width:42rem; margin:0 auto;">
+      <div class="contacto__card contacto__card--cta reveal-up">
+        <div class="contacto__copy">
           <span class="eyebrow eyebrow--light">Te invitamos a probar</span>
           <h2>Conoce nuestras creaciones</h2>
-          <p style="margin-inline:auto;">Descubre el menú completo con todos los sabores y precios.</p>
-          <div class="contacto__actions" style="display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap;">
+          <p>Descubre el menú completo con todos los sabores y precios.</p>
+          <div class="contacto__actions">
             <a href="menu.html" class="btn btn--solid">Ver el menú</a>
-            <a href="galeria.html" class="btn btn--ghost" style="background:rgba(255,255,255,.15); color:#fff; border-color:rgba(255,255,255,.4);">Ver la galería</a>
+            <a href="galeria.html" class="btn btn--ghost btn--ghost-light">Ver la galería</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
- <!-- ============ FOOTER ============ -->
+  <!-- ============ FOOTER (4 COLUMNAS) ============ -->
   <footer class="footer">
     <div class="footer__inner">
-      <!-- Columna 1: Universidad e Integrantes -->
-      <div class="footer__academic">
-        <div class="footer__uni-header">
-          <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
-          <div class="footer__uni-text">
-            <p class="uni-country">República Bolivariana de Venezuela</p>
-            <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
-            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
-          </div>
-        </div>
-        <div class="footer__team">
-          <h4>Integrantes:</h4>
-          <p>Rodríguez José Alfredo · C.I: 23.845.022</p>
-          <p>García Ángel · C.I: 27.761.943</p>
-          <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+      <!-- Columna 1: Universidad (UPTAEB) con logo ampliado -->
+      <div class="footer__col footer__uni">
+        <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+        <div class="footer__uni-text">
+          <p class="uni-country">República Bolivariana de Venezuela</p>
+          <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
+          <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
         </div>
       </div>
 
-      <!-- Columna 2: Marca Batidos Flavors (al medio) -->
-      <div class="footer__brand">
+      <!-- Columna 2: Equipo de Proyecto / Autores -->
+      <div class="footer__col footer__team">
+        <h4>Equipo del Proyecto</h4>
+        <p>Rodríguez José A · C.I: 23.845.022</p>
+        <p>García Ángel · C.I: 27.761.943</p>
+        <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+        <p class="footer__career">PNF en Informática · Trayecto II</p>
+      </div>
+
+      <!-- Columna 3: Marca Batidos Flavors -->
+      <div class="footer__col footer__brand">
         <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
-        <p>Mejores ingredientes, mejor sabor. Batidos artesanales y postres caseros en Quíbor, estado Lara.</p>
+        <p>Batidos artesanales a base de frutas 100% naturales, yogurt casero y repostería artesanal en Quíbor, estado Lara.</p>
       </div>
 
-      <!-- Columna 3: Síguenos -->
-      <div class="footer__social">
+      <!-- Columna 4: Síguenos y Contacto -->
+      <div class="footer__col footer__social">
         <h4>Síguenos</h4>
         <a href="https://instagram.com/flavors_30" target="_blank" rel="noopener">Instagram @flavors_30</a>
-        <p class="footer__loc">Quíbor, Edo. Lara · Venezuela</p>
+        <a href="https://wa.me/584125080900" target="_blank" rel="noopener">WhatsApp / Pedidos</a>
       </div>
     </div>
 
+    <!-- Base inferior con botón Volver arriba -->
     <div class="footer__base">
       <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
-      <p>Mejores ingredientes, mejor sabor.</p>
+      <a href="#" class="footer__top-btn">Volver arriba ↑</a>
     </div>
   </footer>
+
 </body>
 </html>
