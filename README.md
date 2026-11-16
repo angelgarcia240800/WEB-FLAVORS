@@ -95,8 +95,8 @@ Todas las imágenes contenidas en la versión de producción están organizadas 
 - **Institución:** Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco” (UPTAEB).
 - **Programa:** PNF en Informática · Trayecto II.
 - **Equipo del Proyecto:**
-  - Rodríguez, José A. — C.I: 23.845.022
-  - García, Ángel — C.I: 27.761.943
+  - Rodríguez, José A.
+  - García, Ángel
 - **Tutor Asesor:** Ing. Lorelys Alvarado.
 
 ---
