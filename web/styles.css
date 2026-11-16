@@ -1,13 +1,7 @@
-/* ==========================================================================
-   BATIDOS FLAVORS — HOJA DE ESTILOS MODULAR
-   Proyecto Socio-Tecnológico — PNF en Informática (UPTAEB)
-   ========================================================================== */
+/* Batidos Flavors — Hoja de estilos global */
 
-/* --------------------------------------------------------------------------
-   1. VARIABLES DE DISEÑO (TOKENS GLOBALES)
-   -------------------------------------------------------------------------- */
+/* 1. Variables de diseño */
 :root {
-  /* Paleta cromática corporativa */
   --pink: #e6147f;
   --pink-deep: #b11464;
   --pink-soft: #ffd9ec;
@@ -16,31 +10,25 @@
   --cream-soft: #fff6d6;
   --plum: #3a2230;
   --plum-soft: #6c5360;
-  --plum-light: #523046; /* Tono ciruela más claro para footer */
+  --plum-light: #523046;
   --white: #ffffff;
 
-  /* Gradientes de marca */
   --grad-hot: linear-gradient(120deg, #ff4fa3 0%, #e6147f 45%, #b11464 100%);
   --grad-soft: linear-gradient(135deg, #fff6d6 0%, #ffe3f0 100%);
 
-  /* Sombras ligeras y de bajo consumo */
   --shadow-sm: 0 2px 8px rgba(177, 20, 100, 0.10);
   --shadow-md: 0 6px 18px rgba(177, 20, 100, 0.14);
 
-  /* Estructura y curvaturas */
   --radius: 18px;
   --radius-lg: 24px;
   --maxw: 1180px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Familias tipográficas */
   --font: "Poppins", system-ui, -apple-system, Arial, sans-serif;
   --script: "Dancing Script", cursive, sans-serif;
 }
 
-/* --------------------------------------------------------------------------
-   2. REINICIO Y ESTILOS BASE (RESET UNIVERSAL)
-   -------------------------------------------------------------------------- */
+/* 2. Estilos base y reset */
 *,
 *::before,
 *::after {
@@ -87,9 +75,7 @@ h4 {
   font-weight: 700;
 }
 
-/* =========================================================
-   FONDO DECORATIVO GLOBAL (blobs + grano originales)
-   ========================================================= */
+/* 3. Fondo decorativo */
 .bg-decor {
   position: fixed;
   inset: 0;
@@ -155,9 +141,7 @@ h4 {
   100% { transform: translate(4vw, 3vw) scale(1.15); }
 }
 
-/* --------------------------------------------------------------------------
-   3. BARRA DE NAVEGACIÓN (HEADER)
-   -------------------------------------------------------------------------- */
+/* 4. Barra de navegación */
 .nav {
   position: -webkit-sticky;
   position: sticky;
@@ -249,7 +233,7 @@ h4 {
   box-shadow: var(--shadow-md);
 }
 
-/* Menú hamburguesa responsive (CSS puro) */
+/* Menú móvil */
 .nav__check,
 .nav__burger {
   display: none;
@@ -274,9 +258,7 @@ h4 {
   border-radius: 2px;
 }
 
-/* --------------------------------------------------------------------------
-   4. BOTONES REUTILIZABLES
-   -------------------------------------------------------------------------- */
+/* 5. Botones */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -335,9 +317,7 @@ h4 {
   padding: 0.9rem;
 }
 
-/* --------------------------------------------------------------------------
-   5. SECCIÓN HERO (PORTADA PRINCIPAL)
-   -------------------------------------------------------------------------- */
+/* 6. Portada (Hero) */
 .hero {
   position: relative;
   padding: 2.6rem 1.5rem 2.8rem;
@@ -435,7 +415,7 @@ h4 {
   letter-spacing: 0.05em;
 }
 
-/* Elemento visual del Hero (Dimensiones fijas contra colapso) */
+/* Imagen del Hero */
 .hero__art {
   display: grid;
   place-items: center;
@@ -535,9 +515,7 @@ h4 {
   font-size: 1.7rem;
 }
 
-/* --------------------------------------------------------------------------
-   6. CINTA MARQUEE Y CABECERAS SECUNDARIAS
-   -------------------------------------------------------------------------- */
+/* 7. Marquesina y banners */
 .marquee {
   background: var(--grad-hot);
   color: #ffffff;
@@ -592,13 +570,11 @@ h4 {
   margin-top: 0.6rem;
 }
 
-/* --------------------------------------------------------------------------
-   7. ESTRUCTURA DE SECCIONES (ESPACIADO COMPACTO)
-   -------------------------------------------------------------------------- */
+/* 8. Estructura de secciones */
 .section {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 2.8rem 1.5rem; /* Separación más pequeña entre secciones */
+  padding: 2.8rem 1.5rem;
 }
 
 .section--flush-top {
@@ -608,7 +584,7 @@ h4 {
 .section__head {
   text-align: center;
   max-width: 44rem;
-  margin: 0 auto 1.8rem; /* Margen inferior compacto */
+  margin: 0 auto 1.8rem;
 }
 
 .section__head h2 {
@@ -649,9 +625,7 @@ h4 {
   background: rgba(255, 255, 255, 0.22);
 }
 
-/* --------------------------------------------------------------------------
-   8. COMPONENTES VISUALES Y TARJETAS (PRINCIPIO DRY)
-   -------------------------------------------------------------------------- */
+/* 9. Tarjetas y componentes */
 .card,
 .feature,
 .quote,
@@ -749,9 +723,7 @@ h4 {
   margin-top: 1.8rem;
 }
 
-/* --------------------------------------------------------------------------
-   9. SECCIÓN NOSOTROS Y CARRUSEL
-   -------------------------------------------------------------------------- */
+/* 10. Nosotros y carrusel */
 .nosotros {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -820,14 +792,6 @@ h4 {
   object-position: center;
 }
 
-@keyframes carouselSlide {
-  0%, 20%   { transform: translateX(0); }
-  25%, 45%  { transform: translateX(-20%); }
-  50%, 70%  { transform: translateX(-40%); }
-  75%, 95%  { transform: translateX(-60%); }
-  100%      { transform: translateX(-80%); }
-}
-
 .nosotros__copy h2 {
   font-size: 2.1rem;
   margin-bottom: 0.9rem;
@@ -869,9 +833,7 @@ h4 {
   box-shadow: var(--shadow-sm);
 }
 
-/* --------------------------------------------------------------------------
-   10. VALORES, GALERÍA Y TESTIMONIOS
-   -------------------------------------------------------------------------- */
+/* 11. Valores, galería y testimonios */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -994,9 +956,7 @@ h4 {
   font-size: 0.88rem;
 }
 
-/* --------------------------------------------------------------------------
-   11. CATÁLOGO DE PRECIOS
-   -------------------------------------------------------------------------- */
+/* 12. Catálogo de precios */
 .price-block {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -1004,7 +964,7 @@ h4 {
 }
 
 .price-cat {
-  margin-bottom: 2rem; /* Más compacto */
+  margin-bottom: 2rem;
 }
 
 .price-cat__head {
@@ -1098,9 +1058,7 @@ h4 {
   padding: 0.8rem 1.1rem;
 }
 
-/* --------------------------------------------------------------------------
-   12. CONTACTO, FORMULARIO Y MODAL NATIVO
-   -------------------------------------------------------------------------- */
+/* 13. Contacto y comentarios */
 .contacto__card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1238,9 +1196,9 @@ h4 {
   justify-content: center;
 }
 
-/* Formulario con Web3Forms */
+/* Formulario de comentarios */
 .comentarios {
-  padding-top: 2.4rem; /* Más compacto */
+  padding-top: 2.4rem;
 }
 
 .comentarios__grid {
@@ -1335,7 +1293,7 @@ h4 {
   gap: 1.3rem;
 }
 
-/* Modal con anclaje :target */
+/* 14. Modal de confirmación */
 .modal {
   position: fixed;
   top: 0;
@@ -1444,11 +1402,8 @@ h4 {
   min-width: 140px;
 }
 
-/* --------------------------------------------------------------------------
-   13. PIE DE PÁGINA INSTITUCIONAL (4 COLUMNAS - COLOR MÁS CLARO)
-   -------------------------------------------------------------------------- */
+/* 15. Pie de página (Footer) */
 .footer {
-  /* Color más claro y elegante (tono ciruela suave) */
   background: #502e43;
   background: linear-gradient(180deg, #56334a 0%, #46273b 100%);
   color: rgba(255, 255, 255, 0.88);
@@ -1460,13 +1415,12 @@ h4 {
   margin: 0 auto;
   padding: 2.8rem 1.5rem 1.8rem;
   display: grid;
-  /* 4 Columnas balanceadas */
   grid-template-columns: 1.25fr 1.05fr 1.1fr 0.9fr;
   gap: 2rem;
   align-items: start;
 }
 
-/* Columna 1: Universidad (UPTAEB) con logo ampliado */
+/* Columna 1: Universidad UPTAEB */
 .footer__uni {
   display: flex;
   flex-direction: column;
@@ -1475,15 +1429,15 @@ h4 {
 
 .footer__uni-logo {
   display: inline-block;
-  background-color: #ffffff; /* Fondo blanco para que destaque el logo */
-  padding: 8px 12px;         /* Espaciado interno alrededor del logo */
-  border-radius: 8px;        /* Bordes redondeados */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Sombra para dar relieve */
-  max-width: 90px;           /* Ajusta el ancho según tus dimensiones */
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 90px;
   height: auto;
   object-fit: contain;
-  margin-bottom: 12px;       /* Separación con el texto inferior */
+  margin-bottom: 12px;
 }
 
 .footer__uni-text p {
@@ -1497,7 +1451,7 @@ h4 {
   font-weight: 700;
 }
 
-/* Columna 2: Equipo de Proyecto */
+/* Columna 2: Equipo de proyecto */
 .footer__team h4,
 .footer h4 {
   color: #ffffff;
@@ -1523,7 +1477,7 @@ h4 {
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* Columna 3: Marca Batidos Flavors */
+/* Columna 3: Batidos Flavors */
 .footer__brand .nav__brand-txt {
   color: #ffffff;
 }
@@ -1539,7 +1493,7 @@ h4 {
   color: rgba(255, 255, 255, 0.84);
 }
 
-/* Columna 4: Síguenos y Contacto */
+/* Columna 4: Síguenos y contacto */
 .footer__social {
   display: grid;
   gap: 0.5rem;
@@ -1570,7 +1524,7 @@ h4 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Barra inferior del Footer */
+/* Barra inferior del pie de página */
 .footer__base {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   max-width: var(--maxw);
@@ -1585,7 +1539,7 @@ h4 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Botón Volver arriba en cápsula dentro del Footer */
+/* Botón volver arriba */
 .footer__top-btn,
 .footer__top-link {
   display: inline-flex;
@@ -1612,9 +1566,7 @@ h4 {
   text-decoration: none;
 }
 
-/* --------------------------------------------------------------------------
-   14. BOTÓN FLOTANTE "VOLVER ARRIBA"
-   -------------------------------------------------------------------------- */
+/* 16. Botón flotante */
 .btn-top {
   position: fixed;
   bottom: 22px;
@@ -1642,9 +1594,7 @@ h4 {
   color: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   15. ANIMACIONES SUAVES Y ACCESIBILIDAD
-   -------------------------------------------------------------------------- */
+/* 17. Animaciones */
 @keyframes rise {
   from {
     opacity: 0;
@@ -1680,9 +1630,7 @@ h4 {
   }
 }
 
-/* --------------------------------------------------------------------------
-   16. MEDIA QUERIES CONSOLIDADAS (RESPONSIVE)
-   -------------------------------------------------------------------------- */
+/* 18. Diseño responsivo */
 @media (max-width: 980px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -1727,7 +1675,6 @@ h4 {
     grid-template-columns: 1fr;
   }
 
-  /* Footer en 2 columnas en tablets */
   .footer__inner {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.8rem;
@@ -1801,7 +1748,6 @@ h4 {
     gap: 1.2rem;
   }
 
-  /* Footer a 1 columna en móviles */
   .footer__inner {
     grid-template-columns: 1fr;
     padding: 2.2rem 1rem 1.4rem;
