@@ -911,14 +911,14 @@ h4 {
   z-index: 2;
 }
 
-.g-item--1 { --img: url('assets/galeria-1.jpg'); }
-.g-item--2 { --img: url('assets/galeria-2.jpg'); }
-.g-item--3 { --img: url('assets/galeria-3.jpg'); }
-.g-item--4 { --img: url('assets/galeria-4.jpg'); }
-.g-item--5 { --img: url('assets/galeria-5.jpg'); }
-.g-item--6 { --img: url('assets/galeria-6.jpg'); }
-.g-item--7 { --img: url('assets/galeria-7.jpg'); }
-.g-item--8 { --img: url('assets/galeria-8.jpg'); }
+.g-item--1 { --img: url('assets/galeria/galeria-1.jpg'); }
+.g-item--2 { --img: url('assets/galeria/galeria-2.jpg'); }
+.g-item--3 { --img: url('assets/galeria/galeria-3.jpg'); }
+.g-item--4 { --img: url('assets/galeria/galeria-4.jpg'); }
+.g-item--5 { --img: url('assets/galeria/galeria-5.jpg'); }
+.g-item--6 { --img: url('assets/galeria/galeria-6.jpg'); }
+.g-item--7 { --img: url('assets/galeria/galeria-7.jpg'); }
+.g-item--8 { --img: url('assets/galeria/galeria-8.jpg'); }
 
 /* Testimonios */
 .quotes {

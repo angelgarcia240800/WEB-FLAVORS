@@ -1,49 +1,85 @@
 /* =============================================================================
-   BATIDOS FLAVORS — HOJA DE ESTILOS PRINCIPAL (VERSIÓN DEFENSA ACADÉMICA)
+   BATIDOS FLAVORS — HOJA DE ESTILOS PRINCIPAL (GUÍA TÉCNICA Y DOCUMENTACIÓN MODULAR)
    
-   GUÍA RÁPIDA DE COMANDOS CSS PARA LA DEFENSA:
-   • MOVER ELEMENTO:
-     - A la derecha:    margin-left: auto;  |  text-align: right;  |  transform: translateX(30px);
-     - A la izquierda:  margin-right: auto; |  text-align: left;   |  transform: translateX(-30px);
-     - Al centro:       margin: 0 auto;     |  text-align: center; |  justify-content: center;
-   • DIMENSIONES (ANCHO Y ALTO):
-     - Más alto/bajo:   height: 80px; / height: 35px;  |  padding: 1.5rem 1rem;
-     - Más ancho/chico: width: 300px; / width: 120px;  |  max-width: 500px;
-     - Ancho completo:  width: 100%; display: block;
-   • ROTAR O PONER DE CABEZA:
-     - Poner de cabeza: transform: rotate(180deg);  |  transform: scaleY(-1);
-     - Reflejo espejo:  transform: scaleX(-1);
-     - Rotar en ángulo: transform: rotate(45deg);   |  transform: rotate(-15deg);
-     - Zoom (escala):   transform: scale(1.2); (más grande) / scale(0.8); (más pequeño)
-   • COLORES Y FONDOS:
-     - Fondo sólido:    background: #e6147f; (rosa) | #3a2230; (morado) | #25d366; (verde) | #000;
-     - Gradiente:       background: linear-gradient(135deg, #ff4fa3, #b11464);
-     - Color de texto:  color: #ffffff; | color: #fbe7a1; | color: #000000;
-   • BORDES Y FORMAS:
-     - Círculo:         border-radius: 50%;
-     - Cuadrado recto:  border-radius: 0;
-     - Píldora suave:   border-radius: 999px;
-   • COLUMNAS GRID:
-     - 4 columnas:      grid-template-columns: repeat(4, 1fr);
-     - 3 columnas:      grid-template-columns: repeat(3, 1fr);
-     - 2 columnas:      grid-template-columns: repeat(2, 1fr);
-     - 1 columna:       grid-template-columns: 1fr;
+   GUÍA PRÁCTICA DE MODIFICACIÓN Y PERSONALIZACIÓN CSS:
+   
+   • CÓMO MOVER Y ALINEAR CUALQUIER ELEMENTO:
+     - Centrar un bloque:             margin: 0 auto; (requiere ancho definido, ej: width: 80%; o max-width: 600px;)
+     - Alinear texto:                 text-align: left; (izq) | text-align: center; (centro) | text-align: right; (der) | justify;
+     - Alinear horizontal en Flexbox: justify-content: flex-start; (izq) | center; (centro) | flex-end; (der) | space-between; (extremos)
+     - Alinear vertical en Flexbox:   align-items: flex-start; (arriba) | center; (centro vertical) | flex-end; (abajo) | stretch;
+     - Desplazar sin romper diseño:   transform: translate(X, Y); (ej: translateX(30px); mueve a la derecha, translateY(-20px); sube)
+     - Invertir orden de elementos:   flex-direction: row-reverse; (horizontal inverso) | column-reverse; (vertical inverso)
+     - Cambiar posición por orden:    order: 1; / order: 2; en los hijos de un contenedor Flexbox o Grid
+     - Posicionamiento libre:         position: relative; en el contenedor padre y position: absolute; top: 10px; left: 20px; en el hijo
+   
+   • CÓMO CAMBIAR DIMENSIONES Y PROPORCIONES (ANCHO Y ALTO):
+     - Ancho fijo (estricto):         width: 350px; (mide exactamente 350px sin importar la pantalla)
+     - Ancho adaptable (responsivo):  width: 100%; max-width: 500px; (ocupa todo el ancho en móviles y frena en 500px en PC)
+     - Ancho mínimo garantizado:      min-width: 150px; (evita que un botón o caja se encoja de forma ridícula)
+     - Alto fijo o adaptable:         height: 60px; (alto exacto) | min-height: 400px; (permite que crezca si hay más contenido)
+     - Proporciones fijas:            aspect-ratio: 1/1; (cuadrado) | aspect-ratio: 4/3; (tarjeta) | aspect-ratio: 16/9; (panorámico)
+   
+   • CÓMO CONTROLAR ESPACIADOS (MODELO DE CAJA):
+     - padding (espacio INTERNO):     padding: 20px; (todos los lados) | padding: 1rem 2rem; (1rem arriba/abajo, 2rem izq/der)
+     - margin (espacio EXTERNO):      margin: 15px; (separa hacia afuera) | margin-bottom: 2rem; (empuja al elemento de abajo)
+     - Regla del reloj (4 valores):   padding: 10px 20px 15px 5px; (10px Arriba, 20px Derecha, 15px Abajo, 5px Izquierda)
+     - gap (separación en Grid/Flex): gap: 1.5rem; (separa todas las tarjetas o columnas limpiamente sin usar márgenes)
+   
+   • CÓMO ROTAR, TRANSFORMAR Y APLICAR ZOOM:
+     - Poner de cabeza (180°):        transform: rotate(180deg);  |  transform: scaleY(-1); (reflejo vertical)
+     - Efecto espejo horizontal:      transform: scaleX(-1); (gira la imagen como si se viera en un espejo)
+     - Rotar en ángulo suave:         transform: rotate(15deg); (inclinación horaria) | transform: rotate(-10deg); (antihoraria)
+     - Zoom (escala de tamaño):       transform: scale(1.15); (15% más grande) | transform: scale(0.85); (15% más pequeño)
+   
+   • CÓMO CAMBIAR COLORES, FONDOS Y SOMBRAS:
+     - Color de texto:                color: #e6147f; (rosa) | color: #3a2230; (morado ciruela) | color: #ffffff; (blanco)
+     - Fondo sólido o transparente:   background: #ffffff; (blanco) | background: transparent; (sin fondo)
+     - Fondo semitransparente:        background: rgba(255, 255, 255, 0.85); (85% opacidad para ver el fondo detrás)
+     - Gradientes llamativos:         background: linear-gradient(135deg, #ff4fa3 0%, #e6147f 50%, #b11464 100%);
+     - Bordes y redondeo:             border: 2px solid var(--pink); | border-radius: 0; (recto) | 18px; (suave) | 50%; (círculo)
+     - Sombras elegantes:             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); (0 desplaza X, 4px baja Y, 15px difumina)
+   
+   • CÓMO CAMBIAR COLUMNAS EN CUADRÍCULAS (CSS GRID):
+     - 4 columnas iguales:            grid-template-columns: repeat(4, 1fr);
+     - 3 columnas iguales:            grid-template-columns: repeat(3, 1fr);
+     - 2 columnas iguales:            grid-template-columns: repeat(2, 1fr);
+     - 1 columna (lista vertical):    grid-template-columns: 1fr;
+     - Columnas automáticas fluidas:  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   
+   • CÓMO OCULTAR O MOSTRAR CUALQUIER ELEMENTO:
+     - Ocultar totalmente:           display: none; (desaparece y NO ocupa espacio en la pantalla)
+     - Volver a mostrar:             display: block; | display: flex; | display: grid;
+     - Ocultar pero guardar espacio:  visibility: hidden; o opacity: 0; (sigue ocupando su lugar pero es invisible)
    ============================================================================= */
 
 /* =============================================================================
    1. VARIABLES DE DISEÑO (:root)
-   ¿QUÉ ES?
-   Las variables CSS almacenan valores reutilizables (colores, fuentes, sombras, radios).
-   Se definen en el selector :root para que estén disponibles en todo el documento.
-   Para consumirlas en cualquier clase se usa: var(--nombre-variable).
    
-   TRUCOS DE DEFENSA:
-   - Para cambiar el color principal de TODO el sitio en un solo cambio:
-     Cambia --pink: #e6147f; por otro código hexadecimal (ej: #00b4d8 para azul turquesa).
-   - Para cambiar la tipografía global:
-     Cambia --font-main o --font-script.
-   - Para cambiar el redondeo general de tarjetas y botones:
-     Cambia --radius: 18px; a 0px (bordes rectos cuadrados) o 30px (súper redondeado).
+   ¿QUÉ HACE ESTE MÓDULO?:
+   El selector :root representa la raíz del documento (la etiqueta <html>). Al definir
+   variables personalizadas aquí (iniciadas con dos guiones, ej: --pink), quedan disponibles
+   de forma global en toda la hoja de estilos. Cualquier cambio en un valor aquí se propaga
+   automáticamente a todas las clases que consumen var(--pink), ahorrando editar cientos de líneas.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL COLOR PRINCIPAL DE TODA LA WEB:
+      - Editar --pink: #e6147f; por otro color hexadecimal.
+        * Azul moderno:   --pink: #0077b6; --pink-deep: #023e8a;
+        * Verde esmeralda: --pink: #2a9d8f; --pink-deep: #1b635b;
+        * Naranja cálido:  --pink: #e76f51; --pink-deep: #bc4749;
+        * Morado uva:      --pink: #7209b7; --pink-deep: #3f37c9;
+   2. CÓMO CAMBIAR EL FONDO GENERAL:
+      - Editar --pink-bg: #fff2f8; por #ffffff (blanco puro), #f8f9fa (gris neutro suave),
+        o por un tono oscuro como #160c13 (modo oscuro).
+   3. CÓMO CAMBIAR EL REDONDEO DE TARJETAS Y BOTONES:
+      - Para diseño cuadrado y formal: cambiar --radius: 18px; por --radius: 0px;
+      - Para diseño extra redondeado: cambiar --radius: 18px; por --radius: 28px;
+   4. CÓMO CAMBIAR EL ANCHO MÁXIMO DEL SITIO:
+      - Editar --maxw: 1180px; por 1320px (diseño más ancho en pantallas grandes) o 960px (más compacto).
+   5. CÓMO CAMBIAR LAS FUENTES TIPOGRÁFICAS GLOBALES:
+      - Cambiar --font: "Poppins", system-ui, Arial, sans-serif; por "Montserrat", "Inter" o "Roboto".
+      - Cambiar --script: "Dancing Script", cursive, sans-serif; por "Pacifico" o "Caveat".
    ============================================================================= */
 :root {
   --pink: #e6147f;
@@ -73,18 +109,27 @@
 }
 
 /* =============================================================================
-   2. ESTILOS BASE Y RESET (*, html, body)
-   ¿QUÉ ES?
-   - box-sizing: border-box; hace que el padding y los bordes se incluyan dentro
-     del ancho y alto total del elemento, evitando que los divs se desborden.
-   - scroll-behavior: smooth; hace que al hacer clic en un ancla (#id) la página
-     se desplace suavemente en vez de saltar de golpe.
+   2. ESTILOS BASE Y RESET UNIVERSAL (*, html, body)
    
-   TRUCOS DE DEFENSA:
-   - Si piden cambiar el color de fondo general de toda la página:
-     En body { background: var(--pink-bg); } cambiar por background: #ffffff; o background: #1a0f17;
-   - Si piden cambiar el tamaño de letra general:
-     En body { font-size: 1rem; } cambiar por font-size: 1.2rem; (más grande).
+   ¿QUÉ HACE ESTE MÓDULO?:
+   - box-sizing: border-box; es la regla más importante de maquetación: incluye el relleno
+     (padding) y los bordes dentro del ancho y alto total declarado, evitando que las cajas se
+     desborden al añadirles relleno o borde.
+   - scroll-behavior: smooth; hace que al pulsar enlaces con anclas (#id) la página se desplace
+     con una transición suave en lugar de saltar bruscamente.
+   - margin: 0; padding: 0; elimina los márgenes por defecto que cada navegador añade a etiquetas
+     como h1, h2, p, ul, body.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL TAMAÑO O INTERLINEADO GENERAL DEL TEXTO:
+      - En body { line-height: 1.6; } cambiar a 1.4 (más compacto) o 1.8 (más espaciado y relajado).
+      - Añadir font-size: 1.05rem; en body para aumentar ligeramente la legibilidad de todos los párrafos.
+   2. CÓMO CAMBIAR EL COLOR DE TEXTO GLOBAL:
+      - En body { color: var(--plum); } cambiar por color: #111111; (negro suave) o #2b2b2b; (carbón).
+   3. CÓMO AJUSTAR O DESACTIVAR EL DESPLAZAMIENTO SUAVE:
+      - Si se prefiere salto instantáneo sin animación: cambiar scroll-behavior: smooth; a auto;
+   4. CÓMO EVITAR EL DESBORDE HORIZONTAL EN PANTALLAS PEQUEÑAS:
+      - overflow-x: hidden; en body bloquea que elementos anchos creen barras de desplazamiento horizontal.
    ============================================================================= */
 *,
 *::before,
@@ -134,16 +179,32 @@ h4 {
 
 /* =============================================================================
    3. FONDO DECORATIVO (.bg-decor, .blob, .grain)
-   ¿QUÉ ES?
-   Crea manchas de color suaves y difuminadas (blobs) y textura de grano en el fondo.
-   - position: fixed; mantiene las manchas fijas al hacer scroll.
-   - pointer-events: none; evita que las manchas bloqueen los clics del usuario.
-   - filter: blur(70px); difumina los círculos para crear el efecto de brillo ambiental.
    
-   TRUCOS DE DEFENSA:
-   - Para ocultar el fondo decorativo: .bg-decor { display: none; }
-   - Para mover una mancha de posición: cambiar top: 10%; left: 80%;
-   - Para cambiar el color de una mancha: background: radial-gradient(circle, #color1, transparent);
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Genera una atmósfera visual moderna mediante esferas difuminadas flotantes ("blobs") y una sutil
+   trama de textura de grano (grain).
+   - position: fixed; inset: 0; z-index: -2; ancla el fondo en toda la ventana detrás de todo el contenido.
+   - pointer-events: none; garantiza que el fondo sea invisible al ratón y nunca interfiera con clics o selecciones.
+   - filter: blur(60px); difumina los círculos para transformarlos en una neblina de color brillante.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO MOVER O REUBICAR LAS MANCHAS DE COLOR:
+      - Modificar las coordenadas top, bottom, left, right en cada blob:
+        * .blob--1: top: 0; left: 0; (la mueve a la esquina superior izquierda fija).
+        * .blob--2: top: 50%; right: 10%; (la ubica a media altura a la derecha).
+        * .blob--3: bottom: 5%; left: 30%; (la ubica abajo hacia el centro).
+   2. CÓMO CAMBIAR EL TAMAÑO DE LAS MANCHAS:
+      - Cambiar width: 46vw; height: 46vw; a valores mayores como 60vw para abarcar más fondo,
+        o valores menores como 25vw para manchas más sutiles y puntuales.
+   3. CÓMO CAMBIAR LOS COLORES DE LAS MANCHAS:
+      - En .blob--1 cambiar background: #ffb3d6; por #a2d2ff (azul pastel).
+      - En .blob--2 cambiar background: #ffe39c; por #c8b6ff (lila pastel).
+   4. CÓMO MODIFICAR O DETENER LA ANIMACIÓN DE FLOTADO:
+      - Para hacer el movimiento más rápido: cambiar drift 22s a drift 10s.
+      - Para hacer el movimiento más lento: cambiar drift 22s a drift 40s.
+      - Para dejar las manchas totalmente estáticas: eliminar o comentar la propiedad animation:.
+   5. CÓMO OCULTAR O ELIMINAR EL FONDO DECORATIVO:
+      - Añadir en .bg-decor { display: none; } y el fondo quedará con el color liso de body.
    ============================================================================= */
 .bg-decor {
   position: fixed;
@@ -212,26 +273,33 @@ h4 {
 
 /* =============================================================================
    4. BARRA DE NAVEGACIÓN (.nav, .nav__brand, .nav__menu, .nav__cta)
-   ¿QUÉ ES?
-   Encabezado superior del sitio. Utiliza position: sticky; top: 0; para quedarse fijo
-   arriba cuando el usuario hace scroll hacia abajo.
-   - backdrop-filter: blur(12px); genera el efecto de "vidrio esmerilado" (glassmorphism).
    
-   TRUCOS DE DEFENSA:
-   1. MOVER EL MENÚ:
-      - Mover los enlaces a la derecha: en .nav { justify-content: flex-end; }
-      - Mover los enlaces al centro: en .nav { justify-content: center; }
-      - Separar logo a la izq y enlaces a la der: en .nav { justify-content: space-between; }
-   2. DIMENSIONES:
-      - Barra más alta: en .nav { padding: 1.5rem 2rem; }
-      - Barra más delgada/compacta: en .nav { padding: 0.4rem 1rem; }
-   3. COLOR DE LA BARRA:
-      - Fondo blanco translúcido: background: rgba(255, 255, 255, 0.95);
-      - Fondo oscuro translúcido: background: rgba(58, 34, 48, 0.92); color: white;
-   4. PONER EL LOGO DE CABEZA O ROTARLO:
-      - En .logo-mark { transform: rotate(180deg); }
-      - Girar 45 grados: .logo-mark { transform: rotate(45deg); }
-      - Hacer el logo más grande: .logo-mark { width: 65px; height: 65px; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Controla la cabecera superior persistente del sitio web.
+   - position: sticky; top: 0; z-index: 100; mantiene la barra fija en la parte superior al hacer scroll.
+   - backdrop-filter: blur(12px); crea el efecto moderno de cristal esmerilado (glassmorphism).
+   - justify-content: space-between; separa el logotipo a la izquierda y el menú de enlaces a la derecha.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR LA ALINEACIÓN Y DISTRIBUCIÓN DEL MENÚ:
+      - Para centrar los enlaces: en .nav cambiar justify-content: space-between; por center; gap: 2rem;
+      - Para enviar todo a la derecha: en .nav cambiar a justify-content: flex-end; gap: 2rem;
+      - Para invertir el logo a la derecha y enlaces a la izquierda: en .nav añadir flex-direction: row-reverse;
+   2. CÓMO CAMBIAR LA ALTURA Y ESPACIADO DE LA BARRA:
+      - Barra más alta y espaciosa: cambiar padding: 0.75rem 1.5rem; por padding: 1.4rem 2rem;
+      - Barra ultra compacta: cambiar a padding: 0.4rem 1rem;
+   3. CÓMO CAMBIAR EL TAMAÑO Y FORMA DEL LOGOTIPO:
+      - Logo más grande: en .logo-mark cambiar width: 44px; height: 44px; por width: 60px; height: 60px;
+      - Logo cuadrado con esquinas redondeadas: cambiar border-radius: 50%; por border-radius: 12px;
+      - Logo completamente cuadrado: cambiar border-radius: 0;
+   4. CÓMO CAMBIAR EL COLOR Y FONDO DE LA BARRA:
+      - Fondo blanco sólido sin transparencia: background: #ffffff; (eliminar el bloque @supports backdrop-filter).
+      - Fondo oscuro elegante: background: #3a2230; y cambiar el color de texto a #ffffff;
+   5. CÓMO PERSONALIZAR EL BOTÓN DESTACADO (.nav__cta):
+      - Cambiar su degradado: background: linear-gradient(120deg, #25d366, #128c7e); (verde WhatsApp).
+      - Aumentar su tamaño: padding: 0.6rem 1.4rem; font-size: 1rem;
+   6. CÓMO ROTAR O ANIMAR EL LOGOTIPO AL PASAR EL CURSOR:
+      - Añadir: .logo-mark:hover { transform: rotate(360deg); transition: transform 0.6s ease; }
    ============================================================================= */
 .nav {
   position: -webkit-sticky;
@@ -326,12 +394,24 @@ h4 {
 
 /* =============================================================================
    MENÚ MÓVIL Y BOTÓN HAMBURGUESA SIN JAVASCRIPT (.nav__check, .nav__burger)
-   ¿CÓMO FUNCIONA PARA LA DEFENSA? (Técnica "Checkbox Hack")
-   1. Existe un checkbox oculto en el HTML: <input type="checkbox" id="nav-toggle" class="nav__check">.
-   2. El icono de hamburguesa es una etiqueta <label for="nav-toggle" class="nav__burger">.
-   3. Al hacer clic en el label, el navegador marca o desmarca el checkbox de forma nativa.
-   4. El selector CSS .nav__check:checked ~ .nav__menu detecta cuando está activo y
-      despliega el menú (.nav__menu) sin una sola línea de JavaScript.
+   
+   ¿CÓMO FUNCIONA ESTE MECANISMO? (Técnica "Checkbox Hack"):
+   1. Se coloca un <input type="checkbox" id="nav-toggle" class="nav__check"> oculto con display: none;
+   2. La etiqueta visual <label for="nav-toggle" class="nav__burger"> actúa como el botón de 3 líneas.
+   3. Al pulsar el label, el navegador marca/desmarca automáticamente el checkbox invisible.
+   4. La regla CSS .nav__check:checked ~ .nav__menu detecta cuando está marcado y abre el menú desplegable.
+   ¡Todo funciona de forma nativa en CSS puro, sin requerir librerías ni JavaScript!
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL TAMAÑO O FORMA DEL BOTÓN HAMBURGUESA:
+      - Botón más grande: cambiar width: 40px; height: 40px; por width: 50px; height: 50px;
+      - Botón completamente circular: cambiar border-radius: 10px; por border-radius: 50%;
+   2. CÓMO CAMBIAR EL COLOR DE LAS 3 LÍNEAS:
+      - En .nav__burger span cambiar background: var(--pink); por #ffffff, #000000 o cualquier color.
+      - Para hacer las líneas más gruesas: cambiar height: 2px; por height: 3px; o 4px;
+   3. CÓMO MOVER EL BOTÓN HAMBURGUESA:
+      - Por defecto aparece al final del navbar en pantallas pequeñas.
+      - Para colocarlo a la izquierda: en el HTML colocar el <label class="nav__burger"> antes del logo.
    ============================================================================= */
 .nav__check,
 .nav__burger {
@@ -359,48 +439,33 @@ h4 {
 
 /* =============================================================================
    5. BOTONES (.btn, .btn--solid, .btn--ghost, .btn--block)
-   ¿QUÉ ES?
-   Módulo de botones del sistema.
-   - .btn--solid: Botón principal relleno de color con degradado.
-   - .btn--ghost: Botón secundario transparente con borde de color.
-   - .btn--block: Hace que el botón ocupe el 100% del ancho del contenedor (usado en formularios).
    
-   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
-   1. MOVER EL BOTÓN:
-      - A la derecha: margin-left: auto; | transform: translateX(40px); | text-align: right;
-      - A la izquierda: margin-right: auto; | transform: translateX(-40px); | text-align: left;
-      - Centrado: margin: 0 auto; | display: table; margin: 0 auto;
-   2. CAMBIAR DIMENSIONES:
-      - Más alto: padding: 1.2rem 2rem; o height: 60px;
-      - Más bajo / compacto: padding: 0.4rem 0.8rem;
-      - Más ancho: width: 280px; o padding-left: 3rem; padding-right: 3rem;
-      - Más angosto: width: 130px; o padding: 0.6rem 0.6rem;
-      - QUE TOME TODO EL DIV (ANCHO COMPLETO):
-        width: 100%; display: block; (o agregar la clase .btn--block)
-   3. PONER DE CABEZA / ROTAR / VOLTEAR:
-      - Poner de cabeza (180°): transform: rotate(180deg);
-      - Reflejo vertical (de cabeza): transform: scaleY(-1);
-      - Reflejo horizontal (espejo): transform: scaleX(-1);
-      - Rotar 15 grados: transform: rotate(15deg);
-   4. TAMAÑO Y ZOOM:
-      - 25% más grande: transform: scale(1.25);
-      - 25% más pequeño: transform: scale(0.75);
-      - Tamaño del texto: font-size: 1.3rem; (más grande) | font-size: 0.8rem; (más pequeño)
-   5. CAMBIAR COLORES:
-      - Fondo sólido rosa: background: #e6147f;
-      - Fondo verde (WhatsApp): background: #25d366;
-      - Fondo azul: background: #1e88e5;
-      - Fondo morado oscuro: background: #3a2230;
-      - Fondo amarillo crema: background: #fbe7a1; color: #3a2230;
-      - Texto blanco: color: #ffffff;
-      - Texto negro: color: #000000;
-   6. BORDES Y FORMA:
-      - Cuadrado con esquinas en punta: border-radius: 0;
-      - Totalmente redondeado / cápsula: border-radius: 999px;
-      - Círculo perfecto: border-radius: 50%; width: 60px; height: 60px; padding: 0;
-   7. SOMBRAS:
-      - Sombra flotante: box-shadow: 0 12px 25px rgba(230, 20, 127, 0.4);
-      - Sin sombra: box-shadow: none;
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Define la tipología de botones interactivos de toda la plataforma siguiendo el principio DRY
+   (Don't Repeat Yourself).
+   - .btn: Base compartida (padding, border-radius redondeado en píldora, tipografía y transiciones).
+   - .btn--solid: Botón principal con degradado cálido corporativo y sombra suave.
+   - .btn--ghost: Botón secundario transparente con borde de color, ideal para acciones secundarias.
+   - .btn--block: Ocupa el 100% del ancho de su contenedor padre (útil en formularios o modales).
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL TAMAÑO DE LOS BOTONES:
+      - Botón más alto y ancho: cambiar padding: 0.8rem 1.5rem; por padding: 1.2rem 2.2rem;
+      - Botón más compacto: cambiar padding: 0.8rem 1.5rem; por padding: 0.5rem 1rem; font-size: 0.85rem;
+   2. CÓMO CAMBIAR LA FORMA Y ESQUINAS DE LOS BOTONES:
+      - Esquinas rectas modernas: cambiar border-radius: 100px; por border-radius: 0;
+      - Esquinas ligeramente redondeadas: cambiar border-radius: 100px; por border-radius: 8px; o 12px;
+   3. CÓMO MODIFICAR EL EFECTO AL PASAR EL RATÓN (:hover):
+      - Elevar más el botón: cambiar transform: translateY(-2px); por translateY(-6px);
+      - Efecto de pulsación o zoom: cambiar por transform: scale(1.08);
+      - Sombra más brillante o profunda: box-shadow: 0 10px 25px rgba(230, 20, 127, 0.4);
+   4. CÓMO CAMBIAR LOS COLORES DE FONDO:
+      - Botón verde WhatsApp: background: #25d366; color: #ffffff;
+      - Botón degradado azul: background: linear-gradient(120deg, #00b4d8, #0077b6);
+      - Botón oscuro sobrio: background: #3a2230; color: #ffffff;
+   5. CÓMO CENTRAR O ALINEAR UN BOTÓN DENTRO DE UN DIV:
+      - Si el contenedor usa flex: justify-content: center; (centro) | flex-end; (derecha).
+      - Si el botón es display: block;: añadir margin: 0 auto; para centrarlo.
    ============================================================================= */
 .btn {
   display: inline-flex;
@@ -462,27 +527,35 @@ h4 {
 
 /* =============================================================================
    6. PORTADA HERO (.hero, .hero__inner, .hero__title, .hero__lead, .hero__art)
-   ¿QUÉ ES?
-   Sección principal de bienvenida. Utiliza CSS Grid de 2 columnas:
-   - Columna izquierda (.hero__copy): Textos, eslogan, píldora, botones y estadísticas.
-   - Columna derecha (.hero__art): Logotipo central flotante, brillos y chips flotantes.
    
-   TRUCOS DE DEFENSA:
-   1. MOVER TEXTOS:
-      - Alinear texto a la derecha: .hero__copy { text-align: right; }
-      - Alinear texto al centro: .hero__copy { text-align: center; }
-      - Mover toda la columna de texto: .hero__copy { transform: translateX(30px); }
-   2. PONER DE CABEZA:
-      - Poner de cabeza el título: .hero__title { transform: rotate(180deg); }
-      - Poner de cabeza la imagen del logo: .hero__logo-img { transform: rotate(180deg); }
-   3. CAMBIAR TAMAÑOS:
-      - Título más grande: .hero__title { font-size: 4rem; }
-      - Título más pequeño: .hero__title { font-size: 2rem; }
-      - Logo más grande: .hero__logo-img { width: 440px; height: 440px; }
-      - Logo más pequeño: .hero__logo-img { width: 220px; height: 220px; }
-   4. INVERTIR COLUMNAS (Logo a la izq y texto a la der):
-      .hero__inner { direction: rtl; } .hero__copy, .hero__art { direction: ltr; }
-      o en grid: .hero__copy { order: 2; } .hero__art { order: 1; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Controla la sección principal de impacto inicial en la página de inicio.
+   - Estructura: CSS Grid de 2 columnas (.hero__copy texto a la izq y .hero__art ilustración a la der).
+   - .cup-stage / .cup-photo: Escenario circular decorado que contiene el logo oficial con borde blanco
+     y resplandor ambiental (.cup-glow).
+   - .float-chip: Pequeñas etiquetas flotantes (🍓 Fresa, 🥭 Parchita, 🍫 Brownie) que orbitan el logo.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO INVERTIR LAS COLUMNAS (Ilustración a la izquierda y texto a la derecha):
+      - En .hero__inner cambiar grid-template-columns: 1.05fr 0.95fr; por 0.95fr 1.05fr;
+      - Añadir: .hero__art { order: 1; } .hero__copy { order: 2; } (intercambia el orden visual sin tocar HTML).
+   2. CÓMO CENTRAR TODO EL CONTENIDO DEL HERO EN ESCRITORIO:
+      - En .hero__inner cambiar grid-template-columns: 1fr; text-align: center;
+      - En .hero__lead añadir margin-inline: auto; para centrar el texto descriptivo.
+      - En .hero__actions y .hero__stats añadir justify-content: center;
+   3. CÓMO CAMBIAR EL TAMAÑO DEL ESCENARIO DEL LOGO:
+      - Logo más grande: en .cup-stage cambiar width: 400px; height: 400px; a 500px por 500px.
+      - Foto central más grande: en .cup-photo cambiar width: 325px; height: 325px; a 400px por 400px.
+   4. CÓMO CAMBIAR EL TAMAÑO O COLOR DEL TÍTULO PRINCIPAL:
+      - Título más grande o impactante: en .hero__title cambiar font-size: 3.2rem; a 4rem; o 4.5rem;
+      - Cambiar el color de la palabra manuscrita (.script): en .hero__title .script cambiar color: var(--pink); por otro color.
+   5. CÓMO MOVER LAS ETIQUETAS FLOTANTES (CHIPS):
+      - .chip-a { top: 2%; left: -4%; } -> cambiar top/left para moverla de lugar.
+      - .chip-b { top: 48%; right: -8%; } -> cambiar coordenadas según se prefiera.
+      - Para ocultar las etiquetas flotantes: .float-chip { display: none; }
+   6. CÓMO ROTAR EL LOGO O DARLE EFECTO FLOTANTE:
+      - Rotar 180°: .hero__logo-img { transform: rotate(180deg); }
+      - Animación flotante continua: añadir animation: drift 6s ease-in-out infinite alternate;
    ============================================================================= */
 .hero {
   position: relative;
@@ -683,22 +756,25 @@ h4 {
 
 /* =============================================================================
    7. MARQUESINA Y BANNERS (.marquee, .marquee__track, .page-banner)
-   ¿QUÉ ES?
-   La marquesina es una cinta horizontal que se desplaza infinitamente mostrando
-   los postres y batidos. Utiliza la animación CSS pura @keyframes marquee.
    
-   TRUCOS DE DEFENSA:
-   - Cambiar velocidad:
-     * Más rápida (10 seg): .marquee__track { animation-duration: 10s; }
-     * Más lenta (45 seg):  .marquee__track { animation-duration: 45s; }
-   - Cambiar dirección de movimiento (de izq a der):
-     .marquee__track { animation-direction: reverse; }
-   - Pausar el movimiento:
-     .marquee__track { animation-play-state: paused; }
-   - Cambiar color de fondo de la cinta:
-     .marquee { background: #e6147f; color: white; } o background: #000000;
-   - Texto más grande:
-     .marquee span { font-size: 1.4rem; font-weight: bold; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   - .marquee: Cinta horizontal continua que recorre la pantalla de derecha a izquierda mostrando los
+     productos más populares de Batidos Flavors.
+   - .page-banner: Cabecera decorativa utilizada en páginas secundarias (Nosotros, Menú, Galería, Contacto).
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR LA VELOCIDAD O DIRECCIÓN DE LA MARQUESINA:
+      - Hacerla más rápida: cambiar animation: marquee 25s linear infinite; por 12s.
+      - Hacerla más pausada y lenta: cambiar 25s por 45s.
+      - Invertir dirección (de izquierda a derecha): cambiar animation-direction: reverse;
+      - Pausar el movimiento al pasar el cursor: añadir .marquee:hover .marquee__track { animation-play-state: paused; }
+   2. CÓMO CAMBIAR ALTURA Y COLOR DE LA CINTA:
+      - Cinta más gruesa: cambiar padding: 0.7rem 0; por padding: 1.5rem 0;
+      - Cinta de color sólido: background: #3a2230; (color ciruela oscuro de la marca) o #25d366; (verde).
+      - Tamaño del texto: en .marquee__track span cambiar font-size: 1.35rem; a 1.8rem;
+   3. CÓMO PERSONALIZAR EL BANNER DE PÁGINAS SECUNDARIAS (.page-banner):
+      - Banner más alto: cambiar padding: 2.6rem 1.5rem 2rem; por padding: 5rem 1.5rem 4rem;
+      - Título más grande: en .page-banner h1 cambiar font-size: 2.7rem; a 3.5rem;
    ============================================================================= */
 .marquee {
   background: var(--grad-hot);
@@ -756,16 +832,24 @@ h4 {
 
 /* =============================================================================
    8. ESTRUCTURA DE SECCIONES (.section, .section__head, .eyebrow)
-   ¿QUÉ ES?
-   Contenedores estandarizados que envuelven cada bloque temático de la página.
-   - max-width: var(--maxw); (1200px) evita que el contenido se estire demasiado en pantallas gigantes.
-   - margin: 0 auto; centra el contenedor horizontalmente en la pantalla.
    
-   TRUCOS DE DEFENSA:
-   - Alinear títulos de sección a la izquierda: .section__head { text-align: left; }
-   - Alinear títulos de sección a la derecha:   .section__head { text-align: right; }
-   - Más espacio arriba y abajo de la sección:  .section { padding: 6rem 1.5rem; }
-   - Menos espacio (más compacta):             .section { padding: 1.5rem 1.5rem; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Estandariza los contenedores de contenido y sus encabezados de sección.
+   - .section: Aplica un ancho máximo uniforme (var(--maxw) = 1180px) centrado con margin: 0 auto;
+   - .section__head: Centra el subtítulo, el título con tipografía Dancing Script y el párrafo descriptivo.
+   - .eyebrow: Pequeña insignia superior en forma de píldora con texto en mayúsculas que introduce el tema.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL ESPACIO VERTICAL ENTRE SECCIONES:
+      - Secciones más separadas (diseño espacioso): cambiar padding: 2.8rem 1.5rem; por padding: 5.5rem 1.5rem;
+      - Secciones más pegadas (diseño compacto): cambiar padding: 2.8rem 1.5rem; por padding: 1.2rem 1rem;
+   2. CÓMO ALINEAR LOS ENCABEZADOS DE SECCIÓN A LA IZQUIERDA:
+      - En .section__head cambiar text-align: center; por text-align: left; y margin: 0 0 2rem 0;
+   3. CÓMO CAMBIAR EL TAMAÑO DE LOS TÍTULOS DE SECCIÓN:
+      - Títulos más grandes e imponentes: en .section__head h2 cambiar font-size: 2.3rem; a 3rem;
+   4. CÓMO PERSONALIZAR LA PÍLDORA (.eyebrow):
+      - Cambiar su color: background: rgba(0, 119, 182, 0.15); color: #0077b6; (azul).
+      - Quitar el fondo y dejar solo texto: background: transparent; padding: 0;
    ============================================================================= */
 .section {
   max-width: var(--maxw);
@@ -823,34 +907,31 @@ h4 {
 
 /* =============================================================================
    9. TARJETAS Y COMPONENTES (.cards, .card, .card__img, .card__body, .tag)
-   ¿QUÉ ES?
-   Muestra las tarjetas visuales de los productos estrella (Pie de Parchita, Fresas, etc.).
-   Utiliza CSS Grid: grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-   lo cual hace que se ajusten automáticamente de 3 columnas a 2 o a 1 según la pantalla.
    
-   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
-   1. CAMBIAR NÚMERO DE COLUMNAS:
-      - Forzar exactamente 3 columnas: .cards { grid-template-columns: repeat(3, 1fr); }
-      - Forzar exactamente 2 columnas: .cards { grid-template-columns: repeat(2, 1fr); }
-      - Forzar 1 sola columna (apiladas verticalmente): .cards { grid-template-columns: 1fr; }
-      - Forzar 4 columnas: .cards { grid-template-columns: repeat(4, 1fr); }
-   2. SEPARACIÓN:
-      - Más espacio entre tarjetas: .cards { gap: 3rem; }
-      - Menos espacio entre tarjetas: .cards { gap: 0.8rem; }
-   3. PONER DE CABEZA / ROTAR:
-      - Poner de cabeza toda la tarjeta: .card { transform: rotate(180deg); }
-      - Poner de cabeza solo la imagen del producto: .card__img img { transform: rotate(180deg); }
-      - Invertir la imagen horizontalmente (espejo): .card__img img { transform: scaleX(-1); }
-   4. CAMBIAR TAMAÑOS:
-      - Tarjetas más altas: .card__img { height: 320px; }
-      - Tarjetas más bajas / compactas: .card__img { height: 160px; }
-      - Zoom al pasar el cursor (hover): .card:hover { transform: scale(1.08); }
-   5. CAMBIAR FORMA Y BORDES:
-      - Bordes rectos cuadrados: .card { border-radius: 0; }
-      - Imagen redonda tipo burbuja: .card__img { border-radius: 50%; width: 200px; height: 200px; margin: 1rem auto; }
-   6. CAMBIAR COLORES:
-      - Fondo de la tarjeta: .card { background: #fff2f8; border: 2px solid #e6147f; }
-      - Color de la etiqueta .tag: background: #25d366; (verde) | background: #3a2230; (morado)
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Presenta las tarjetas de productos destacados (Pie de Limón, Fresas con Brownie, Chocolate, etc.).
+   - .cards: Cuadrícula inteligente CSS Grid que se autoajusta automáticamente según el ancho disponible:
+     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   - .card: Caja blanca con bordes redondeados, sombra y efecto de elevación al pasar el ratón (:hover).
+   - .card__img: Contenedor con aspect-ratio: 4/3; y fondo radial suave donde reposa la imagen del producto.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL NÚMERO DE COLUMNAS DE TARJETAS:
+      - Forzar exactamente 3 columnas en pantalla grande: grid-template-columns: repeat(3, 1fr);
+      - Forzar exactamente 4 columnas: grid-template-columns: repeat(4, 1fr);
+      - Forzar exactamente 2 columnas grandes: grid-template-columns: repeat(2, 1fr);
+   2. CÓMO CAMBIAR LA SEPARACIÓN ENTRE TARJETAS:
+      - En .cards cambiar gap: 1.5rem; por gap: 2.5rem; (más espacio) o gap: 0.8rem; (muy juntas).
+   3. CÓMO CAMBIAR EL EFECTO HOVER DE LAS TARJETAS:
+      - Subir más la tarjeta al pasar el cursor: en .card:hover cambiar translateY(-5px); por translateY(-12px);
+      - Efecto de zoom a toda la tarjeta: cambiar por transform: scale(1.05);
+      - Sombra más intensa y colorida: box-shadow: 0 14px 30px rgba(230, 20, 127, 0.25);
+   4. CÓMO CAMBIAR LA PROPORCIÓN DE LA IMAGEN:
+      - Imagen cuadrada: en .card__img cambiar aspect-ratio: 4/3; por aspect-ratio: 1/1;
+      - Imagen más baja (panorámica): cambiar aspect-ratio: 4/3; por aspect-ratio: 16/9;
+   5. CÓMO ROTAR O PONER DE CABEZA UNA TARJETA:
+      - Poner de cabeza: .card { transform: rotate(180deg); }
+      - Reflejo espejo: .card { transform: scaleX(-1); }
    ============================================================================= */
 .card,
 .feature,
@@ -951,18 +1032,30 @@ h4 {
 
 /* =============================================================================
    10. NOSOTROS Y CARRUSEL FOTOGRÁFICO (.nosotros, .carousel, .carousel__track)
-   ¿QUÉ ES?
-   Muestra la reseña socio-productiva de la empresa y una galería fotográfica continua.
-   El carrusel utiliza @keyframes carouselSlide para desplazarse suavemente sin JavaScript.
    
-   TRUCOS DE DEFENSA:
-   - Cambiar velocidad del carrusel:
-     * Más rápido (6s): .carousel__track { animation-duration: 6s; }
-     * Más lento (25s):  .carousel__track { animation-duration: 25s; }
-   - Pausar el carrusel: .carousel__track { animation-play-state: paused; }
-   - Invertir sentido del carrusel: .carousel__track { animation-direction: reverse; }
-   - Cambiar orden (foto a la derecha y texto a la izquierda):
-     .nosotros { direction: rtl; } .nosotros__media, .nosotros__copy { direction: ltr; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Organiza la presentación de la historia de la marca y su carrusel fotográfico automatizado.
+   - Estructura: CSS Grid de 2 columnas (.nosotros__media a la izq con 45% y .nosotros__copy a la der con 55%).
+   - .carousel: Ventana visible con overflow: hidden; que oculta el resto de la tira de fotos.
+   - .carousel__track: Tira horizontal con width: 500%; que contiene las fotos en fila y se desplaza
+     con la animación @keyframes carouselSlide sin requerir JavaScript.
+   - .checks: Lista de viñetas personalizadas con un círculo de gradiente corporativo y un tilde ✓ blanco.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO INVERTIR LAS COLUMNAS (Texto a la izquierda y Carrusel a la derecha):
+      - En .nosotros cambiar grid-template-columns: 0.9fr 1.1fr; por 1.1fr 0.9fr;
+      - Añadir: .nosotros__media { order: 2; } .nosotros__copy { order: 1; }
+   2. CÓMO CAMBIAR LA ALTURA Y FORMA DEL CARRUSEL:
+      - Carrusel más alto: en .carousel cambiar height: 380px; por height: 480px; o 520px;
+      - Carrusel cuadrado perfecto: cambiar aspect-ratio: 4/5; por aspect-ratio: 1/1;
+      - Bordes más redondeados: cambiar border-radius: var(--radius-lg); por border-radius: 40px;
+   3. CÓMO MODIFICAR LA VELOCIDAD DE LA ANIMACIÓN:
+      - Más rápido (cada foto dura menos): cambiar carouselSlide 12s por carouselSlide 6s.
+      - Más lento y relajado: cambiar carouselSlide 12s por carouselSlide 20s.
+      - Detener el carrusel en una foto fija: cambiar animation: none;
+   4. CÓMO PERSONALIZAR LAS VIÑETAS DE LISTA (.checks):
+      - Cambiar el símbolo ✓ por otro: en .checks li::before cambiar content: "✓"; por "★", "🍓" o "•";
+      - Viñetas cuadradas: cambiar border-radius: 50%; por border-radius: 4px;
    ============================================================================= */
 .nosotros {
   display: grid;
@@ -1075,25 +1168,26 @@ h4 {
 
 /* =============================================================================
    11. VALORES, GALERÍA Y TESTIMONIOS (.feature-grid, .gallery, .quotes, .quote)
-   ¿QUÉ ES?
-   - .feature-grid: Cuadrícula de 4 valores (Calidad, Hecho con cariño, etc.).
-   - .gallery: Galería estilo mosaico/masonry fotográfico.
-   - .quotes: Bloque de testimonios con blockquote y citas.
    
-   TRUCOS DE DEFENSA:
-   1. VALORES (.feature-grid):
-      - 2 columnas en vez de 4: .feature-grid { grid-template-columns: repeat(2, 1fr); }
-      - 1 columna vertical:     .feature-grid { grid-template-columns: 1fr; }
-      - Poner icono de cabeza:  .feature__ic { transform: rotate(180deg); }
-      - Icono más grande:       .feature__ic { font-size: 3rem; }
-   2. GALERÍA (.gallery):
-      - 2 fotos por fila:       .gallery { grid-template-columns: repeat(2, 1fr); }
-      - 4 fotos por fila:       .gallery { grid-template-columns: repeat(4, 1fr); }
-      - Poner una foto de cabeza: .g-item img { transform: rotate(180deg); }
-      - Efecto blanco y negro:  .g-item img { filter: grayscale(100%); }
-   3. TESTIMONIOS (.quote):
-      - Cambiar fondo de la cita: .quote { background: #ffe3f0; border-left: 5px solid #e6147f; }
-      - Centrar texto de la cita: .quote { text-align: center; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Reúne tres componentes esenciales de credibilidad y confianza:
+   - .feature-grid: 4 columnas con los pilares del negocio (Ingredientes frescos, Higiene, Pasión, Quíbor).
+   - .gallery: Mosaico fotográfico con pie de foto superpuesto mediante un degradado oscuro inferior.
+   - .quotes: Cuadrícula de 3 columnas para testimonios de clientes con comillas decorativas gigantes (“).
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR LAS COLUMNAS DE VALORES O GALERÍA:
+      - Pasar de 4 a 3 columnas: en .feature-grid o .gallery cambiar repeat(4, 1fr); por repeat(3, 1fr);
+      - Pasar a 2 columnas grandes: cambiar por repeat(2, 1fr);
+   2. CÓMO MODIFICAR LA ALTURA DE LAS FOTOS DE LA GALERÍA:
+      - Fotos más altas (verticales estilo smartphone): en .g-item cambiar height: 270px; por height: 380px;
+      - Fotos cuadradas: cambiar aspect-ratio: 3/4; por aspect-ratio: 1/1;
+   3. CÓMO AJUSTAR EL ZOOM DE FOTOS AL PASAR EL CURSOR:
+      - Añadir zoom a la imagen interna: en .g-item:hover img { transform: scale(1.1); transition: transform 0.4s; }
+   4. CÓMO PERSONALIZAR LAS TARJETAS DE TESTIMONIOS (.quote):
+      - Cambiar el color de la barra superior: border-top: 4px solid #25d366; (verde) o #ffd9ec; (rosa pastel).
+      - Cambiar el color y tamaño de la comilla decorativa: en .quote::before cambiar font-size: 3.8rem;
+        y color: var(--pink-soft); por otro tono.
    ============================================================================= */
 .feature-grid {
   display: grid;
@@ -1219,28 +1313,29 @@ h4 {
 
 /* =============================================================================
    12. CATÁLOGO DE PRECIOS (.price-block, .price-cat, .price-row, .price-row__val)
-   ¿QUÉ ES?
-   Estructura en acordeón visual que lista los precios organizados por categorías:
-   1. Batidos (1.30 / 1.60 REF)
-   2. Especiales con Leche (Toddy, Cerelac, etc.)
-   3. Batidos Mixtos (2.00 / 2.40 REF)
-   4. Otros / Postres (Fresas con Crema, Yogurt)
-   5. Toppings & Extras (0.25 - 0.95 REF)
    
-   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
-   1. CÓMO CAMBIAR COLOR DE PRECIOS:
-      - Destacar precio en verde: .price-row__val { color: #25d366; font-size: 1.3rem; }
-      - Destacar precio en azul:  .price-row__val { color: #1e88e5; }
-      - Destacar precio en dorado:.price-row__val { color: #f59e0b; }
-   2. CÓMO CAMBIAR DIMENSIONES Y ESPACIOS:
-      - Filas más altas / separadas: .price-row { padding: 1.4rem 1rem; }
-      - Filas más compactas:         .price-row { padding: 0.4rem 0.5rem; }
-   3. CÓMO MOVER O ALINEAR:
-      - Alinear nombre a la derecha: .price-row__name { text-align: right; }
-      - Poner precio a la izquierda: .price-row { flex-direction: row-reverse; }
-   4. EFECTOS:
-      - Poner de cabeza una fila: .price-row:first-child { transform: rotate(180deg); }
-      - Resaltar fila favorita con fondo: .price-row:hover { background: #ffd9ec; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Presenta el listado oficial de precios dividido por categorías temáticas:
+   1. Batidos tradicionales (1.30 / 1.60 REF)
+   2. Especiales con Leche (Toddy, Cerelac, Galleta María, Samba, Pie de Parchita)
+   3. Batidos Mixtos (2.00 / 2.40 REF)
+   4. Otros / Postres (Fresas con Crema y Yogurt natural/mermelada)
+   5. Toppings & Extras (0.25 a 0.95 REF)
+   - .price-row: Fila flexible en 2 columnas: nombre/descripción a la izquierda y precio a la derecha.
+   - border-bottom: 1px dashed ...; crea la línea punteada divisoria entre productos.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO RESALTAR O CAMBIAR EL COLOR DE LOS PRECIOS:
+      - Precios en verde dólar/éxito: en .price-row__val cambiar color: var(--pink); por color: #25d366;
+      - Precios más grandes: cambiar font-size: 1.12rem; por font-size: 1.35rem; font-weight: 900;
+   2. CÓMO CAMBIAR EL ESPACIADO ENTRE FILAS:
+      - Filas más altas y cómodas al tacto: en .price-row cambiar padding: 0.85rem 0.2rem; por padding: 1.3rem 0.5rem;
+      - Filas más compactas para que quepan más productos: cambiar por padding: 0.45rem 0.2rem;
+   3. CÓMO CAMBIAR EL COLOR DE RESALTADO AL PASAR EL RATÓN:
+      - En .price-row:hover cambiar background: rgba(255, 217, 236, 0.25); por rgba(230, 20, 127, 0.08);
+   4. CÓMO CAMBIAR LA LÍNEA SEPARADORA:
+      - Línea sólida continua: cambiar border-bottom: 1px dashed ...; por border-bottom: 1px solid rgba(...);
+      - Sin línea divisoria: border-bottom: none;
    ============================================================================= */
 .price-block {
   max-width: var(--maxw);
@@ -1345,25 +1440,26 @@ h4 {
 
 /* =============================================================================
    13. CONTACTO, FORMULARIO Y MAPA (.contacto__card, .form-flavors, .contacto__map)
-   ¿QUÉ ES?
-   Bloque de atención con lista de contacto (Ubicación, Delivery, WhatsApp, Instagram),
-   mapa de ubicación y formulario para recepción de opiniones.
    
-   TRUCOS DE DEFENSA:
-   1. DISPOSICIÓN:
-      - Poner mapa a la izquierda y datos a la derecha:
-        .contacto__card { direction: rtl; } .contacto__copy, .contacto__map { direction: ltr; }
-      - Poner datos arriba y mapa abajo (1 columna):
-        .contacto__card { grid-template-columns: 1fr; }
-   2. MAPA / CAPTURA (.contacto__map):
-      - Más alto: .contacto__map { min-height: 500px; }
-      - Más bajo: .contacto__map { min-height: 250px; }
-      - Poner el mapa de cabeza: .contacto__map img { transform: rotate(180deg); }
-      - Borde redondeado: .contacto__map { border-radius: 30px; }
-   3. BOTÓN DEL FORMULARIO (.btn--block):
-      - Para que tome todo el div: width: 100%; display: block;
-      - Para que sea angosto y a la derecha: width: auto; margin-left: auto; display: table;
-      - Cambiar color al botón de enviar: .form-flavors button { background: #25d366; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Sección de contacto y formulario para la comunidad de Quíbor.
+   - .contacto__card: Tarjeta contenedora con degradado vivo corporativo (--grad-hot) que contiene los
+     canales de atención (Ubicación física, Delivery, WhatsApp, Instagram) y el mapa interactivo.
+   - .ci: Icono decorativo semitransparente con fondo de cristal y borde que envuelve cada SVG.
+   - .comentarios__grid: Disposición en 2 columnas: formulario de envío a la izquierda y lista de opiniones a la derecha.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO INVERTIR LAS COLUMNAS DE CONTACTO (Mapa a la izquierda e información a la derecha):
+      - Añadir: .contacto__copy { order: 2; } .contacto__map { order: 1; }
+   2. CÓMO MODIFICAR LA ALTURA Y FORMA DEL MAPA:
+      - Mapa más alto: en .contacto__map cambiar min-height: 380px; por min-height: 480px; o 550px;
+      - Bordes más redondeados del mapa: border-radius: 24px;
+   3. CÓMO CAMBIAR EL COLOR DE FONDO DE LA TARJETA DE CONTACTO:
+      - De degradado a color oscuro sobrio: background: #3a2230;
+      - De degradado a blanco limpio: background: #ffffff; color: var(--plum);
+   4. CÓMO PERSONALIZAR EL CAMPO TEXTAREA DEL FORMULARIO:
+      - Hacer el cuadro de texto más alto: en .form-flavors textarea cambiar min-height: 105px; por 160px;
+      - Cambiar el color del borde al enfocar (:focus): border-color: #25d366; box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
    ============================================================================= */
 .contacto__card {
   display: grid;
@@ -1607,26 +1703,28 @@ h4 {
 
 /* =============================================================================
    14. MODAL DE CONFIRMACIÓN SIN JAVASCRIPT (.modal, #enviado:target)
-   ¿CÓMO FUNCIONA PARA LA DEFENSA? (Técnica CSS :target)
-   1. El modal es un <div id="enviado" class="modal"> con un identificador único.
-   2. Por defecto está oculto con:
-      opacity: 0; pointer-events: none; (no se ve y no recibe clics).
-   3. Cuando el formulario tiene action="#enviado" o un enlace apunta a href="#enviado",
-      la URL del navegador se convierte en: contacto.html#enviado.
-   4. El selector CSS #enviado:target detecta que el elemento con id="enviado" coincide
-      con el hash (#) de la URL, y aplica:
-      - opacity: 1; (se hace visible).
-      - pointer-events: auto; (permite hacer clic).
-      - transform: translateY(0); (baja suavemente desde arriba).
-   5. Para cerrarlo, el botón "Aceptar", la cruz (×) o el fondo apuntan a href="#" (o href="contacto.html"),
-      lo cual elimina el hash #enviado de la URL y desactiva :target, cerrando el modal al instante.
    
-   TRUCOS DE DEFENSA:
-   - Modal más ancho: .modal__dialog { max-width: 600px; }
-   - Modal más estrecho / compacto: .modal__dialog { max-width: 300px; }
-   - Cambiar color de fondo del modal: .modal__dialog { background: #ffe3f0; }
-   - Poner el modal de cabeza: .modal__dialog { transform: rotate(180deg); }
-   - Cambiar icono del check: .modal__icon { background: #25d366; color: white; }
+   ¿CÓMO FUNCIONA ESTE MECANISMO? (Técnica CSS pura :target):
+   1. El modal es un elemento <div id="enviado" class="modal">.
+   2. Por defecto se encuentra invisible con opacity: 0; visibility: hidden; pointer-events: none;
+   3. Cuando el usuario envía el formulario o pulsa un enlace que añade el hash #enviado a la URL,
+      la pseudoclase estándar de CSS :target se activa instantáneamente sobre ese elemento.
+   4. La regla #enviado:target cambia opacity a 1, visibility a visible y activa los clics con pointer-events: auto.
+   5. Para cerrarlo, el botón "Cerrar" y el fondo oscuro son enlaces con href="#" que eliminan el hash de la URL.
+   ¡Todo el ciclo de apertura y cierre funciona al 100% sin requerir ni una sola línea de JavaScript!
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL TAMAÑO DE LA VENTANA MODAL:
+      - Ventana más ancha: en .modal__dialog cambiar max-width: 440px; por max-width: 600px;
+      - Ventana más compacta: cambiar por max-width: 360px;
+   2. CÓMO CAMBIAR LA ANIMACIÓN DE APARICIÓN DEL MODAL:
+      - Deslizar desde arriba: cambiar transform: translateY(15px); por translateY(-50px);
+      - Efecto de zoom pop-up: cambiar por transform: scale(0.7); en reposo y transform: scale(1); en target.
+   3. CÓMO CAMBIAR EL COLOR O TRANSPARENCIA DEL TELÓN DE FONDO:
+      - Fondo más oscuro (cine): en .modal__backdrop cambiar rgba(43, 10, 31, 0.78) por rgba(0, 0, 0, 0.90);
+      - Fondo más claro y translúcido: cambiar por rgba(255, 255, 255, 0.75); con backdrop-filter: blur(8px);
+   4. CÓMO CAMBIAR EL ICONO O COLOR DEL CÍRCULO CENTRAL:
+      - En .modal__icon cambiar background: var(--grad-soft); por #25d366; (verde éxito) y color: #ffffff;
    ============================================================================= */
 .modal {
   position: fixed;
@@ -1738,36 +1836,33 @@ h4 {
 
 /* =============================================================================
    15. PIE DE PÁGINA INSTITUCIONAL (.footer, .footer__inner, 4 columnas)
-   ¿QUÉ ES?
-   Pie de página institucional organizado en 4 columnas mediante CSS Grid:
-   - Columna 1 (.footer__uni): Logo institucional UPTAEB y datos ministeriales.
-   - Columna 2 (.footer__team): Autores del proyecto (José Rodríguez y Ángel García), tutor y trayecto.
-   - Columna 3 (.footer__brand): Marca Batidos Flavors y descripción del emprendimiento.
-   - Columna 4 (.footer__social): Enlaces a redes sociales y contacto (Instagram y WhatsApp con iconos SVG).
    
-   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
-   1. CAMBIAR NÚMERO DE COLUMNAS:
-      - 4 columnas actuales: .footer__inner { grid-template-columns: 1.25fr 1.05fr 1.1fr 0.9fr; }
-      - 3 columnas:          .footer__inner { grid-template-columns: repeat(3, 1fr); }
-      - 2 columnas:          .footer__inner { grid-template-columns: repeat(2, 1fr); }
-      - 1 columna (apiladas):.footer__inner { grid-template-columns: 1fr; }
-   2. CAMBIAR COLOR DE FONDO DEL FOOTER:
-      - Fondo morado ciruela actual: background: #502e43;
-      - Fondo negro elegante:        background: #111111;
-      - Fondo rosa corporativo:      background: #b11464;
-      - Fondo azul institucional:    background: #1e3a8a;
-   3. MOVER O ALINEAR CONTENIDO:
-      - Centrar todo el texto del footer: .footer__inner { text-align: center; }
-      - Alinear texto a la derecha:      .footer__inner { text-align: right; }
-      - Mover el logo de la UPTAEB a la der: .footer__uni-logo { margin-left: auto; }
-      - Mover el logo de la UPTAEB al centro:.footer__uni-logo { margin: 0 auto 12px; }
-   4. PONER DE CABEZA / ROTAR:
-      - Poner de cabeza el logo universitario: .footer__uni-logo { transform: rotate(180deg); }
-      - Poner de cabeza todo el footer: .footer { transform: rotate(180deg); }
-   5. TAMAÑOS:
-      - Logo universitario más grande: .footer__uni-logo { max-width: 140px; }
-      - Logo universitario más chico:  .footer__uni-logo { max-width: 60px; }
-      - Texto del footer más grande:   .footer p { font-size: 1rem; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Pie de página estructurado en 4 columnas equilibradas con CSS Grid:
+   - Columna 1 (.footer__uni): Identidad académica UPTAEB (Logotipo ampliado, República y Ministerio).
+   - Columna 2 (.footer__team): Autores del proyecto (José Alfredo Rodríguez y Ángel García, tutora y trayecto).
+   - Columna 3 (.footer__brand): Marca Batidos Flavors y síntesis socio-productiva comunitaria.
+   - Columna 4 (.footer__social): Canales de atención y contacto en Quíbor.
+   - .footer__base: Barra inferior con derechos reservados y botón "Volver arriba ↑" con estilo píldora.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL NÚMERO Y PROPORCIÓN DE COLUMNAS:
+      - 4 columnas iguales exactas: en .footer__inner cambiar grid-template-columns: repeat(4, 1fr);
+      - 3 columnas: grid-template-columns: repeat(3, 1fr); (ocultando una columna en HTML).
+      - 2 columnas amplias: grid-template-columns: repeat(2, 1fr); gap: 3rem;
+   2. CÓMO CAMBIAR EL COLOR DE FONDO DEL FOOTER:
+      - Fondo ciruela oscuro liso: background: #3a2230; (sin gradiente).
+      - Fondo negro elegante: background: #12090f;
+      - Fondo rosado de marca: background: linear-gradient(180deg, #b11464 0%, #3a2230 100%);
+   3. CÓMO CAMBIAR EL TAMAÑO DEL LOGO UNIVERSITARIO:
+      - Logo más grande: en .footer__uni-logo cambiar width: 90px; por width: 120px; max-height: 90px;
+      - Logo más discreto: cambiar por width: 65px; max-height: 50px;
+   4. CÓMO ALINEAR EL TEXTO DEL FOOTER AL CENTRO:
+      - En .footer__inner añadir text-align: center;
+      - Para centrar los iconos sociales: en .footer__social añadir justify-content: center;
+   5. CÓMO PERSONALIZAR EL BOTÓN "VOLVER ARRIBA" (.footer__top-btn):
+      - Cambiar su color: background: #3a2230; border: 1px solid rgba(255, 255, 255, 0.4);
+      - Botón más grande y visible: padding: 0.8rem 1.8rem; font-size: 1rem;
    ============================================================================= */
 .footer {
   background: #502e43;
@@ -1934,18 +2029,23 @@ h4 {
 
 /* =============================================================================
    16. BOTÓN FLOTANTE "VOLVER ARRIBA" (.btn-top)
-   ¿QUÉ ES?
-   Botón circular con flecha hacia arriba fijo en la esquina inferior derecha.
-   - position: fixed; bottom: 22px; right: 22px;
-   - z-index: 90; lo coloca por encima del contenido.
    
-   TRUCOS DE DEFENSA:
-   - Mover a la esquina izquierda: .btn-top { right: auto; left: 22px; }
-   - Poner de cabeza (flecha hacia abajo): .btn-top { transform: rotate(180deg); }
-   - Más grande: .btn-top { width: 65px; height: 65px; font-size: 1.6rem; }
-   - Más pequeño: .btn-top { width: 35px; height: 35px; font-size: 0.9rem; }
-   - Cambiar color: .btn-top { background: #25d366; } (verde) | background: #3a2230; (morado)
-   - Hacerlo cuadrado: .btn-top { border-radius: 0; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Botón flotante fijado en la esquina inferior derecha de la pantalla.
+   - position: fixed; bottom: 22px; right: 22px; lo mantiene anclado permanentemente visible.
+   - z-index: 99; asegura que flote por encima de imágenes, mapas y texto.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIARLO DE ESQUINA (De derecha a izquierda):
+      - Cambiar right: 22px; por left: 22px;
+   2. CÓMO SUBIRLO O BAJARLO:
+      - Más arriba (ej: para no tapar barras de navegación inferiores): cambiar bottom: 22px; por bottom: 60px;
+   3. CÓMO CONVERTIRLO EN UN CÍRCULO PERFECTO:
+      - Cambiar padding: 0.6rem 1.25rem; por width: 48px; height: 48px; border-radius: 50%; padding: 0;
+        justify-content: center;
+   4. CÓMO CAMBIARLE EL COLOR Y SOMBRA:
+      - Color verde WhatsApp si se usara como botón de chat flotante: background: #25d366;
+      - Sombra más brillante: box-shadow: 0 8px 24px rgba(230, 20, 127, 0.5);
    ============================================================================= */
 .btn-top {
   position: fixed;
@@ -1976,17 +2076,22 @@ h4 {
 
 /* =============================================================================
    17. ANIMACIONES CSS PURAS (@keyframes rise, @keyframes spin, etc.)
-   ¿QUÉ ES?
-   - @keyframes rise: Anima la entrada suave de elementos de abajo hacia arriba con opacidad.
-   - animation: rise 0.8s ease-out forwards;
    
-   TRUCOS DE DEFENSA:
-   - Hacer la animación más rápida: animation: rise 0.2s ease-out forwards;
-   - Hacer la animación en cámara lenta: animation: rise 3s ease-out forwards;
-   - Hacer que gire infinitamente:
-     animation: spin 3s linear infinite;
-     (donde @keyframes spin { to { transform: rotate(360deg); } })
-   - Pausar animaciones: * { animation-play-state: paused !important; }
+   ¿QUÉ HACE ESTE MÓDULO?:
+   Define los fotogramas clave (@keyframes) que otorgan dinamismo visual al sitio:
+   - @keyframes rise: Desplaza suavemente los elementos desde abajo (translateY(18px)) hacia su posición final con opacidad progresiva.
+   - .d1 a .d6: Clases de retraso escalonado (animation-delay) para que los elementos aparezcan sucesivamente como una cascada elegante.
+   - @media (prefers-reduced-motion: reduce): Regla de accesibilidad que respeta a usuarios con sensibilidad visual o vértigo desactivando animaciones automáticamente.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO HACER QUE LA ENTRADA SEA MÁS RÁPIDA O MÁS LENTA:
+      - En .reveal cambiar rise 0.7s por rise 0.3s (ultra rápido) o rise 1.5s (muy cinematográfico y lento).
+   2. CÓMO CAMBIAR LA DIRECCIÓN DE ENTRADA:
+      - Entrada desde la izquierda: en @keyframes rise cambiar transform: translateY(18px); por transform: translateX(-40px);
+      - Entrada desde la derecha: cambiar por transform: translateX(40px);
+      - Efecto de zoom pop: cambiar por transform: scale(0.8); en from y transform: scale(1); en to.
+   3. CÓMO DESACTIVAR TODAS LAS ANIMACIONES EN CASO DE NECESITARLO:
+      - Añadir: *, *::before, *::after { animation: none !important; transition: none !important; }
    ============================================================================= */
 @keyframes rise {
   from {
@@ -2025,19 +2130,32 @@ h4 {
 
 /* =============================================================================
    18. DISEÑO RESPONSIVO (@media queries)
-   ¿CÓMO FUNCIONA PARA LA DEFENSA?
-   Los Media Queries aplican estilos CSS condicionales según el ancho de pantalla:
+   
+   ¿CÓMO FUNCIONA ESTE MECANISMO?:
+   Los Media Queries aplican reglas CSS condicionales dependiendo del ancho del dispositivo del usuario:
    
    1. @media (max-width: 980px) -> TABLETS Y PANTALLAS MEDIANAS:
-      - El Hero pasa de 2 columnas a 1 columna (el texto arriba y el logo abajo).
-      - El Footer pasa de 4 columnas a 2 columnas (repeat(2, 1fr)).
-      - Los testimonios pasan de 3 columnas a 1 columna.
+      - El Hero pasa de 2 columnas a 1 sola columna centrada.
+      - Nosotros pasa a 1 columna apilada.
+      - Las cuadrículas de 4 columnas (Tarjetas, Valores, Galería) se adaptan automáticamente a 2 columnas.
+      - El Footer pasa de 4 columnas a 2 columnas.
    
-   2. @media (max-width: 600px) -> TELÉFONOS CELULARES:
-      - El menú horizontal de escritorio se oculta.
-      - Se activa el menú hamburguesa (.nav__burger display: block).
-      - Las tarjetas de productos se apilan a 1 columna vertical.
-      - El Footer pasa a 1 sola columna vertical (grid-template-columns: 1fr).
+   2. @media (max-width: 640px) -> TELÉFONOS CELULARES:
+      - El menú horizontal se oculta y aparece el botón hamburguesa (.nav__burger).
+      - El escenario del logo se reduce a 310px para que quepa en cualquier teléfono sin desbordar.
+      - Los títulos principales se reducen de tamaño (ej: h1 de 3.2rem a 2.3rem) para no ocupar demasiadas líneas.
+      - Todas las cuadrículas pasan a 1 sola columna vertical (100% ancho).
+      - El Footer se apila verticalmente en 1 columna.
+   
+   RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
+   1. CÓMO CAMBIAR EL PUNTO DE RUPTURA (BREAKPOINT):
+      - Si se quiere que el menú móvil aparezca antes (ej: en laptops pequeñas):
+        cambiar @media (max-width: 640px) por @media (max-width: 768px); o @media (max-width: 850px);
+   2. CÓMO HACER QUE LA GALERÍA MANTENGA 2 COLUMNAS EN CELULARES EN VEZ DE 1:
+      - En @media (max-width: 640px) cambiar .gallery { grid-template-columns: 1fr; }
+        por .gallery { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+   3. CÓMO AJUSTAR EL TAMAÑO DEL TÍTULO EN CELULARES:
+      - En @media (max-width: 640px) modificar .hero__title { font-size: 2rem; } o 1.8rem;
    ============================================================================= */
 @media (max-width: 980px) {
   .hero__inner {

@@ -93,15 +93,23 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: CATÁLOGO DE PRECIOS (.price-block)
-     - Organizado en 5 categorías (.price-cat):
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: CATÁLOGO DE PRECIOS (.price-block)
+     • ORGANIZACIÓN EN CATEGORÍAS TEMÁTICAS (.price-cat):
        1. Batidos naturales (1.30 REF normal / 1.60 REF con leche)
        2. Especiales con Leche (Toddy, Cerelac, Galleta María, Samba, Pie de Parchita)
        3. Batidos Mixtos (2.00 REF sin leche / 2.40 REF con leche)
        4. Otros / Postres y Especialidades (Fresas con Crema y Yogurt natural/mermelada)
        5. Toppings & Extras (0.25 a 0.95 REF)
-     - ¿Cómo agregar un producto nuevo?: Duplicar un div .price-row con su .price-row__name y .price-row__val.
-     - ¿Cómo cambiar precios?: Modificar el texto en .price-row__val y en el párrafo de descripción.
+     • CÓMO AGREGAR UN PRODUCTO O SABOR NUEVO:
+       - Duplicar una fila <div class="price-row">...</div> dentro de la categoría deseada:
+         * <div class="price-row__name"><b>Nombre</b><p>Ingredientes</p></div>
+         * <span class="price-row__val">Precio REF</span>
+     • CÓMO EDITAR O ACTUALIZAR PRECIOS:
+       - Modificar el texto dentro de <span class="price-row__val">1.60 REF</span>.
+       - Para cambiar el color de los precios: en styles.css modificar .price-row__val { color: var(--pink); }.
+     • CÓMO AGREGAR UNA CATEGORÍA COMPLETA NUEVA:
+       - Duplicar un bloque <article class="price-cat reveal-up">...</article> completo con su
+         cabecera .price-cat__head y su lista de productos .price-list.
      ========================================================================= -->
     <!-- Catálogo de precios -->
     <div class="price-block">

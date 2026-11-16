@@ -47,9 +47,21 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: CUADRÍCULA DE FOTOS (.gallery)
-     - Mosaico fotográfico con etiquetas <figure> y <figcaption> semánticas.
-     - Cada elemento usa la clase .g-item y se adapta en cuadrícula CSS Grid.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: CUADRÍCULA DE FOTOS (.gallery)
+     • ESTRUCTURA SEMÁNTICA Y ACCESIBILIDAD:
+       - Cada fotografía utiliza la etiqueta semántica <figure class="g-item reveal-up"> con su
+         respectiva imagen <img src="assets/..." alt="..." loading="lazy"> y leyenda <figcaption>.
+       - El atributo loading="lazy" optimiza el rendimiento cargando las fotos solo cuando entran en pantalla.
+     • CÓMO AGREGAR MÁS FOTOGRAFÍAS A LA GALERÍA:
+       - Duplicar un bloque <figure class="g-item reveal-up">...</figure>.
+       - Asignar la ruta de la nueva imagen en src="assets/galeria/..." y el texto descriptivo en <figcaption>.
+     • CÓMO CAMBIAR EL NÚMERO DE COLUMNAS:
+       - En styles.css, la regla .gallery tiene grid-template-columns: repeat(4, 1fr);
+       - Para 3 columnas más grandes: cambiar a grid-template-columns: repeat(3, 1fr);
+       - Para 2 columnas amplias: cambiar a grid-template-columns: repeat(2, 1fr);
+     • CÓMO CAMBIAR LA ALTURA DE LAS FOTOS:
+       - En styles.css, la regla .g-item tiene height: 270px; y aspect-ratio: 3/4;.
+       - Para fotos cuadradas: cambiar aspect-ratio: 1/1;.
      ========================================================================= -->
     <!-- Cuadrícula de fotos -->
     <section class="section section--flush-top">

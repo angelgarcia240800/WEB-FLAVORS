@@ -49,9 +49,15 @@
       <div class="contacto__card reveal-up">
         
         <!-- =========================================================================
-     GUÍA DEFENSA: INFORMACIÓN DE CONTACTO Y CAPTURAS
-     - Ubicación, WhatsApp e Instagram en este clon apuntan a capturas locales
-       (assets/mapa.png, assets/whatsapp.png, assets/instagram.png) para funcionar 100% offline.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: INFORMACIÓN DE CONTACTO Y ENLACES
+     • CÓMO EDITAR NÚMEROS Y ENLACES DE ATENCIÓN:
+       - Para cambiar el número de WhatsApp: modificar el número en href="https://wa.me/..." y en el texto visible.
+       - Para cambiar el usuario de Instagram: modificar el enlace href="https://instagram.com/..." y el texto @flavors_30.
+       - En este clon se puede enlazar a las capturas locales (assets/whatsapp.png, assets/instagram.png)
+         para demostración sin necesidad de conexión a internet.
+     • CÓMO AGREGAR UN CANAL ADICIONAL (Ej: Correo electrónico o TikTok):
+       - Duplicar un elemento <li> dentro de <ul class="contact-list">.
+       - Asignar el icono correspondiente en .ci y el enlace en <a>.
      ========================================================================= -->
         <!-- Información de contacto -->
         <div class="contacto__copy">
@@ -120,9 +126,15 @@
         </div>
 
         <!-- =========================================================================
-     GUÍA DEFENSA: MAPA DE UBICACIÓN
-     - En esta versión de defensa se reemplazó el <iframe> de Google Maps por la captura
-       local assets/mapa.png con enlace para ampliar en pantalla completa.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: MAPA DE UBICACIÓN FÍSICA
+     • OPCIONES DE VISUALIZACIÓN DEL MAPA:
+       - Opción 1 (Captura estática ligera): Utiliza <img src="assets/mapa.png"> envuelta en un <a>
+         que permite ver la ubicación de Santa Isabel, Quíbor en pantalla completa sin conexión.
+       - Opción 2 (Google Maps Interactivo en línea): Se puede reemplazar el <img> por un <iframe>
+         de Google Maps con src="https://maps.google.com/maps?q=9.928171,-69.615425&amp;output=embed".
+     • CÓMO CAMBIAR LA ALTURA O PROPORCIÓN DEL MAPA:
+       - En styles.css, la regla .contacto__map tiene min-height: 380px;.
+       - Aumentar a min-height: 480px; o 520px; si se desea un mapa más prominente.
      ========================================================================= -->
         <!-- Mapa de ubicación interactivo -->
         <div class="contacto__map">
@@ -144,10 +156,18 @@
 
       <div class="comentarios__grid">
         <!-- =========================================================================
-     GUÍA DEFENSA: FORMULARIO Y DEMOSTRACIÓN DEL MODAL
-     - action="#enviado" method="GET": Al presionar "Enviar comentario", la página navega
-       a contacto.html#enviado de forma local sin requerir internet.
-     - Esto activa inmediatamente la regla CSS #enviado:target que hace visible el modal.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: FORMULARIO Y APERTURA DE VENTANA MODAL
+     • CÓMO FUNCIONA EL ENVÍO Y APERTURA DEL MODAL:
+       - El formulario utiliza action="#enviado" method="GET".
+       - Al pulsar "Enviar comentario", la página navega a contacto.html#enviado dentro del mismo navegador.
+       - Esto dispara instantáneamente la regla CSS #enviado:target que hace visible la ventana modal
+         de agradecimiento sin requerir servidores externos ni JavaScript.
+     • CÓMO CONECTAR A UN SERVICIO REAL DE ENVÍO POR CORREO:
+       - Para enviar correos reales por internet: cambiar action="https://api.web3forms.com/submit" method="POST",
+         añadiendo el <input type="hidden" name="access_key" value="...">.
+     • CÓMO AGREGAR MÁS CAMPOS (Nombre, Teléfono, Calificación):
+       - Copiar el bloque <label for="comentario" class="form-group">...</label> y adaptarlo
+         con un <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">.
      ========================================================================= -->
         <!-- Formulario de comentarios -->
         <div class="comentarios__form-box reveal-up">
@@ -199,12 +219,16 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: MODAL NATIVO EN CSS PURO (<div id="enviado" class="modal">)
-     ¿CÓMO FUNCIONA?
-     1. Inicialmente tiene opacity: 0; pointer-events: none; (está invisible).
-     2. Cuando la URL termina en #enviado, la pseudoclase :target se activa.
-     3. El selector #enviado:target en CSS cambia opacity a 1 y pointer-events a auto.
-     4. Para cerrarlo, los enlaces apuntan a href="#" quitando el hash de la URL.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: MODAL NATIVO EN CSS PURO (<div id="enviado" class="modal">)
+     • ¿CÓMO FUNCIONA EL CICLO COMPLETO SIN JAVASCRIPT?:
+       1. Por defecto, .modal tiene opacity: 0; pointer-events: none; (está invisible e inactivo).
+       2. Cuando la URL del navegador termina con el ancla #enviado, la pseudoclase :target de CSS se activa.
+       3. La regla #enviado:target en styles.css cambia opacity a 1, visibility a visible y activa clics con pointer-events: auto.
+       4. Para cerrar la ventana: el botón "Volver a la web" y el fondo oscuro son enlaces a href="#"
+          que eliminan el ancla de la URL y devuelven el modal a su estado invisible.
+     • CÓMO PERSONALIZAR EL MENSAJE O ICONO DE ÉXITO:
+       - Modificar el icono dentro de <div class="modal__icon"> por cualquier otro emoji (ej: 🎉, 🥤, ❤️).
+       - Modificar el título en <h3> y el mensaje de agradecimiento en <p>.
      ========================================================================= -->
     <!-- Modal de confirmación -->
     <div id="enviado" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">

@@ -47,9 +47,21 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: HISTORIA Y CARRUSEL FOTOGRÁFICO
-     - Columna izquierda: Carrusel de 4 fotos animado con @keyframes carouselSlide sin JS.
-     - Columna derecha: Reseña socio-productiva del emprendimiento en Santa Isabel, Quíbor.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: HISTORIA Y CARRUSEL FOTOGRÁFICO
+     • ESTRUCTURA DE 2 COLUMNAS (.nosotros):
+       - Columna izquierda (.nosotros__media): Carrusel automático de 4 fotos animado con CSS puro (@keyframes carouselSlide).
+       - Columna derecha (.nosotros__copy): Reseña histórica y socio-productiva del emprendimiento en Santa Isabel, Quíbor.
+     • CÓMO AGREGAR O CAMBIAR FOTOS EN EL CARRUSEL:
+       - Modificar las rutas src="assets/nosotros-carrusel-1.jpg" a 4 en cada <div class="carousel__slide">.
+       - Nota de ciclo continuo: la primera imagen se duplica al final para garantizar una transición suave sin cortes.
+     • CÓMO AJUSTAR O DETENER LA VELOCIDAD DEL CARRUSEL:
+       - En styles.css, buscar .carousel__track y modificar animation: carouselSlide 12s ...
+         (cambiar 12s por 20s para movimiento más lento, o por 6s para más rápido).
+     • CÓMO INVERTIR LA POSICIÓN (Texto a la izquierda y carrusel a la derecha):
+       - En el HTML: cortar el bloque <div class="nosotros__media"> y colocarlo después de <div class="nosotros__copy">.
+       - En CSS: también se puede hacer con .nosotros__media { order: 2; } y .nosotros__copy { order: 1; }.
+     • CÓMO AGREGAR PUNTOS O VALORES A LA LISTA (.checks):
+       - Añadir una nueva etiqueta <li>Texto del valor</li> dentro de <ul class="checks">.
      ========================================================================= -->
     <!-- Historia y reseña socio-productiva -->
     <section class="section nosotros">

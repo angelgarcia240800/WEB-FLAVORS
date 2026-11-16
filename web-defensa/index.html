@@ -38,11 +38,19 @@
   </div>
 
   <!-- =========================================================================
-     GUÍA DEFENSA: ENCABEZADO Y NAVEGACIÓN (<header class="nav">)
-     - Logo: Para cambiar la imagen del logo editar src="assets/logo.png".
-     - Orden del menú: Para cambiar el orden de las páginas, mover las etiquetas <a> de posición.
-     - Menú móvil: Funciona con el checkbox oculto #nav-toggle sin JavaScript.
-     - Botón "Pedir ahora": En este clon abre la captura local assets/whatsapp.png.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: ENCABEZADO Y NAVEGACIÓN (<header class="nav">)
+     • CÓMO CAMBIAR EL LOGO:
+       - Modificar el atributo src="assets/logo.png" por la ruta de cualquier otra imagen.
+       - Para cambiar el tamaño del logo en el HTML: modificar width="46" height="46".
+     • CÓMO REORDENAR O AGREGAR PÁGINAS AL MENÚ:
+       - Cambiar de lugar los bloques <a href="...">Nombre</a> para alterar el orden de visualización.
+       - Para agregar una página nueva: copiar una línea <a>, asignarle su href="nueva.html" y su texto.
+       - Para marcar la página activa: añadir la clase class="is-active" en la etiqueta <a> correspondiente.
+     • CÓMO FUNCIONA EL MENÚ MÓVIL SIN JAVASCRIPT:
+       - Utiliza el checkbox oculto #nav-toggle junto a su etiqueta <label for="nav-toggle" class="nav__burger">.
+       - Al hacer clic en el botón hamburguesa, se activa la regla CSS .nav__check:checked ~ .nav__menu.
+     • CÓMO CAMBIAR EL ENLACE DEL BOTÓN DESTACADO:
+       - Editar href="assets/whatsapp.png" por cualquier enlace web (ej: href="https://wa.me/...") o teléfono.
      ========================================================================= -->
   <!-- Encabezado y navegación -->
   <header class="nav">
@@ -65,12 +73,21 @@
   <main>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: PORTADA PRINCIPAL (<section class="hero">)
-     - Estructura: 2 columnas en CSS Grid (.hero__copy a la izquierda y .hero__art a la derecha).
-     - ¿Cómo invertir columnas en el HTML?: Cortar el div .hero__art y pegarlo antes de .hero__copy.
-     - ¿Cómo editar textos?: Modificar el texto dentro de h1.hero__title o p.hero__lead.
-     - Chips flotantes: Las etiquetas span.float-chip tienen clases chip-a, chip-b, chip-c
-       posicionadas de forma absoluta alrededor del logo.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: PORTADA PRINCIPAL (<section class="hero">)
+     • CÓMO CAMBIAR EL ORDEN O DISPOSICIÓN DE COLUMNAS:
+       - La sección está maquetada con 2 columnas (texto a la izquierda y logo a la derecha).
+       - Para invertir el orden desde el HTML: cortar el bloque <div class="hero__art">...</div>
+         y pegarlo antes de <div class="hero__copy">.
+       - Para convertirlo en 1 sola columna centrada: en CSS .hero__inner cambiar a grid-template-columns: 1fr;
+     • CÓMO EDITAR TÍTULOS, ESCRITURA MANUSCRITA Y DESCRIPCIÓN:
+       - Editar el texto dentro de <h1 class="hero__title">. La clase .script aplica la tipografía Dancing Script.
+       - Editar la descripción dentro de <p class="hero__lead">.
+     • CÓMO MODIFICAR LAS ESTADÍSTICAS (+30 sabores, 100% natural, etc.):
+       - Modificar las etiquetas <b> (cifra destacada) y <span> (etiqueta descriptiva) dentro de <ul class="hero__stats">.
+       - Para agregar una estadística adicional: duplicar un elemento <li><b>Dato</b><span>Descripción</span></li>.
+     • CÓMO PERSONALIZAR O QUITAR LAS ETIQUETAS FLOTANTES (CHIPS):
+       - Editar el texto y emoji de cada <span class="float-chip chip-a">🍓 Fresa</span>.
+       - Para eliminarlas: borrar las líneas o aplicar .float-chip { display: none; } en CSS.
      ========================================================================= -->
     <!-- Portada principal -->
     <section class="hero">
@@ -114,10 +131,16 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: MARQUESINA CONTINUA (<div class="marquee">)
-     - ¿Cómo funciona?: Contiene dos <span> con el texto idéntico duplicado para que
-       la animación CSS @keyframes marquee se desplace infinitamente sin espacios en blanco.
-     - Para cambiar los productos que circulan: editar el texto en ambos <span>.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: MARQUESINA CONTINUA (<div class="marquee">)
+     • CÓMO FUNCIONA EL MOVIMIENTO CONTINUO:
+       - Contiene dos etiquetas <span> con exactamente el mismo texto duplicado dentro de .marquee__track.
+       - Esto permite que la animación @keyframes marquee cree un ciclo infinito fluido sin saltos en blanco.
+     • CÓMO CAMBIAR LOS PRODUCTOS O MENSAJES QUE CIRCULAN:
+       - Editar el texto en AMBOS <span> por igual para mantener la simetría del bucle.
+       - Se pueden añadir nuevos productos o promociones separándolos con el símbolo ✦ o viñetas.
+     • CÓMO MODIFICAR LA VELOCIDAD:
+       - En styles.css, buscar .marquee__track y cambiar animation: marquee 25s linear infinite;
+         (aumentar a 40s para que vaya más lento, o reducir a 15s para mayor dinamismo).
      ========================================================================= -->
     <!-- Marquesina de especialidades -->
    <div class="marquee" aria-hidden="true">
@@ -128,11 +151,18 @@
     </div>
 
    <!-- =========================================================================
-     GUÍA DEFENSA: TARJETAS DESTACADAS (<section class="section"> y .cards)
-     - Cuadrícula: Utiliza CSS Grid responsive (repeat(auto-fit, minmax(280px, 1fr))).
-     - ¿Cómo añadir un nuevo producto?: Duplicar un bloque <article class="card reveal-up">...</article>.
-     - ¿Cómo cambiar imagen de producto?: Modificar el atributo src="assets/inicio-batido-chocolate.png" (o la imagen deseada).
-     - Etiqueta superior: El span con clase .tag muestra "Especial de la casa", "Favorito", etc.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: TARJETAS DESTACADAS (.cards y .card)
+     • CÓMO AGREGAR UN PRODUCTO NUEVO:
+       - Duplicar un bloque completo <article class="card reveal-up">...</article>.
+       - Asignar la nueva imagen en src="assets/...", el título en <h3> y la descripción en <p>.
+     • CÓMO REORDENAR O ELIMINAR PRODUCTOS:
+       - Mover el bloque <article class="card"> hacia arriba o hacia abajo para cambiar su posición.
+       - Para ocultar un producto temporalmente: envolver el bloque de la tarjeta en comentarios HTML.
+     • CÓMO PERSONALIZAR LA INSIGNIA SUPERIOR (.tag):
+       - Modificar el texto de la etiqueta .tag por "Nuevo", "Recomendado", "Sin Azúcar", etc.
+     • CÓMO CAMBIAR EL NÚMERO DE COLUMNAS:
+       - En styles.css, la regla .cards utiliza repeat(auto-fit, minmax(260px, 1fr)).
+       - Para forzar 3 columnas fijas en escritorio: cambiar a grid-template-columns: repeat(3, 1fr);
      ========================================================================= -->
    <!-- Productos destacados -->
     <section class="section">
@@ -176,8 +206,14 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: POR QUÉ ELEGIRNOS (.feature-grid)
-     - 4 columnas automáticas con iconos emoji y descripciones breves de propuesta de valor.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: VALORES Y BENEFICIOS (.feature-grid)
+     • CÓMO MODIFICAR O AGREGAR UN VALOR DE LA MARCA:
+       - Cada beneficio es un contenedor <div class="feature reveal-up"> con:
+         * .feature__ic: Contiene el icono o emoji representativo (🍓, 🧼, 💛, 🛵).
+         * <h3>: Título del beneficio.
+         * <p>: Explicación detallada.
+       - Para agregar un 5to valor: duplicar un bloque <div class="feature">.
+       - Si se añaden 3 valores en vez de 4: en CSS .feature-grid cambiar a grid-template-columns: repeat(3, 1fr);
      ========================================================================= -->
     <!-- Por qué elegirnos -->
     <section class="section ingredientes">
@@ -211,8 +247,15 @@
     </section>
 
     <!-- =========================================================================
-     GUÍA DEFENSA: TESTIMONIOS (.quotes y .quote)
-     - Utiliza la etiqueta semántica <blockquote> con su <footer> para autoría.
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: TESTIMONIOS (.quotes y .quote)
+     • CÓMO AGREGAR O EDITAR TESTIMONIOS DE CLIENTES:
+       - Cada opinión utiliza la etiqueta semántica estándar <blockquote class="quote reveal-up">.
+       - Editar la opinión del cliente dentro de <p>.
+       - Editar el nombre del cliente o procedencia dentro de <footer>.
+       - Para agregar más opiniones: duplicar un bloque <blockquote> completo.
+     • CÓMO CAMBIAR LA CUADRÍCULA:
+       - Por defecto se muestran en 3 columnas (.quotes { grid-template-columns: repeat(3, 1fr); }).
+       - Para mostrar 2 columnas más amplias: cambiar en CSS a grid-template-columns: repeat(2, 1fr);
      ========================================================================= -->
     <!-- Testimonios de clientes -->
     <section class="section testimonios">
@@ -240,13 +283,17 @@
   </main>
 
   <!-- =========================================================================
-     GUÍA DEFENSA: PIE DE PÁGINA INSTITUCIONAL (<footer class="footer">)
-     - 4 columnas con CSS Grid (.footer__inner):
-       * Columna 1 (.footer__uni): Logo institucional UPTAEB y República/Ministerio.
-       * Columna 2 (.footer__team): Autores (José Rodríguez y Ángel García, Tutor y Trayecto).
-       * Columna 3 (.footer__brand): Marca Batidos Flavors y descripción socio-productiva.
-       * Columna 4 (.footer__social): Redes y contacto (apuntan a las capturas locales).
-     - Barra inferior (.footer__base): Derechos reservados y botón "Volver arriba ↑".
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: PIE DE PÁGINA INSTITUCIONAL (<footer class="footer">)
+     • ESTRUCTURA MODULAR DE 4 COLUMNAS:
+       - Columna 1 (.footer__uni): Datos universitarios (Logo UPTAEB, República y Ministerio).
+       - Columna 2 (.footer__team): Autores del proyecto (Rodríguez José y García Ángel, C.I., Tutora y Trayecto).
+       - Columna 3 (.footer__brand): Síntesis de la propuesta socio-productiva en Quíbor.
+       - Columna 4 (.footer__social): Enlaces directos a Instagram, WhatsApp y ubicación física.
+     • CÓMO MODIFICAR O ACTUALIZAR DATOS DEL EQUIPO:
+       - Editar nombres, cédulas o tutor directamente en los párrafos de .footer__team.
+     • CÓMO CAMBIAR O REUBICAR EL BOTÓN VOLVER ARRIBA:
+       - El enlace <a href="#" class="footer__top-btn">Volver arriba ↑</a> está ubicado en la barra base.
+       - Al pulsar href="#" el navegador regresa automáticamente a la parte superior de la página.
      ========================================================================= -->
   <!-- Pie de página -->
   <footer class="footer">
