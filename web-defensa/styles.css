@@ -1,0 +1,2171 @@
+/* =============================================================================
+   BATIDOS FLAVORS — HOJA DE ESTILOS PRINCIPAL (VERSIÓN DEFENSA ACADÉMICA)
+   
+   GUÍA RÁPIDA DE COMANDOS CSS PARA LA DEFENSA:
+   • MOVER ELEMENTO:
+     - A la derecha:    margin-left: auto;  |  text-align: right;  |  transform: translateX(30px);
+     - A la izquierda:  margin-right: auto; |  text-align: left;   |  transform: translateX(-30px);
+     - Al centro:       margin: 0 auto;     |  text-align: center; |  justify-content: center;
+   • DIMENSIONES (ANCHO Y ALTO):
+     - Más alto/bajo:   height: 80px; / height: 35px;  |  padding: 1.5rem 1rem;
+     - Más ancho/chico: width: 300px; / width: 120px;  |  max-width: 500px;
+     - Ancho completo:  width: 100%; display: block;
+   • ROTAR O PONER DE CABEZA:
+     - Poner de cabeza: transform: rotate(180deg);  |  transform: scaleY(-1);
+     - Reflejo espejo:  transform: scaleX(-1);
+     - Rotar en ángulo: transform: rotate(45deg);   |  transform: rotate(-15deg);
+     - Zoom (escala):   transform: scale(1.2); (más grande) / scale(0.8); (más pequeño)
+   • COLORES Y FONDOS:
+     - Fondo sólido:    background: #e6147f; (rosa) | #3a2230; (morado) | #25d366; (verde) | #000;
+     - Gradiente:       background: linear-gradient(135deg, #ff4fa3, #b11464);
+     - Color de texto:  color: #ffffff; | color: #fbe7a1; | color: #000000;
+   • BORDES Y FORMAS:
+     - Círculo:         border-radius: 50%;
+     - Cuadrado recto:  border-radius: 0;
+     - Píldora suave:   border-radius: 999px;
+   • COLUMNAS GRID:
+     - 4 columnas:      grid-template-columns: repeat(4, 1fr);
+     - 3 columnas:      grid-template-columns: repeat(3, 1fr);
+     - 2 columnas:      grid-template-columns: repeat(2, 1fr);
+     - 1 columna:       grid-template-columns: 1fr;
+   ============================================================================= */
+
+/* =============================================================================
+   1. VARIABLES DE DISEÑO (:root)
+   ¿QUÉ ES?
+   Las variables CSS almacenan valores reutilizables (colores, fuentes, sombras, radios).
+   Se definen en el selector :root para que estén disponibles en todo el documento.
+   Para consumirlas en cualquier clase se usa: var(--nombre-variable).
+   
+   TRUCOS DE DEFENSA:
+   - Para cambiar el color principal de TODO el sitio en un solo cambio:
+     Cambia --pink: #e6147f; por otro código hexadecimal (ej: #00b4d8 para azul turquesa).
+   - Para cambiar la tipografía global:
+     Cambia --font-main o --font-script.
+   - Para cambiar el redondeo general de tarjetas y botones:
+     Cambia --radius: 18px; a 0px (bordes rectos cuadrados) o 30px (súper redondeado).
+   ============================================================================= */
+:root {
+  --pink: #e6147f;
+  --pink-deep: #b11464;
+  --pink-soft: #ffd9ec;
+  --pink-bg: #fff2f8;
+  --cream: #fbe7a1;
+  --cream-soft: #fff6d6;
+  --plum: #3a2230;
+  --plum-soft: #6c5360;
+  --plum-light: #523046;
+  --white: #ffffff;
+
+  --grad-hot: linear-gradient(120deg, #ff4fa3 0%, #e6147f 45%, #b11464 100%);
+  --grad-soft: linear-gradient(135deg, #fff6d6 0%, #ffe3f0 100%);
+
+  --shadow-sm: 0 2px 8px rgba(177, 20, 100, 0.10);
+  --shadow-md: 0 6px 18px rgba(177, 20, 100, 0.14);
+
+  --radius: 18px;
+  --radius-lg: 24px;
+  --maxw: 1180px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --font: "Poppins", system-ui, -apple-system, Arial, sans-serif;
+  --script: "Dancing Script", cursive, sans-serif;
+}
+
+/* =============================================================================
+   2. ESTILOS BASE Y RESET (*, html, body)
+   ¿QUÉ ES?
+   - box-sizing: border-box; hace que el padding y los bordes se incluyan dentro
+     del ancho y alto total del elemento, evitando que los divs se desborden.
+   - scroll-behavior: smooth; hace que al hacer clic en un ancla (#id) la página
+     se desplace suavemente en vez de saltar de golpe.
+   
+   TRUCOS DE DEFENSA:
+   - Si piden cambiar el color de fondo general de toda la página:
+     En body { background: var(--pink-bg); } cambiar por background: #ffffff; o background: #1a0f17;
+   - Si piden cambiar el tamaño de letra general:
+     En body { font-size: 1rem; } cambiar por font-size: 1.2rem; (más grande).
+   ============================================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--plum);
+  background: var(--pink-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.script {
+  font-family: var(--script);
+  font-weight: 700;
+}
+
+/* =============================================================================
+   3. FONDO DECORATIVO (.bg-decor, .blob, .grain)
+   ¿QUÉ ES?
+   Crea manchas de color suaves y difuminadas (blobs) y textura de grano en el fondo.
+   - position: fixed; mantiene las manchas fijas al hacer scroll.
+   - pointer-events: none; evita que las manchas bloqueen los clics del usuario.
+   - filter: blur(70px); difumina los círculos para crear el efecto de brillo ambiental.
+   
+   TRUCOS DE DEFENSA:
+   - Para ocultar el fondo decorativo: .bg-decor { display: none; }
+   - Para mover una mancha de posición: cambiar top: 10%; left: 80%;
+   - Para cambiar el color de una mancha: background: radial-gradient(circle, #color1, transparent);
+   ============================================================================= */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  -webkit-animation: drift 22s var(--ease) infinite alternate;
+  animation: drift 22s var(--ease) infinite alternate;
+}
+
+.blob--1 {
+  width: 46vw;
+  height: 46vw;
+  top: -14vw;
+  left: -10vw;
+  background: #ffb3d6;
+}
+
+.blob--2 {
+  width: 40vw;
+  height: 40vw;
+  bottom: -16vw;
+  right: -8vw;
+  background: #ffe39c;
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+
+.blob--3 {
+  width: 32vw;
+  height: 32vw;
+  top: 38%;
+  left: 55%;
+  background: #ff7fb8;
+  opacity: 0.35;
+  -webkit-animation-delay: -12s;
+  animation-delay: -12s;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(circle at 1px 1px, #b11464 1px, transparent 0);
+  background-size: 4px 4px;
+}
+
+@-webkit-keyframes drift {
+  0%   { -webkit-transform: translate(0,0) scale(1); transform: translate(0,0) scale(1); }
+  100% { -webkit-transform: translate(4vw, 3vw) scale(1.15); transform: translate(4vw, 3vw) scale(1.15); }
+}
+
+@keyframes drift {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(4vw, 3vw) scale(1.15); }
+}
+
+/* =============================================================================
+   4. BARRA DE NAVEGACIÓN (.nav, .nav__brand, .nav__menu, .nav__cta)
+   ¿QUÉ ES?
+   Encabezado superior del sitio. Utiliza position: sticky; top: 0; para quedarse fijo
+   arriba cuando el usuario hace scroll hacia abajo.
+   - backdrop-filter: blur(12px); genera el efecto de "vidrio esmerilado" (glassmorphism).
+   
+   TRUCOS DE DEFENSA:
+   1. MOVER EL MENÚ:
+      - Mover los enlaces a la derecha: en .nav { justify-content: flex-end; }
+      - Mover los enlaces al centro: en .nav { justify-content: center; }
+      - Separar logo a la izq y enlaces a la der: en .nav { justify-content: space-between; }
+   2. DIMENSIONES:
+      - Barra más alta: en .nav { padding: 1.5rem 2rem; }
+      - Barra más delgada/compacta: en .nav { padding: 0.4rem 1rem; }
+   3. COLOR DE LA BARRA:
+      - Fondo blanco translúcido: background: rgba(255, 255, 255, 0.95);
+      - Fondo oscuro translúcido: background: rgba(58, 34, 48, 0.92); color: white;
+   4. PONER EL LOGO DE CABEZA O ROTARLO:
+      - En .logo-mark { transform: rotate(180deg); }
+      - Girar 45 grados: .logo-mark { transform: rotate(45deg); }
+      - Hacer el logo más grande: .logo-mark { width: 65px; height: 65px; }
+   ============================================================================= */
+.nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: #ffffff;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(230, 20, 127, 0.14);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  .nav {
+    background: rgba(255, 245, 250, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(177, 20, 100, 0.25);
+}
+
+.logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav__brand-txt {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+
+.nav__brand-txt strong {
+  color: var(--pink);
+  font-weight: 800;
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav__menu a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.45rem 0.8rem;
+  margin: 0 2px;
+  border-radius: 100px;
+  color: var(--plum-soft);
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav__menu a:hover,
+.nav__menu a.is-active {
+  color: var(--pink);
+  background: rgba(230, 20, 127, 0.10);
+}
+
+.nav__cta {
+  background: var(--grad-hot);
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =============================================================================
+   MENÚ MÓVIL Y BOTÓN HAMBURGUESA SIN JAVASCRIPT (.nav__check, .nav__burger)
+   ¿CÓMO FUNCIONA PARA LA DEFENSA? (Técnica "Checkbox Hack")
+   1. Existe un checkbox oculto en el HTML: <input type="checkbox" id="nav-toggle" class="nav__check">.
+   2. El icono de hamburguesa es una etiqueta <label for="nav-toggle" class="nav__burger">.
+   3. Al hacer clic en el label, el navegador marca o desmarca el checkbox de forma nativa.
+   4. El selector CSS .nav__check:checked ~ .nav__menu detecta cuando está activo y
+      despliega el menú (.nav__menu) sin una sola línea de JavaScript.
+   ============================================================================= */
+.nav__check,
+.nav__burger {
+  display: none;
+}
+
+.nav__burger {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(230, 20, 127, 0.08);
+}
+
+.nav__burger span {
+  width: 20px;
+  height: 2px;
+  background: var(--pink);
+  border-radius: 2px;
+}
+
+/* =============================================================================
+   5. BOTONES (.btn, .btn--solid, .btn--ghost, .btn--block)
+   ¿QUÉ ES?
+   Módulo de botones del sistema.
+   - .btn--solid: Botón principal relleno de color con degradado.
+   - .btn--ghost: Botón secundario transparente con borde de color.
+   - .btn--block: Hace que el botón ocupe el 100% del ancho del contenedor (usado en formularios).
+   
+   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
+   1. MOVER EL BOTÓN:
+      - A la derecha: margin-left: auto; | transform: translateX(40px); | text-align: right;
+      - A la izquierda: margin-right: auto; | transform: translateX(-40px); | text-align: left;
+      - Centrado: margin: 0 auto; | display: table; margin: 0 auto;
+   2. CAMBIAR DIMENSIONES:
+      - Más alto: padding: 1.2rem 2rem; o height: 60px;
+      - Más bajo / compacto: padding: 0.4rem 0.8rem;
+      - Más ancho: width: 280px; o padding-left: 3rem; padding-right: 3rem;
+      - Más angosto: width: 130px; o padding: 0.6rem 0.6rem;
+      - QUE TOME TODO EL DIV (ANCHO COMPLETO):
+        width: 100%; display: block; (o agregar la clase .btn--block)
+   3. PONER DE CABEZA / ROTAR / VOLTEAR:
+      - Poner de cabeza (180°): transform: rotate(180deg);
+      - Reflejo vertical (de cabeza): transform: scaleY(-1);
+      - Reflejo horizontal (espejo): transform: scaleX(-1);
+      - Rotar 15 grados: transform: rotate(15deg);
+   4. TAMAÑO Y ZOOM:
+      - 25% más grande: transform: scale(1.25);
+      - 25% más pequeño: transform: scale(0.75);
+      - Tamaño del texto: font-size: 1.3rem; (más grande) | font-size: 0.8rem; (más pequeño)
+   5. CAMBIAR COLORES:
+      - Fondo sólido rosa: background: #e6147f;
+      - Fondo verde (WhatsApp): background: #25d366;
+      - Fondo azul: background: #1e88e5;
+      - Fondo morado oscuro: background: #3a2230;
+      - Fondo amarillo crema: background: #fbe7a1; color: #3a2230;
+      - Texto blanco: color: #ffffff;
+      - Texto negro: color: #000000;
+   6. BORDES Y FORMA:
+      - Cuadrado con esquinas en punta: border-radius: 0;
+      - Totalmente redondeado / cápsula: border-radius: 999px;
+      - Círculo perfecto: border-radius: 50%; width: 60px; height: 60px; padding: 0;
+   7. SOMBRAS:
+      - Sombra flotante: box-shadow: 0 12px 25px rgba(230, 20, 127, 0.4);
+      - Sin sombra: box-shadow: none;
+   ============================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s, background 0.2s;
+}
+
+.btn svg {
+  flex-shrink: 0;
+}
+
+.btn--solid {
+  background: var(--grad-hot);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.btn--solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(177, 20, 100, 0.25);
+}
+
+.btn--ghost {
+  background: #ffffff;
+  color: var(--pink-deep);
+  border: 1.5px solid var(--pink-soft);
+}
+
+.btn--ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--pink);
+}
+
+.btn--ghost-light {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn--ghost-light:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+}
+
+.btn--block {
+  width: 100%;
+  font-weight: 700;
+  padding: 0.9rem;
+}
+
+/* =============================================================================
+   6. PORTADA HERO (.hero, .hero__inner, .hero__title, .hero__lead, .hero__art)
+   ¿QUÉ ES?
+   Sección principal de bienvenida. Utiliza CSS Grid de 2 columnas:
+   - Columna izquierda (.hero__copy): Textos, eslogan, píldora, botones y estadísticas.
+   - Columna derecha (.hero__art): Logotipo central flotante, brillos y chips flotantes.
+   
+   TRUCOS DE DEFENSA:
+   1. MOVER TEXTOS:
+      - Alinear texto a la derecha: .hero__copy { text-align: right; }
+      - Alinear texto al centro: .hero__copy { text-align: center; }
+      - Mover toda la columna de texto: .hero__copy { transform: translateX(30px); }
+   2. PONER DE CABEZA:
+      - Poner de cabeza el título: .hero__title { transform: rotate(180deg); }
+      - Poner de cabeza la imagen del logo: .hero__logo-img { transform: rotate(180deg); }
+   3. CAMBIAR TAMAÑOS:
+      - Título más grande: .hero__title { font-size: 4rem; }
+      - Título más pequeño: .hero__title { font-size: 2rem; }
+      - Logo más grande: .hero__logo-img { width: 440px; height: 440px; }
+      - Logo más pequeño: .hero__logo-img { width: 220px; height: 220px; }
+   4. INVERTIR COLUMNAS (Logo a la izq y texto a la der):
+      .hero__inner { direction: rtl; } .hero__copy, .hero__art { direction: ltr; }
+      o en grid: .hero__copy { order: 2; } .hero__art { order: 1; }
+   ============================================================================= */
+.hero {
+  position: relative;
+  padding: 2.6rem 1.5rem 2.8rem;
+  overflow: hidden;
+}
+
+.hero__mesh {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  right: -5%;
+  height: 120%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(255, 179, 214, 0.45) 0%, transparent 55%),
+    radial-gradient(circle at 82% 20%, rgba(251, 231, 161, 0.45) 0%, transparent 55%);
+}
+
+.hero__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #ffffff;
+  color: var(--pink-deep);
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(230, 20, 127, 0.14);
+  margin-bottom: 0.9rem;
+}
+
+.hero__title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__title .script {
+  color: var(--pink);
+  font-size: 1.15em;
+  line-height: 0.95;
+  margin-top: 0.1em;
+}
+
+.hero__lead {
+  font-size: 1.08rem;
+  color: var(--plum-soft);
+  max-width: 32rem;
+  margin: 1rem 0 1.6rem;
+}
+
+.hero__lead strong {
+  color: var(--pink-deep);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero__stats {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.8rem;
+}
+
+.hero__stats b {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--pink);
+  display: block;
+}
+
+.hero__stats span {
+  font-size: 0.8rem;
+  color: var(--plum-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Imagen del Hero */
+.hero__art {
+  display: grid;
+  place-items: center;
+}
+
+.cup-stage {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  max-width: 88vw;
+  max-height: 88vw;
+  display: grid;
+  place-items: center;
+}
+
+.cup-glow {
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  border-radius: 50%;
+  background: var(--grad-hot);
+  opacity: 0.85;
+  box-shadow: var(--shadow-md);
+}
+
+.cup-photo {
+  position: relative;
+  width: 325px;
+  height: 325px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--cream);
+  border: 9px solid #ffffff;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  place-items: center;
+}
+
+.hero__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.float-chip {
+  position: absolute;
+  background: #ffffff;
+  color: var(--plum);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.5rem 0.95rem;
+  border-radius: 100px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(230, 20, 127, 0.12);
+}
+
+.chip-a {
+  top: 2%;
+  left: -4%;
+}
+
+.chip-b {
+  top: 48%;
+  right: -8%;
+}
+
+.chip-c {
+  bottom: 3%;
+  left: 2%;
+}
+
+.sparkle {
+  position: absolute;
+  color: #ffffff;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.s1 {
+  top: 10%;
+  right: 12%;
+  font-size: 1.5rem;
+}
+
+.s2 {
+  bottom: 16%;
+  right: 6%;
+  font-size: 1.2rem;
+}
+
+.s3 {
+  top: 26%;
+  left: 3%;
+  font-size: 1.7rem;
+}
+
+/* =============================================================================
+   7. MARQUESINA Y BANNERS (.marquee, .marquee__track, .page-banner)
+   ¿QUÉ ES?
+   La marquesina es una cinta horizontal que se desplaza infinitamente mostrando
+   los postres y batidos. Utiliza la animación CSS pura @keyframes marquee.
+   
+   TRUCOS DE DEFENSA:
+   - Cambiar velocidad:
+     * Más rápida (10 seg): .marquee__track { animation-duration: 10s; }
+     * Más lenta (45 seg):  .marquee__track { animation-duration: 45s; }
+   - Cambiar dirección de movimiento (de izq a der):
+     .marquee__track { animation-direction: reverse; }
+   - Pausar el movimiento:
+     .marquee__track { animation-play-state: paused; }
+   - Cambiar color de fondo de la cinta:
+     .marquee { background: #e6147f; color: white; } o background: #000000;
+   - Texto más grande:
+     .marquee span { font-size: 1.4rem; font-weight: bold; }
+   ============================================================================= */
+.marquee {
+  background: var(--grad-hot);
+  color: #ffffff;
+  padding: 0.7rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  margin: 0.8rem 0;
+}
+
+.marquee__track {
+  display: inline-flex;
+}
+
+.marquee__track span {
+  font-family: var(--script);
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding-right: 1.2rem;
+}
+
+.page-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 2.6rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.page-banner .hero__mesh {
+  top: -15%;
+  height: 130%;
+}
+
+.page-banner__inner {
+  max-width: 46rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.page-banner h1 {
+  font-size: 2.7rem;
+  font-weight: 800;
+}
+
+.page-banner h1 .script {
+  color: var(--pink);
+}
+
+.page-banner p {
+  color: var(--plum-soft);
+  font-size: 1.05rem;
+  margin-top: 0.6rem;
+}
+
+/* =============================================================================
+   8. ESTRUCTURA DE SECCIONES (.section, .section__head, .eyebrow)
+   ¿QUÉ ES?
+   Contenedores estandarizados que envuelven cada bloque temático de la página.
+   - max-width: var(--maxw); (1200px) evita que el contenido se estire demasiado en pantallas gigantes.
+   - margin: 0 auto; centra el contenedor horizontalmente en la pantalla.
+   
+   TRUCOS DE DEFENSA:
+   - Alinear títulos de sección a la izquierda: .section__head { text-align: left; }
+   - Alinear títulos de sección a la derecha:   .section__head { text-align: right; }
+   - Más espacio arriba y abajo de la sección:  .section { padding: 6rem 1.5rem; }
+   - Menos espacio (más compacta):             .section { padding: 1.5rem 1.5rem; }
+   ============================================================================= */
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2.8rem 1.5rem;
+}
+
+.section--flush-top {
+  padding-top: 1.2rem;
+}
+
+.section__head {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 1.8rem;
+}
+
+.section__head h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.section__head .script {
+  color: var(--pink);
+}
+
+.section__sub {
+  color: var(--plum-soft);
+  margin-top: 0.6rem;
+  font-size: 1.02rem;
+}
+
+.section__sub a {
+  color: var(--pink);
+  font-weight: 600;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pink);
+  background: rgba(230, 20, 127, 0.10);
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  margin-bottom: 0.7rem;
+}
+
+.eyebrow--light {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* =============================================================================
+   9. TARJETAS Y COMPONENTES (.cards, .card, .card__img, .card__body, .tag)
+   ¿QUÉ ES?
+   Muestra las tarjetas visuales de los productos estrella (Pie de Parchita, Fresas, etc.).
+   Utiliza CSS Grid: grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   lo cual hace que se ajusten automáticamente de 3 columnas a 2 o a 1 según la pantalla.
+   
+   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
+   1. CAMBIAR NÚMERO DE COLUMNAS:
+      - Forzar exactamente 3 columnas: .cards { grid-template-columns: repeat(3, 1fr); }
+      - Forzar exactamente 2 columnas: .cards { grid-template-columns: repeat(2, 1fr); }
+      - Forzar 1 sola columna (apiladas verticalmente): .cards { grid-template-columns: 1fr; }
+      - Forzar 4 columnas: .cards { grid-template-columns: repeat(4, 1fr); }
+   2. SEPARACIÓN:
+      - Más espacio entre tarjetas: .cards { gap: 3rem; }
+      - Menos espacio entre tarjetas: .cards { gap: 0.8rem; }
+   3. PONER DE CABEZA / ROTAR:
+      - Poner de cabeza toda la tarjeta: .card { transform: rotate(180deg); }
+      - Poner de cabeza solo la imagen del producto: .card__img img { transform: rotate(180deg); }
+      - Invertir la imagen horizontalmente (espejo): .card__img img { transform: scaleX(-1); }
+   4. CAMBIAR TAMAÑOS:
+      - Tarjetas más altas: .card__img { height: 320px; }
+      - Tarjetas más bajas / compactas: .card__img { height: 160px; }
+      - Zoom al pasar el cursor (hover): .card:hover { transform: scale(1.08); }
+   5. CAMBIAR FORMA Y BORDES:
+      - Bordes rectos cuadrados: .card { border-radius: 0; }
+      - Imagen redonda tipo burbuja: .card__img { border-radius: 50%; width: 200px; height: 200px; margin: 1rem auto; }
+   6. CAMBIAR COLORES:
+      - Fondo de la tarjeta: .card { background: #fff2f8; border: 2px solid #e6147f; }
+      - Color de la etiqueta .tag: background: #25d366; (verde) | background: #3a2230; (morado)
+   ============================================================================= */
+.card,
+.feature,
+.quote,
+.price-list,
+.comentarios__form-box {
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(230, 20, 127, 0.08);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  overflow: hidden;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.card__img {
+  aspect-ratio: 4/3;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #fff0f7 55%, #ffd6eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(230, 20, 127, 0.08);
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s var(--ease);
+}
+
+.card__img img[src*=".png"],
+.card__img img[src$=".png"] {
+  object-fit: contain;
+  padding: 14px;
+  filter: drop-shadow(0 10px 16px rgba(177, 20, 100, 0.18));
+}
+
+.card__img img:not([src*=".png"]) {
+  object-fit: cover;
+  padding: 0;
+  filter: none;
+}
+
+.card:hover .card__img img {
+  transform: scale(1.08);
+}
+
+.card__body {
+  padding: 1.1rem 1.3rem 1.4rem;
+}
+
+.card__body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.card__body p {
+  color: var(--plum-soft);
+  font-size: 0.94rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  background: var(--pink-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.menu__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: center;
+  margin-top: 1.8rem;
+}
+
+/* =============================================================================
+   10. NOSOTROS Y CARRUSEL FOTOGRÁFICO (.nosotros, .carousel, .carousel__track)
+   ¿QUÉ ES?
+   Muestra la reseña socio-productiva de la empresa y una galería fotográfica continua.
+   El carrusel utiliza @keyframes carouselSlide para desplazarse suavemente sin JavaScript.
+   
+   TRUCOS DE DEFENSA:
+   - Cambiar velocidad del carrusel:
+     * Más rápido (6s): .carousel__track { animation-duration: 6s; }
+     * Más lento (25s):  .carousel__track { animation-duration: 25s; }
+   - Pausar el carrusel: .carousel__track { animation-play-state: paused; }
+   - Invertir sentido del carrusel: .carousel__track { animation-direction: reverse; }
+   - Cambiar orden (foto a la derecha y texto a la izquierda):
+     .nosotros { direction: rtl; } .nosotros__media, .nosotros__copy { direction: ltr; }
+   ============================================================================= */
+.nosotros {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.nosotros__media {
+  position: relative;
+  width: 100%;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  min-height: 340px;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--grad-soft);
+  user-select: none;
+}
+
+.carousel__track {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  will-change: transform;
+  -webkit-animation: carouselSlide 12s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation: carouselSlide 12s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.carousel:hover .carousel__track {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+@-webkit-keyframes carouselSlide {
+  0%, 20%   { -webkit-transform: translateX(0); transform: translateX(0); }
+  25%, 45%  { -webkit-transform: translateX(-20%); transform: translateX(-20%); }
+  50%, 70%  { -webkit-transform: translateX(-40%); transform: translateX(-40%); }
+  75%, 95%  { -webkit-transform: translateX(-60%); transform: translateX(-60%); }
+  100%      { -webkit-transform: translateX(-80%); transform: translateX(-80%); }
+}
+
+@keyframes carouselSlide {
+  0%, 20%   { -webkit-transform: translateX(0); transform: translateX(0); }
+  25%, 45%  { -webkit-transform: translateX(-20%); transform: translateX(-20%); }
+  50%, 70%  { -webkit-transform: translateX(-40%); transform: translateX(-40%); }
+  75%, 95%  { -webkit-transform: translateX(-60%); transform: translateX(-60%); }
+  100%      { -webkit-transform: translateX(-80%); transform: translateX(-80%); }
+}
+
+.carousel__slide {
+  width: 20%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.nosotros__copy h2 {
+  font-size: 2.1rem;
+  margin-bottom: 0.9rem;
+}
+
+.nosotros__copy p {
+  color: var(--plum-soft);
+  margin-bottom: 1rem;
+  text-align: justify;
+  text-indent: 26px;
+}
+
+.checks {
+  list-style: none;
+  margin-top: 1.1rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.checks li {
+  position: relative;
+  padding-left: 2rem;
+  font-weight: 500;
+}
+
+.checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: var(--grad-hot);
+  color: #ffffff;
+  font-size: 0.8rem;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+/* =============================================================================
+   11. VALORES, GALERÍA Y TESTIMONIOS (.feature-grid, .gallery, .quotes, .quote)
+   ¿QUÉ ES?
+   - .feature-grid: Cuadrícula de 4 valores (Calidad, Hecho con cariño, etc.).
+   - .gallery: Galería estilo mosaico/masonry fotográfico.
+   - .quotes: Bloque de testimonios con blockquote y citas.
+   
+   TRUCOS DE DEFENSA:
+   1. VALORES (.feature-grid):
+      - 2 columnas en vez de 4: .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      - 1 columna vertical:     .feature-grid { grid-template-columns: 1fr; }
+      - Poner icono de cabeza:  .feature__ic { transform: rotate(180deg); }
+      - Icono más grande:       .feature__ic { font-size: 3rem; }
+   2. GALERÍA (.gallery):
+      - 2 fotos por fila:       .gallery { grid-template-columns: repeat(2, 1fr); }
+      - 4 fotos por fila:       .gallery { grid-template-columns: repeat(4, 1fr); }
+      - Poner una foto de cabeza: .g-item img { transform: rotate(180deg); }
+      - Efecto blanco y negro:  .g-item img { filter: grayscale(100%); }
+   3. TESTIMONIOS (.quote):
+      - Cambiar fondo de la cita: .quote { background: #ffe3f0; border-left: 5px solid #e6147f; }
+      - Centrar texto de la cita: .quote { text-align: center; }
+   ============================================================================= */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.3rem;
+}
+
+.feature {
+  padding: 1.5rem 1.3rem;
+  text-align: center;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature__ic {
+  font-size: 2.3rem;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.8rem;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: var(--grad-soft);
+  border: 1px solid rgba(230, 20, 127, 0.12);
+}
+
+.feature h3 {
+  font-size: 1.12rem;
+  margin-bottom: 0.3rem;
+}
+
+.feature p {
+  color: var(--plum-soft);
+  font-size: 0.92rem;
+}
+
+/* Galería */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.g-item {
+  position: relative;
+  height: 270px;
+  min-height: 250px;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--img) center / cover no-repeat;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+
+.g-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.g-item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.9rem 0.85rem 0.75rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  background: linear-gradient(to top, rgba(58, 34, 48, 0.88) 0%, rgba(58, 34, 48, 0.3) 70%, transparent 100%);
+  z-index: 2;
+}
+
+.g-item--1 { --img: url('assets/galeria-1.jpg'); }
+.g-item--2 { --img: url('assets/galeria-2.jpg'); }
+.g-item--3 { --img: url('assets/galeria-3.jpg'); }
+.g-item--4 { --img: url('assets/galeria-4.jpg'); }
+.g-item--5 { --img: url('assets/galeria-5.jpg'); }
+.g-item--6 { --img: url('assets/galeria-6.jpg'); }
+.g-item--7 { --img: url('assets/galeria-7.jpg'); }
+.g-item--8 { --img: url('assets/galeria-8.jpg'); }
+
+/* Testimonios */
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.quote {
+  padding: 1.6rem 1.5rem;
+  border-top: 4px solid var(--pink);
+  position: relative;
+}
+
+.quote::before {
+  content: "\201C";
+  font-family: var(--script);
+  font-size: 3.8rem;
+  color: var(--pink-soft);
+  position: absolute;
+  top: 0.2rem;
+  right: 1.2rem;
+  line-height: 1;
+}
+
+.quote p {
+  font-size: 0.98rem;
+  color: var(--plum);
+  margin-bottom: 0.8rem;
+}
+
+.quote footer {
+  font-weight: 600;
+  color: var(--pink-deep);
+  font-size: 0.88rem;
+}
+
+/* =============================================================================
+   12. CATÁLOGO DE PRECIOS (.price-block, .price-cat, .price-row, .price-row__val)
+   ¿QUÉ ES?
+   Estructura en acordeón visual que lista los precios organizados por categorías:
+   1. Batidos (1.30 / 1.60 REF)
+   2. Especiales con Leche (Toddy, Cerelac, etc.)
+   3. Batidos Mixtos (2.00 / 2.40 REF)
+   4. Otros / Postres (Fresas con Crema, Yogurt)
+   5. Toppings & Extras (0.25 - 0.95 REF)
+   
+   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
+   1. CÓMO CAMBIAR COLOR DE PRECIOS:
+      - Destacar precio en verde: .price-row__val { color: #25d366; font-size: 1.3rem; }
+      - Destacar precio en azul:  .price-row__val { color: #1e88e5; }
+      - Destacar precio en dorado:.price-row__val { color: #f59e0b; }
+   2. CÓMO CAMBIAR DIMENSIONES Y ESPACIOS:
+      - Filas más altas / separadas: .price-row { padding: 1.4rem 1rem; }
+      - Filas más compactas:         .price-row { padding: 0.4rem 0.5rem; }
+   3. CÓMO MOVER O ALINEAR:
+      - Alinear nombre a la derecha: .price-row__name { text-align: right; }
+      - Poner precio a la izquierda: .price-row { flex-direction: row-reverse; }
+   4. EFECTOS:
+      - Poner de cabeza una fila: .price-row:first-child { transform: rotate(180deg); }
+      - Resaltar fila favorita con fondo: .price-row:hover { background: #ffd9ec; }
+   ============================================================================= */
+.price-block {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+.price-cat {
+  margin-bottom: 2rem;
+}
+
+.price-cat__head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.price-cat__head .ic {
+  font-size: 1.7rem;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--grad-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.price-cat__head h2 {
+  font-size: 1.5rem;
+}
+
+.price-cat__head p {
+  font-size: 0.88rem;
+  color: var(--plum-soft);
+}
+
+.price-list {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.7rem 1.3rem;
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0.2rem;
+  border-bottom: 1px dashed rgba(230, 20, 127, 0.16);
+  border-radius: 8px;
+}
+
+.price-row:last-child {
+  border-bottom: 0;
+}
+
+.price-row:hover {
+  background: rgba(255, 217, 236, 0.25);
+}
+
+.price-row__name b {
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+
+.price-row__name p {
+  font-size: 0.86rem;
+  color: var(--plum-soft);
+}
+
+.price-row__tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  background: var(--pink-soft);
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.price-row__val {
+  font-weight: 800;
+  color: var(--pink);
+  font-size: 1.12rem;
+  white-space: nowrap;
+}
+
+.price-note {
+  text-align: center;
+  color: var(--plum-soft);
+  font-size: 0.88rem;
+  margin-top: 1.2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px dashed rgba(230, 20, 127, 0.2);
+  border-radius: 14px;
+  padding: 0.8rem 1.1rem;
+}
+
+/* =============================================================================
+   13. CONTACTO, FORMULARIO Y MAPA (.contacto__card, .form-flavors, .contacto__map)
+   ¿QUÉ ES?
+   Bloque de atención con lista de contacto (Ubicación, Delivery, WhatsApp, Instagram),
+   mapa de ubicación y formulario para recepción de opiniones.
+   
+   TRUCOS DE DEFENSA:
+   1. DISPOSICIÓN:
+      - Poner mapa a la izquierda y datos a la derecha:
+        .contacto__card { direction: rtl; } .contacto__copy, .contacto__map { direction: ltr; }
+      - Poner datos arriba y mapa abajo (1 columna):
+        .contacto__card { grid-template-columns: 1fr; }
+   2. MAPA / CAPTURA (.contacto__map):
+      - Más alto: .contacto__map { min-height: 500px; }
+      - Más bajo: .contacto__map { min-height: 250px; }
+      - Poner el mapa de cabeza: .contacto__map img { transform: rotate(180deg); }
+      - Borde redondeado: .contacto__map { border-radius: 30px; }
+   3. BOTÓN DEL FORMULARIO (.btn--block):
+      - Para que tome todo el div: width: 100%; display: block;
+      - Para que sea angosto y a la derecha: width: auto; margin-left: auto; display: table;
+      - Cambiar color al botón de enviar: .form-flavors button { background: #25d366; }
+   ============================================================================= */
+.contacto__card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--grad-hot);
+  color: #ffffff;
+  padding: 2.2rem 1.8rem;
+}
+
+.contacto__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacto__copy h2 {
+  font-size: 2.1rem;
+  margin-bottom: 0.7rem;
+}
+
+.contacto__copy > p {
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 1.3rem;
+}
+
+.contact-list {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: 1.3rem;
+}
+
+.contact-list li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.ci {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.ci svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.contact-list b {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.contact-list li > div span,
+.contact-list li > div a {
+  display: block;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.9rem;
+}
+
+.contact-list a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.contacto__actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.contacto__actions .btn--solid {
+  background: #ffffff;
+  color: var(--pink-deep);
+}
+
+.contacto__actions .btn--solid:hover {
+  background: var(--cream-soft);
+}
+
+.contacto__map-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.contacto__map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+}
+
+.contacto__map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: 0;
+  display: block;
+}
+
+.contacto__map img {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+  border-radius: 12px;
+  display: block;
+  object-fit: contain;
+}
+
+.contacto__card--cta {
+  grid-template-columns: 1fr;
+  padding: 2.2rem 1.8rem;
+}
+
+.contacto__card--cta .contacto__copy {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.contacto__card--cta .contacto__actions {
+  justify-content: center;
+}
+
+/* Formulario de comentarios */
+.comentarios {
+  padding-top: 2.4rem;
+}
+
+.comentarios__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+.comentarios__form-box {
+  padding: 1.8rem;
+  border-top: 4px solid var(--pink);
+}
+
+.comentarios__form-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(230, 20, 127, 0.1);
+  cursor: pointer;
+}
+
+.comentarios__icon {
+  font-size: 1.7rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--grad-soft);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.comentarios__form-head h3 {
+  font-size: 1.22rem;
+  color: var(--plum);
+}
+
+.comentarios__form-head p {
+  font-size: 0.86rem;
+  color: var(--plum-soft);
+}
+
+.form-flavors {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  cursor: text;
+}
+
+.form-group label,
+.form-group__label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--plum);
+  cursor: pointer;
+}
+
+.form-flavors textarea {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  font-family: var(--font);
+  font-size: 0.92rem;
+  color: var(--plum);
+  background: var(--pink-bg);
+  border: 1.5px solid rgba(230, 20, 127, 0.18);
+  border-radius: 12px;
+  outline: none;
+  resize: vertical;
+  min-height: 105px;
+}
+
+.form-flavors textarea:focus {
+  border-color: var(--pink);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(230, 20, 127, 0.12);
+}
+
+.form-honeypot {
+  display: none;
+}
+
+.comentarios__feed {
+  display: grid;
+  gap: 1.3rem;
+}
+
+/* =============================================================================
+   14. MODAL DE CONFIRMACIÓN SIN JAVASCRIPT (.modal, #enviado:target)
+   ¿CÓMO FUNCIONA PARA LA DEFENSA? (Técnica CSS :target)
+   1. El modal es un <div id="enviado" class="modal"> con un identificador único.
+   2. Por defecto está oculto con:
+      opacity: 0; pointer-events: none; (no se ve y no recibe clics).
+   3. Cuando el formulario tiene action="#enviado" o un enlace apunta a href="#enviado",
+      la URL del navegador se convierte en: contacto.html#enviado.
+   4. El selector CSS #enviado:target detecta que el elemento con id="enviado" coincide
+      con el hash (#) de la URL, y aplica:
+      - opacity: 1; (se hace visible).
+      - pointer-events: auto; (permite hacer clic).
+      - transform: translateY(0); (baja suavemente desde arriba).
+   5. Para cerrarlo, el botón "Aceptar", la cruz (×) o el fondo apuntan a href="#" (o href="contacto.html"),
+      lo cual elimina el hash #enviado de la URL y desactiva :target, cerrando el modal al instante.
+   
+   TRUCOS DE DEFENSA:
+   - Modal más ancho: .modal__dialog { max-width: 600px; }
+   - Modal más estrecho / compacto: .modal__dialog { max-width: 300px; }
+   - Cambiar color de fondo del modal: .modal__dialog { background: #ffe3f0; }
+   - Poner el modal de cabeza: .modal__dialog { transform: rotate(180deg); }
+   - Cambiar icono del check: .modal__icon { background: #25d366; color: white; }
+   ============================================================================= */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+#enviado:target,
+.modal:target {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal__backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0;
+  background: rgba(43, 10, 31, 0.78);
+  cursor: default;
+}
+
+.modal__dialog {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 1.8rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(230, 20, 127, 0.15);
+  transform: translateY(15px);
+  transition: transform 0.3s var(--ease);
+  z-index: 1;
+}
+
+#enviado:target .modal__dialog,
+.modal:target .modal__dialog {
+  transform: translateY(0);
+}
+
+.modal__close {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--plum-soft);
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+}
+
+.modal__close:hover {
+  color: var(--pink);
+  background: var(--pink-soft);
+}
+
+.modal__icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.1rem;
+  background: var(--grad-soft);
+  color: var(--pink-deep);
+  font-size: 1.8rem;
+  font-weight: 800;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.modal__dialog h3 {
+  font-size: 1.5rem;
+  color: var(--plum);
+  margin-bottom: 0.5rem;
+}
+
+.modal__dialog p {
+  color: var(--plum-soft);
+  font-size: 0.94rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.modal__actions .btn {
+  min-width: 140px;
+}
+
+/* =============================================================================
+   15. PIE DE PÁGINA INSTITUCIONAL (.footer, .footer__inner, 4 columnas)
+   ¿QUÉ ES?
+   Pie de página institucional organizado en 4 columnas mediante CSS Grid:
+   - Columna 1 (.footer__uni): Logo institucional UPTAEB y datos ministeriales.
+   - Columna 2 (.footer__team): Autores del proyecto (José Rodríguez y Ángel García), tutor y trayecto.
+   - Columna 3 (.footer__brand): Marca Batidos Flavors y descripción del emprendimiento.
+   - Columna 4 (.footer__social): Enlaces a redes sociales y contacto (Instagram y WhatsApp con iconos SVG).
+   
+   TRUCOS DE DEFENSA Y MODIFICACIONES EN VIVO:
+   1. CAMBIAR NÚMERO DE COLUMNAS:
+      - 4 columnas actuales: .footer__inner { grid-template-columns: 1.25fr 1.05fr 1.1fr 0.9fr; }
+      - 3 columnas:          .footer__inner { grid-template-columns: repeat(3, 1fr); }
+      - 2 columnas:          .footer__inner { grid-template-columns: repeat(2, 1fr); }
+      - 1 columna (apiladas):.footer__inner { grid-template-columns: 1fr; }
+   2. CAMBIAR COLOR DE FONDO DEL FOOTER:
+      - Fondo morado ciruela actual: background: #502e43;
+      - Fondo negro elegante:        background: #111111;
+      - Fondo rosa corporativo:      background: #b11464;
+      - Fondo azul institucional:    background: #1e3a8a;
+   3. MOVER O ALINEAR CONTENIDO:
+      - Centrar todo el texto del footer: .footer__inner { text-align: center; }
+      - Alinear texto a la derecha:      .footer__inner { text-align: right; }
+      - Mover el logo de la UPTAEB a la der: .footer__uni-logo { margin-left: auto; }
+      - Mover el logo de la UPTAEB al centro:.footer__uni-logo { margin: 0 auto 12px; }
+   4. PONER DE CABEZA / ROTAR:
+      - Poner de cabeza el logo universitario: .footer__uni-logo { transform: rotate(180deg); }
+      - Poner de cabeza todo el footer: .footer { transform: rotate(180deg); }
+   5. TAMAÑOS:
+      - Logo universitario más grande: .footer__uni-logo { max-width: 140px; }
+      - Logo universitario más chico:  .footer__uni-logo { max-width: 60px; }
+      - Texto del footer más grande:   .footer p { font-size: 1rem; }
+   ============================================================================= */
+.footer {
+  background: #502e43;
+  background: linear-gradient(180deg, #56334a 0%, #46273b 100%);
+  color: rgba(255, 255, 255, 0.88);
+  margin-top: 1.8rem;
+}
+
+.footer__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 2.8rem 1.5rem 1.8rem;
+  display: grid;
+  grid-template-columns: 1.25fr 1.05fr 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Columna 1: Universidad UPTAEB */
+.footer__uni {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer__uni-logo {
+  display: inline-block;
+  background-color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 90px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.footer__uni-text p {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.90);
+}
+
+.uni-name {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Columna 2: Equipo de proyecto */
+.footer__team h4,
+.footer h4 {
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+
+.footer__team p {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.footer__tutor {
+  margin-top: 0.35rem;
+  color: #ffd9ec !important;
+}
+
+.footer__career {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Columna 3: Batidos Flavors */
+.footer__brand .nav__brand-txt {
+  color: #ffffff;
+}
+
+.footer__brand .nav__brand-txt strong {
+  color: #ff7fb8;
+}
+
+.footer__brand p {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* Columna 4: Síguenos y contacto */
+.footer__social {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.90);
+  transition: color 0.2s;
+  width: max-content;
+}
+
+.footer__social a svg {
+  flex-shrink: 0;
+}
+
+.footer__social a:hover {
+  color: #ff7fb8;
+}
+
+.footer__loc {
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Barra inferior del pie de página */
+.footer__base {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Botón volver arriba */
+.footer__top-btn,
+.footer__top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 100px;
+  background: var(--pink);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s var(--ease), background 0.2s, box-shadow 0.2s;
+}
+
+.footer__top-btn:hover,
+.footer__top-link:hover {
+  transform: translateY(-2px);
+  background: var(--pink-deep);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* =============================================================================
+   16. BOTÓN FLOTANTE "VOLVER ARRIBA" (.btn-top)
+   ¿QUÉ ES?
+   Botón circular con flecha hacia arriba fijo en la esquina inferior derecha.
+   - position: fixed; bottom: 22px; right: 22px;
+   - z-index: 90; lo coloca por encima del contenido.
+   
+   TRUCOS DE DEFENSA:
+   - Mover a la esquina izquierda: .btn-top { right: auto; left: 22px; }
+   - Poner de cabeza (flecha hacia abajo): .btn-top { transform: rotate(180deg); }
+   - Más grande: .btn-top { width: 65px; height: 65px; font-size: 1.6rem; }
+   - Más pequeño: .btn-top { width: 35px; height: 35px; font-size: 0.9rem; }
+   - Cambiar color: .btn-top { background: #25d366; } (verde) | background: #3a2230; (morado)
+   - Hacerlo cuadrado: .btn-top { border-radius: 0; }
+   ============================================================================= */
+.btn-top {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  padding: 0.6rem 1.25rem;
+  border-radius: 100px;
+  background: var(--pink);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(177, 20, 100, 0.35);
+  z-index: 99;
+  transition: transform 0.2s var(--ease), background 0.2s, box-shadow 0.2s;
+}
+
+.btn-top:hover {
+  transform: translateY(-3px);
+  background: var(--pink-deep);
+  box-shadow: 0 6px 18px rgba(177, 20, 100, 0.45);
+  color: #ffffff;
+}
+
+/* =============================================================================
+   17. ANIMACIONES CSS PURAS (@keyframes rise, @keyframes spin, etc.)
+   ¿QUÉ ES?
+   - @keyframes rise: Anima la entrada suave de elementos de abajo hacia arriba con opacidad.
+   - animation: rise 0.8s ease-out forwards;
+   
+   TRUCOS DE DEFENSA:
+   - Hacer la animación más rápida: animation: rise 0.2s ease-out forwards;
+   - Hacer la animación en cámara lenta: animation: rise 3s ease-out forwards;
+   - Hacer que gire infinitamente:
+     animation: spin 3s linear infinite;
+     (donde @keyframes spin { to { transform: rotate(360deg); } })
+   - Pausar animaciones: * { animation-play-state: paused !important; }
+   ============================================================================= */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 1;
+  -webkit-animation: rise 0.7s var(--ease) both;
+  animation: rise 0.7s var(--ease) both;
+}
+
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.12s; }
+.d3 { animation-delay: 0.20s; }
+.d4 { animation-delay: 0.30s; }
+.d5 { animation-delay: 0.40s; }
+.d6 { animation-delay: 0.50s; }
+
+.reveal-up {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================================================================
+   18. DISEÑO RESPONSIVO (@media queries)
+   ¿CÓMO FUNCIONA PARA LA DEFENSA?
+   Los Media Queries aplican estilos CSS condicionales según el ancho de pantalla:
+   
+   1. @media (max-width: 980px) -> TABLETS Y PANTALLAS MEDIANAS:
+      - El Hero pasa de 2 columnas a 1 columna (el texto arriba y el logo abajo).
+      - El Footer pasa de 4 columnas a 2 columnas (repeat(2, 1fr)).
+      - Los testimonios pasan de 3 columnas a 1 columna.
+   
+   2. @media (max-width: 600px) -> TELÉFONOS CELULARES:
+      - El menú horizontal de escritorio se oculta.
+      - Se activa el menú hamburguesa (.nav__burger display: block).
+      - Las tarjetas de productos se apilan a 1 columna vertical.
+      - El Footer pasa a 1 sola columna vertical (grid-template-columns: 1fr).
+   ============================================================================= */
+@media (max-width: 980px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__copy {
+    order: 2;
+  }
+
+  .hero__art {
+    order: 1;
+  }
+
+  .hero__lead {
+    margin-inline: auto;
+  }
+
+  .hero__actions,
+  .hero__stats {
+    justify-content: center;
+  }
+
+  .nosotros {
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros__media {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .cards,
+  .quotes,
+  .feature-grid,
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contacto__card,
+  .comentarios__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cup-stage {
+    width: 310px;
+    height: 310px;
+  }
+
+  .cup-photo {
+    width: 250px;
+    height: 250px;
+    border-width: 7px;
+  }
+
+  .nav__burger {
+    display: flex;
+  }
+
+  .nav__menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: #ffffff;
+    padding: 1rem;
+    gap: 0.3rem;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-130%);
+    transition: transform 0.3s var(--ease);
+  }
+
+  .nav__check:checked ~ .nav__menu {
+    transform: translateY(0);
+  }
+
+  .nav__menu a {
+    padding: 0.8rem 1rem;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 2.2rem 1rem 2.5rem;
+  }
+
+  .hero__title {
+    font-size: 2.3rem;
+  }
+
+  .section {
+    padding: 2.2rem 1rem;
+  }
+
+  .section__head h2 {
+    font-size: 1.8rem;
+  }
+
+  .cards,
+  .quotes,
+  .feature-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__stats {
+    gap: 1.2rem;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr;
+    padding: 2.2rem 1rem 1.4rem;
+    gap: 1.6rem;
+  }
+
+  .footer__base {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  
+}

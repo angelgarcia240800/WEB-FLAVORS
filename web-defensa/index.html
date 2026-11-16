@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Batidos Flavors — Batidos artesanales a base de frutas naturales, yogurt y postres caseros en Quíbor, estado Lara. Mejores ingredientes, mejor sabor." />
+  <meta name="theme-color" content="#e6147f" />
+  <title>Batidos Flavors · Mejores ingredientes, mejor sabor</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Metadatos Open Graph y Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://batidosflavors.shop/" />
+  <meta property="og:title" content="Batidos Flavors · Mejores ingredientes, mejor sabor" />
+  <meta property="og:description" content="Batidos artesanales a base de frutas naturales, yogurt y postres caseros en Quíbor, estado Lara. Mejores ingredientes, mejor sabor." />
+  <meta property="og:image" content="https://batidosflavors.shop/assets/logo.png" />
+  <meta property="og:image:alt" content="Logotipo oficial de Batidos Flavors" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Batidos Flavors · Mejores ingredientes, mejor sabor" />
+  <meta name="twitter:description" content="Batidos artesanales a base de frutas naturales, yogurt y postres caseros en Quíbor, estado Lara." />
+  <meta name="twitter:image" content="https://batidosflavors.shop/assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+    <span class="grain"></span>
+  </div>
+
+  <!-- =========================================================================
+     GUÍA DEFENSA: ENCABEZADO Y NAVEGACIÓN (<header class="nav">)
+     - Logo: Para cambiar la imagen del logo editar src="assets/logo.png".
+     - Orden del menú: Para cambiar el orden de las páginas, mover las etiquetas <a> de posición.
+     - Menú móvil: Funciona con el checkbox oculto #nav-toggle sin JavaScript.
+     - Botón "Pedir ahora": En este clon abre la captura local assets/whatsapp.png.
+     ========================================================================= -->
+  <!-- Encabezado y navegación -->
+  <header class="nav">
+    <a href="index.html" class="nav__brand" aria-label="Batidos Flavors — inicio">
+      <img src="assets/logo.png" alt="Logo Batidos Flavors" class="logo-mark" width="46" height="46" />
+      <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav__check" />
+    <label for="nav-toggle" class="nav__burger" aria-label="Abrir menú"><span></span><span></span><span></span></label>
+    <nav class="nav__menu">
+      <a href="index.html" class="is-active">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="menu.html">Menú &amp; Precios</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="assets/whatsapp.png" target="_blank" rel="noopener" title="Ver captura de WhatsApp" target="_blank" rel="noopener" class="nav__cta">Pedir ahora</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- =========================================================================
+     GUÍA DEFENSA: PORTADA PRINCIPAL (<section class="hero">)
+     - Estructura: 2 columnas en CSS Grid (.hero__copy a la izquierda y .hero__art a la derecha).
+     - ¿Cómo invertir columnas en el HTML?: Cortar el div .hero__art y pegarlo antes de .hero__copy.
+     - ¿Cómo editar textos?: Modificar el texto dentro de h1.hero__title o p.hero__lead.
+     - Chips flotantes: Las etiquetas span.float-chip tienen clases chip-a, chip-b, chip-c
+       posicionadas de forma absoluta alrededor del logo.
+     ========================================================================= -->
+    <!-- Portada principal -->
+    <section class="hero">
+      <div class="hero__mesh" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <span class="pill reveal">🍓 Frutas 100% naturales · 🛵 Servicio de Delivery en Quíbor</span>
+          <h1 class="hero__title">
+            <span class="reveal d1">Mejores</span>
+            <span class="reveal d2">ingredientes,</span>
+            <span class="script reveal d3"> Mejor sabor</span>
+          </h1>
+          <p class="hero__lead reveal d4">
+  Batidos preparados al instante, junto a una selección de postres artesanales: fresas con crema, 
+  pie de parchita y recetas caseras listas para disfrutar en <strong>Quíbor, estado Lara</strong>. Cremosidad desde el primer sorbo🥤
+          </p>
+          <div class="hero__actions reveal d5">
+            <a href="menu.html" class="btn btn--solid">Ver el menú</a>
+          </div>
+          <ul class="hero__stats reveal d6">
+            <li><b>+30</b><span>sabores</span></li>
+            <li><b>100%</b><span>natural</span></li>
+            <li><b>★ 5.0</b><span>en reseñas</span></li>
+          </ul>
+        </div>
+        <div class="hero__art">
+          <div class="cup-stage">
+            <div class="cup-glow" aria-hidden="true"></div>
+            <figure class="cup-photo">
+              <img src="assets/logo.png" alt="Logo Batidos Flavors" class="hero__logo-img" width="360" height="360" />
+            </figure>
+            <span class="float-chip chip-a">🍓 Fresa</span>
+            <span class="float-chip chip-b">🥭 Parchita</span>
+            <span class="float-chip chip-c">🍫 Brownie</span>
+            <span class="sparkle s1">✦</span>
+            <span class="sparkle s2">✦</span>
+            <span class="sparkle s3">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+     GUÍA DEFENSA: MARQUESINA CONTINUA (<div class="marquee">)
+     - ¿Cómo funciona?: Contiene dos <span> con el texto idéntico duplicado para que
+       la animación CSS @keyframes marquee se desplace infinitamente sin espacios en blanco.
+     - Para cambiar los productos que circulan: editar el texto en ambos <span>.
+     ========================================================================= -->
+    <!-- Marquesina de especialidades -->
+   <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Fresas con Crema ✦ Pie de Parchita ✦ Batido de Frutas 100% Naturales ✦ Brownie ✦ Cerelac ✦ Quesillo ✦ Tortas ✦ Yogurt Natural ✦&nbsp;</span>
+        <span>Fresas con Crema ✦ Pie de Parchita ✦ Batido de Frutas 100% Naturales ✦ Brownie ✦ Cerelac ✦ Quesillo ✦ Tortas ✦ Yogurt Natural ✦&nbsp;</span>
+      </div>
+    </div>
+
+   <!-- =========================================================================
+     GUÍA DEFENSA: TARJETAS DESTACADAS (<section class="section"> y .cards)
+     - Cuadrícula: Utiliza CSS Grid responsive (repeat(auto-fit, minmax(280px, 1fr))).
+     - ¿Cómo añadir un nuevo producto?: Duplicar un bloque <article class="card reveal-up">...</article>.
+     - ¿Cómo cambiar imagen de producto?: Modificar el atributo src="assets/inicio-batido-chocolate.png" (o la imagen deseada).
+     - Etiqueta superior: El span con clase .tag muestra "Especial de la casa", "Favorito", etc.
+     ========================================================================= -->
+   <!-- Productos destacados -->
+    <section class="section">
+      <header class="section__head reveal-up">
+        <span class="eyebrow">Lo más pedido</span>
+        <h2>Creaciones que enamoran desde el primer sorbo </h2>
+        <p class="section__sub">Una probadita de nuestro menú. Mira todas las opciones y precios en la sección Menú.</p>
+      </header>
+      <div class="cards">
+        <article class="card reveal-up">
+          <div class="card__img">
+            <img src="assets/inicio-pie-limon.png" alt="Pie de Parchita" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="tag">Especial de la casa</span>
+            <h3>Pie de Parchita Artesanal</h3>
+          </div>
+        </article>
+        <article class="card reveal-up">
+          <div class="card__img">
+            <img src="assets/inicio-fresa-brownie.png" alt="Fresas con Crema &amp; Brownie" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="tag">Favorito del público</span>
+            <h3>Fresas con Crema &amp; Brownie</h3>
+          </div>
+        </article>
+        <article class="card reveal-up">
+          <div class="card__img">
+            <img src="assets/inicio-batido-chocolate.png" alt="Batido de Chocolate" loading="lazy">
+          </div>
+          <div class="card__body">
+            <span class="tag">Clásico irresistible</span>
+            <h3>Batido de Chocolate</h3>
+          </div>
+        </article>
+      </div>
+      <div class="menu__cta reveal-up">
+        <a href="menu.html" class="btn btn--solid">Ver menú completo &amp; precios</a>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+     GUÍA DEFENSA: POR QUÉ ELEGIRNOS (.feature-grid)
+     - 4 columnas automáticas con iconos emoji y descripciones breves de propuesta de valor.
+     ========================================================================= -->
+    <!-- Por qué elegirnos -->
+    <section class="section ingredientes">
+      <header class="section__head reveal-up">
+        <span class="eyebrow">Mejores ingredientes</span>
+        <h2>El sabor empieza por lo que llevas dentro</h2>
+        <p class="section__sub">No escatimamos en calidad. Estos son los pilares de cada creación Flavors.</p>
+      </header>
+      <div class="feature-grid">
+        <div class="feature reveal-up">
+          <div class="feature__ic">🍓</div>
+          <h3>Frutas naturales</h3>
+          <p>Seleccionadas frescas para conservar el sabor y los nutrientes reales de cada fruta.</p>
+        </div>
+        <div class="feature reveal-up">
+          <div class="feature__ic">🥛</div>
+          <h3>Yogurt &amp; lácteos</h3>
+          <p>Base cremosa que aporta textura sedosa y un punto justo de dulzor natural.</p>
+        </div>
+        <div class="feature reveal-up">
+          <div class="feature__ic">🍪</div>
+          <h3>Toppings de marca</h3>
+          <p>Galleta, brownie, Cerelac y chocolate para coronar cada vaso con generosidad.</p>
+        </div>
+        <div class="feature reveal-up">
+          <div class="feature__ic">⏱️</div>
+          <h3>Hecho al momento</h3>
+          <p>Preparamos tu pedido cuando lo ordenas. Frescura garantizada en cada sorbo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+     GUÍA DEFENSA: TESTIMONIOS (.quotes y .quote)
+     - Utiliza la etiqueta semántica <blockquote> con su <footer> para autoría.
+     ========================================================================= -->
+    <!-- Testimonios de clientes -->
+    <section class="section testimonios">
+      <header class="section__head reveal-up">
+        <span class="eyebrow">Lo que dicen</span>
+        <h2>Clientes felices, vasos vacíos</h2>
+      </header>
+      <div class="quotes">
+        <blockquote class="quote reveal-up">
+          <p>"Perfecto el pie de Parchita 🤤 una mezcla de sabores que no tiene comparación."</p>
+          <footer>— Cliente Flavors</footer>
+        </blockquote>
+        <blockquote class="quote reveal-up">
+          <p>"Cremosidad desde el principio a fin. ¡100% recomendados!"</p>
+          <footer>— Cliente Flavors</footer>
+        </blockquote>
+        <blockquote class="quote reveal-up">
+          <p>"Las fresas con crema y brownie son una delicia. me volvi adicto."</p>
+          <footer>— Cliente Flavors</footer>
+        </blockquote>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- =========================================================================
+     GUÍA DEFENSA: PIE DE PÁGINA INSTITUCIONAL (<footer class="footer">)
+     - 4 columnas con CSS Grid (.footer__inner):
+       * Columna 1 (.footer__uni): Logo institucional UPTAEB y República/Ministerio.
+       * Columna 2 (.footer__team): Autores (José Rodríguez y Ángel García, Tutor y Trayecto).
+       * Columna 3 (.footer__brand): Marca Batidos Flavors y descripción socio-productiva.
+       * Columna 4 (.footer__social): Redes y contacto (apuntan a las capturas locales).
+     - Barra inferior (.footer__base): Derechos reservados y botón "Volver arriba ↑".
+     ========================================================================= -->
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <!-- Columna 1: Universidad UPTAEB -->
+      <div class="footer__col footer__uni">
+        <img src="assets/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+        <div class="footer__uni-text">
+          <p class="uni-country">República Bolivariana de Venezuela</p>
+          <p class="uni-ministry">Ministerio del Poder Popular para la Educación Universitaria</p>
+          <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+        </div>
+      </div>
+
+      <!-- Columna 2: Equipo de proyecto -->
+      <div class="footer__col footer__team">
+        <h4>Equipo del Proyecto</h4>
+        <p>Rodríguez José A · C.I: 23.845.022</p>
+        <p>García Ángel · C.I: 27.761.943</p>
+        <p class="footer__tutor"><strong>Tutor Asesor:</strong> Ing. Lorelys Alvarado</p>
+        <p class="footer__career">PNF en Informática · Trayecto II</p>
+      </div>
+
+      <!-- Columna 3: Batidos Flavors -->
+      <div class="footer__col footer__brand">
+        <span class="nav__brand-txt">Batidos<strong>Flavors</strong></span>
+        <p>Batidos artesanales a base de frutas 100% naturales, yogurt casero y repostería artesanal en Quíbor, estado Lara.</p>
+      </div>
+
+      <!-- Columna 4: Síguenos y contacto -->
+      <div class="footer__col footer__social">
+        <h4>Síguenos</h4>
+        <a href="assets/instagram.png" target="_blank" rel="noopener" title="Ver captura de Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Instagram @flavors_30</span>
+        </a>
+        <a href="assets/whatsapp.png" target="_blank" rel="noopener" title="Ver captura de WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.07c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.12.1-3.23-.77-2.69-1.11-4.43-3.85-4.57-4.03-.13-.18-1.09-1.45-1.09-2.77s.69-1.96.93-2.23c.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.39-.06.6.46.23.54.78 1.9.85 2.04.07.14.11.3.02.48-.09.18-.14.29-.27.45-.14.16-.29.35-.41.47-.14.13-.28.28-.12.55.16.27.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.17 1.34.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.13.45.2.52.31.06.11.06.65-.18 1.33z"/></svg>
+          <span>WhatsApp / Pedidos</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Barra inferior del pie de página -->
+    <div class="footer__base">
+      <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
+      <a href="#" class="footer__top-btn">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
