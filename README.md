@@ -93,7 +93,7 @@ Todas las imágenes contenidas en la versión de producción están organizadas 
 ## 👥 Datos Académicos e Institucionales
 
 - **Institución:** Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco” (UPTAEB).
-- **Programa:** PNF en Informática · Trayecto II.
+- **Programa:** PNF en Informática · Trayecto I.
 - **Equipo del Proyecto:**
   - Rodríguez, José A.
   - García, Ángel

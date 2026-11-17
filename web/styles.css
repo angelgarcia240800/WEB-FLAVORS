@@ -1058,6 +1058,56 @@ h4 {
   padding: 0.8rem 1.1rem;
 }
 
+/* Visor del Menú Oficial */
+.visor-menu {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.2rem 1.2rem 3.5rem;
+  text-align: center;
+}
+
+.visor-menu__header {
+  margin-bottom: 1.6rem;
+}
+
+.visor-menu__header h1 {
+  font-size: 1.9rem;
+  color: var(--plum);
+  margin-bottom: 0.4rem;
+}
+
+.visor-menu__header p {
+  color: var(--plum-soft);
+  font-size: 0.95rem;
+}
+
+.visor-menu__frame {
+  display: inline-block;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(58, 34, 48, 0.16);
+  border: 1px solid rgba(230, 20, 127, 0.15);
+  max-width: 100%;
+}
+
+.visor-menu__img {
+  width: 100%;
+  max-width: 780px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.visor-menu__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+}
+
 /* 13. Contacto y comentarios */
 .contacto__card {
   display: grid;
