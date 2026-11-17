@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#e6147f" />
   <title>Menú Oficial · Batidos Flavors</title>
   <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="apple-touch-icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,10 +41,25 @@
   <main>
     <!-- =========================================================================
          GUÍA DEFENSA: VISOR DEL MENÚ ADAPTADO (.visor-menu)
-         - Este archivo resuelve el problema de abrir la imagen cruda .jpg en una pestaña nueva:
-           1. El título de la pestaña ahora dice "Menú Oficial · Batidos Flavors" en lugar de "menu.jpg".
-           2. La imagen está adaptada con max-width: 780px, centrada con marco blanco y sombra.
-           3. Mantiene botones de acción para descargar y pedir por WhatsApp.
+         
+         ¿POR QUÉ SE IMPLEMENTÓ ESTA SOLUCIÓN?:
+         1. Al abrir directamente un archivo .jpg con target="_blank", el navegador
+            muestra el nombre del archivo ("menu.jpg") en la pestaña y renderiza
+            la imagen sin estilos ni control de tamaño.
+         2. Con este archivo HTML dedicado:
+            - La pestaña del navegador tiene un título formal: "Menú Oficial · Batidos Flavors".
+            - Tiene su propio Favicon y metadatos SEO.
+            - La imagen se enmarca con .visor-menu__frame (fondo blanco, radio curvo y sombra).
+            - En móviles la imagen se adapta al 100% del ancho sin romper la pantalla.
+            - Ofrece botones integrados para descargar en JPG o pedir por WhatsApp.
+            
+         TRUCOS DE MODIFICACIÓN EN VIVO:
+         - ¿Cómo hacer el menú más grande?:
+           En styles.css modificar .visor-menu__img { max-width: 900px; }
+         - ¿Cómo rotar o poner de cabeza la imagen?:
+           En styles.css añadir .visor-menu__img { transform: rotate(180deg); }
+         - ¿Cómo cambiar el fondo del marco?:
+           En styles.css cambiar .visor-menu__frame { background: #ffe3f0; }
          ========================================================================= -->
     <section class="visor-menu">
       <div class="visor-menu__header reveal">
