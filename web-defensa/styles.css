@@ -1929,6 +1929,13 @@ h4 {
    5. CÓMO PERSONALIZAR EL BOTÓN "VOLVER ARRIBA" (.footer__top-btn):
       - Cambiar su color: background: #3a2230; border: 1px solid rgba(255, 255, 255, 0.4);
       - Botón más grande y visible: padding: 0.8rem 1.8rem; font-size: 1rem;
+      - 🎯 ¡PREGUNTA CLAVE DE DEFENSA! CÓMO HACER QUE QUEDE FLOTANDO PERMANENTEMENTE A LA DERECHA:
+        Si el jurado te pide: "Haz que este botón flote siempre en la pantalla al hacer scroll":
+        Solo debes añadir a .footer__top-btn las siguientes 4 líneas de CSS:
+          position: fixed;   /* Saca el botón del pie de página y lo fija al viewport/pantalla */
+          bottom: 20px;      /* Separación de 20px desde el borde inferior */
+          right: 20px;       /* Separación de 20px desde el borde derecho */
+          z-index: 1000;     /* Asegura que flote POR ENCIMA de fotos, textos y tarjetas */
    ============================================================================= */
 .footer {
   background: #502e43;
@@ -2066,7 +2073,16 @@ h4 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Botón volver arriba */
+/* Botón volver arriba (por defecto ubicado en la barra final del footer)
+   =============================================================================
+   🎯 SI EL JURADO PIDE EN VIVO: "HAZ QUE ESTE BOTÓN FLOTE SIEMPRE A LA DERECHA":
+   Descomenta o escribe dentro de .footer__top-btn las siguientes 4 propiedades:
+   
+   position: fixed;        <-- Lo fija a la ventana sin importar cuánto scroll hagas
+   bottom: 20px;           <-- Distancia desde el borde inferior de la pantalla
+   right: 20px;            <-- Distancia desde el borde derecho de la pantalla
+   z-index: 1000;          <-- Prioridad de capa para que nada lo tape
+   ============================================================================= */
 .footer__top-btn,
 .footer__top-link {
   display: inline-flex;
@@ -2082,6 +2098,14 @@ h4 {
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s var(--ease), background 0.2s, box-shadow 0.2s;
+
+  /* --- DESCOMENTAR AQUÍ SI EL JURADO PIDE EL BOTÓN FLOTANTE ---
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  ------------------------------------------------------------- */
 }
 
 .footer__top-btn:hover,
@@ -2100,6 +2124,11 @@ h4 {
    Botón flotante fijado en la esquina inferior derecha de la pantalla.
    - position: fixed; bottom: 22px; right: 22px; lo mantiene anclado permanentemente visible.
    - z-index: 99; asegura que flote por encima de imágenes, mapas y texto.
+   
+   🎯 CÓMO APLICARLO EN CASO DE QUE EL JURADO LO PIDA:
+   - Opción 1 (Modo rápido CSS): Aplica position: fixed; bottom: 20px; right: 20px; z-index: 1000; a .footer__top-btn.
+   - Opción 2 (Modo HTML): Agrégale la clase "btn-top" al enlace existente del footer:
+     <a href="#" class="footer__top-btn btn-top">Volver arriba ↑</a>
    
    RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN:
    1. CÓMO CAMBIARLO DE ESQUINA (De derecha a izquierda):
