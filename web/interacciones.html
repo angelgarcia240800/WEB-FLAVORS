@@ -52,6 +52,24 @@
       </div>
     </section>
 
+    <!-- =========================================================================
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: COMUNIDAD Y FORMULARIO DE OPINIONES
+     • SISTEMA DE COMENTARIOS 100% HTML PURO (SIN JAVASCRIPT):
+       - Utiliza Web3Forms API para procesar el envío de comentarios directamente por correo electrónico:
+         <form action="https://api.web3forms.com/submit" method="POST" class="form-flavors">
+       - Parámetros de configuración incluidos:
+         * access_key: Clave pública del servicio para entrega inmediata.
+         * subject: Asunto del correo de notificación recibido por el equipo.
+         * redirect: Redirige al usuario a interacciones.html#enviado tras completar el envío.
+         * botcheck: Campo trampa tipo honeypot para bloquear robots de spam automáticamente.
+     • MODAL DE CONFIRMACIÓN CON CSS PURO (:target):
+       - La ventana modal <div id="enviado" class="modal"> se activa cuando la URL termina en #enviado.
+       - El selector CSS .modal:target activa display: flex con opacidad y efecto emergente.
+       - El botón de cierre es un simple hipervínculo <a href="#" class="modal__backdrop"> que retira el hash.
+     • FEED DE OPINIONES DE CLIENTES (.comentarios__feed):
+       - Presenta testimonios reales de la comunidad utilizando etiquetas semánticas estándar <blockquote>.
+       - Para añadir una opinión adicional: duplicar un bloque <blockquote class="quote reveal-up">.
+     ========================================================================= -->
     <!-- Sección de comentarios (Trasladada desde contacto) -->
     <section class="section comentarios" id="comentarios">
       <div class="comentarios__grid">

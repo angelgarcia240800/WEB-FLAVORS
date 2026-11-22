@@ -47,7 +47,17 @@
       </div>
     </section>
 
-  <section class="section section--flush-top">
+    <!-- =========================================================================
+     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: INFORMACIÓN DE CONTACTO Y ENLACES
+     • CÓMO EDITAR NÚMEROS Y ENLACES DE ATENCIÓN:
+       - Para cambiar el número de WhatsApp: modificar el número en href="https://wa.me/..." y en el texto visible.
+       - Para cambiar el usuario de Instagram: modificar el enlace href="https://instagram.com/..." y el texto @flavors_30.
+     • CÓMO AGREGAR UN CANAL ADICIONAL (Ej: Correo electrónico o TikTok):
+       - Duplicar un elemento <li> dentro de <ul class="contact-list">.
+       - Asignar el icono correspondiente en .ci y el enlace en <a>.
+     ========================================================================= -->
+    <!-- Canales de contacto y mapa -->
+    <section class="section section--flush-top">
       <div class="contacto__card reveal-up">
         
         <!-- Información de contacto -->
@@ -127,6 +137,16 @@
           </div>
         </div>
 
+        <!-- =========================================================================
+         RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: MAPA DE UBICACIÓN FÍSICA
+         • OPCIONES DE VISUALIZACIÓN DEL MAPA:
+           - Google Maps Interactivo en línea: Utiliza un <iframe> embebido
+             con src="https://maps.google.com/maps?q=9.928171,-69.615425&amp;output=embed".
+           - Para cambiar la coordenada geográfica: editar los valores q=LATITUD,LONGITUD en el src.
+         • CÓMO CAMBIAR LA ALTURA O PROPORCIÓN DEL MAPA:
+           - En styles.css, la regla .contacto__map tiene min-height: 380px;.
+           - Aumentar a min-height: 480px; o 520px; si se desea un mapa más prominente.
+         ========================================================================= -->
         <!-- Mapa de ubicación interactivo -->
         <div class="contacto__map">
           <iframe
