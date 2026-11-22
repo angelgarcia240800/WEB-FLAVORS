@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body id="top">
 
   <div class="bg-decor" aria-hidden="true">
     <span class="blob blob--1"></span>
@@ -50,6 +50,7 @@
       <a href="index.html" class="is-active">Inicio</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="menu.html">Menú &amp; Precios</a>
+      <a href="interacciones.html">Interacciones</a>
       <a href="galeria.html">Galería</a>
       <a href="contacto.html">Contacto</a>
       <a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="nav__cta">Pedir ahora</a>
@@ -63,7 +64,7 @@
       <div class="hero__mesh" aria-hidden="true"></div>
       <div class="hero__inner">
         <div class="hero__copy">
-          <span class="pill reveal">🍓 Frutas 100% naturales · 🛵 Servicio de Delivery en Quíbor</span>
+          <span class="pill reveal">Frutas 100% naturales · Servicio de Delivery en Quíbor</span>
           <h1 class="hero__title">
             <span class="reveal d1">Mejores</span>
             <span class="reveal d2">ingredientes,</span>
@@ -71,7 +72,7 @@
           </h1>
           <p class="hero__lead reveal d4">
   Batidos preparados al instante, junto a una selección de postres artesanales: fresas con crema, 
-  pie de parchita y recetas caseras listas para disfrutar en <strong>Quíbor, estado Lara</strong>. Cremosidad desde el primer sorbo🥤
+  pie de parchita y recetas caseras listas para disfrutar en <strong>Quíbor, estado Lara</strong>. Cremosidad desde el primer sorbo.
           </p>
           <div class="hero__actions reveal d5">
             <a href="menu.html" class="btn btn--solid">Ver el menú</a>
@@ -88,12 +89,6 @@
             <figure class="cup-photo">
               <img src="assets/logo/logo.png" alt="Logo Batidos Flavors" class="hero__logo-img" width="360" height="360" />
             </figure>
-            <span class="float-chip chip-a">🍓 Fresa</span>
-            <span class="float-chip chip-b">🥭 Parchita</span>
-            <span class="float-chip chip-c">🍫 Brownie</span>
-            <span class="sparkle s1">✦</span>
-            <span class="sparkle s2">✦</span>
-            <span class="sparkle s3">✦</span>
           </div>
         </div>
       </div>
@@ -157,22 +152,22 @@
       </header>
       <div class="feature-grid">
         <div class="feature reveal-up">
-          <div class="feature__ic">🍓</div>
+          <div class="feature__ic"><img src="assets/inicio/inicio-frutas-naturales.jpg" alt="Frutas naturales frescas" loading="lazy"></div>
           <h3>Frutas naturales</h3>
           <p>Seleccionadas frescas para conservar el sabor y los nutrientes reales de cada fruta.</p>
         </div>
         <div class="feature reveal-up">
-          <div class="feature__ic">🥛</div>
+          <div class="feature__ic"><img src="assets/inicio/inicio-yogur-cereal.png" alt="Yogurt artesanal y lácteos" loading="lazy"></div>
           <h3>Yogurt &amp; lácteos</h3>
           <p>Base cremosa que aporta textura sedosa y un punto justo de dulzor natural.</p>
         </div>
         <div class="feature reveal-up">
-          <div class="feature__ic">🍪</div>
+          <div class="feature__ic"><img src="assets/inicio/topins.png" alt="Toppings de marca" loading="lazy"></div>
           <h3>Toppings de marca</h3>
           <p>Galleta, brownie, Cerelac y chocolate para coronar cada vaso con generosidad.</p>
         </div>
         <div class="feature reveal-up">
-          <div class="feature__ic">⏱️</div>
+          <div class="feature__ic"><img src="assets/inicio/inicio-batido-chocolate.png" alt="Batido artesanal preparado al instante" loading="lazy"></div>
           <h3>Hecho al momento</h3>
           <p>Preparamos tu pedido cuando lo ordenas. Frescura garantizada en cada sorbo.</p>
         </div>
@@ -187,7 +182,7 @@
       </header>
       <div class="quotes">
         <blockquote class="quote reveal-up">
-          <p>"Perfecto el pie de Parchita 🤤 una mezcla de sabores que no tiene comparación."</p>
+          <p>"Perfecto el pie de Parchita, una mezcla de sabores que no tiene comparación."</p>
           <footer>— Cliente Flavors</footer>
         </blockquote>
         <blockquote class="quote reveal-up">
@@ -205,13 +200,15 @@
   </main>
 
   <!-- Pie de página -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <!-- Columna 1: Universidad UPTAEB -->
+  <footer id="footer" class="footer">
+        <div class="footer__inner">
+      <!-- Columna 1: Universidad UPTAEB (Logo primero y letras al lado) -->
       <div class="footer__col footer__uni">
-        <img src="assets/logo/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
-        <div class="footer__uni-text">
-          <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+        <div class="footer__uni-brand">
+          <img src="assets/logo/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+          <div class="footer__uni-text">
+            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+          </div>
         </div>
       </div>
 
@@ -247,9 +244,15 @@
     <!-- Barra inferior del pie de página -->
     <div class="footer__base">
       <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
-      <a href="#" class="footer__top-btn">Volver arriba ↑</a>
+      <a href="#top" class="footer__top-btn">Volver arriba ↑</a>
     </div>
   </footer>
 
+
+  <!-- Botones de navegación flotante (subir / bajar) -->
+  <div class="floating-nav" aria-label="Navegación rápida">
+    <a href="#top" class="floating-btn" title="Ir al inicio" aria-label="Ir al inicio">↑</a>
+    <a href="#footer" class="floating-btn" title="Ir al final" aria-label="Ir al final">↓</a>
+  </div>
 </body>
 </html>

@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body id="top">
   <div class="bg-decor" aria-hidden="true">
     <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span><span class="grain"></span>
   </div>
@@ -31,6 +31,7 @@
       <a href="index.html">Inicio</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="menu.html">Menú &amp; Precios</a>
+      <a href="interacciones.html">Interacciones</a>
       <a href="galeria.html">Galería</a>
       <a href="contacto.html" class="is-active">Contacto</a>
       <a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="nav__cta">Pedir ahora</a>
@@ -142,87 +143,18 @@
       </div>
     </section>
 
-    <!-- Sección de comentarios -->
-    <section class="section comentarios" id="comentarios">
-      <header class="section__head reveal-up">
-        <span class="eyebrow">Comunidad &amp; Opiniones</span>
-        <h2>¿Qué opinas de <span class="script">Flavors</span>?</h2>
-        <p class="section__sub">Tu opinión nos impulsa a crecer. Déjanos tu valoración o lee lo que dice nuestra comunidad en Quíbor.</p>
-      </header>
-
-      <div class="comentarios__grid">
-        <!-- Formulario de comentarios -->
-        <div class="comentarios__form-box reveal-up">
-          <div class="comentarios__form-head">
-            <span class="comentarios__icon" aria-hidden="true">✍️</span>
-            <div>
-              <h3>Envíanos tu comentario</h3>
-              <p>Tu opinión nos ayuda a seguir mejorando.</p>
-            </div>
-          </div>
-
-          <form action="https://api.web3forms.com/submit" method="POST" class="form-flavors">
-            <!-- Configuración Web3Forms -->
-            <input type="hidden" name="access_key" value="ee206d40-eca7-43f6-a774-2c4587c92f54" />
-            <input type="hidden" name="subject" value="Nuevo comentario recibido en Batidos Flavors" />
-            <input type="hidden" name="from_name" value="Web Batidos Flavors" />
-            <!-- Redirección tras envío -->
-            <input type="hidden" name="redirect" value="https://batidosflavors.shop/contacto.html#enviado" />
-            <!-- Filtro anti-spam -->
-            <input type="checkbox" name="botcheck" class="form-honeypot" />
-
-            <label for="comentario" class="form-group">
-              <span class="form-group__label">Tu comentario o sugerencia *</span>
-              <textarea id="comentario" name="comentario" rows="5" placeholder="Cuéntanos qué te pareció el sabor, la textura, la atención..." required></textarea>
-            </label>
-
-            <button type="submit" class="btn btn--solid btn--block">Enviar comentario</button>
-          </form>
-        </div>
-
-        <!-- Opiniones de clientes -->
-        <div class="comentarios__feed">
-          <blockquote class="quote reveal-up">
-            <p>"¡Una completa locura de sabor! Las fresas súper frescas, la crema batida en su punto sin ser empalagosa y los trozos de brownie suaves."</p>
-            <footer>— Cliente Flavors</footer>
-          </blockquote>
-
-          <blockquote class="quote reveal-up">
-            <p>"Se nota desde el primer sorbo que es fruta 100% natural, nada de químicos ni polvos artificiales. Cremosidad perfecta y la mejor atención."</p>
-            <footer>— Cliente Flavors</footer>
-          </blockquote>
-
-          <blockquote class="quote reveal-up">
-            <p>"El balance de acidez y dulzura del pie de parchita es insuperable. Pedí por WhatsApp para un compartir familiar y a todos les encantó."</p>
-            <footer>— Cliente Flavors</footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modal de confirmación -->
-    <div id="enviado" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <a href="#" class="modal__backdrop" aria-label="Cerrar modal"></a>
-      <div class="modal__dialog">
-        <a href="#" class="modal__close" aria-label="Cerrar ventana">&times;</a>
-        <div class="modal__icon" aria-hidden="true">✓</div>
-        <h3 id="modal-title">¡Comentario Enviado!</h3>
-        <p>Muchas gracias por escribirnos. Tu opinión o sugerencia ha sido recibida con éxito por nuestro equipo en Quíbor.</p>
-        <div class="modal__actions">
-          <a href="#" class="btn btn--solid">Aceptar</a>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 
   <!-- Pie de página -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <!-- Columna 1: Universidad UPTAEB -->
+  <footer id="footer" class="footer">
+        <div class="footer__inner">
+      <!-- Columna 1: Universidad UPTAEB (Logo primero y letras al lado) -->
       <div class="footer__col footer__uni">
-        <img src="assets/logo/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
-        <div class="footer__uni-text">
-          <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+        <div class="footer__uni-brand">
+          <img src="assets/logo/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+          <div class="footer__uni-text">
+            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+          </div>
         </div>
       </div>
 
@@ -258,9 +190,15 @@
     <!-- Barra inferior del pie de página -->
     <div class="footer__base">
       <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
-      <a href="#" class="footer__top-btn">Volver arriba ↑</a>
+      <a href="#top" class="footer__top-btn">Volver arriba ↑</a>
     </div>
   </footer>
 
+
+  <!-- Botones de navegación flotante (subir / bajar) -->
+  <div class="floating-nav" aria-label="Navegación rápida">
+    <a href="#top" class="floating-btn" title="Ir al inicio" aria-label="Ir al inicio">↑</a>
+    <a href="#footer" class="floating-btn" title="Ir al final" aria-label="Ir al final">↓</a>
+  </div>
 </body>
 </html>

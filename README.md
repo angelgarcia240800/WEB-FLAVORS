@@ -25,12 +25,14 @@ WEB-FLAVORS/
 │   │   ├── galeria/          # Fotografías de alta resolución para la galería interactiva
 │   │   ├── inicio/           # Ilustraciones transparentes de productos destacados del home
 │   │   ├── logo/             # Identidad visual (Logo oficial Batidos Flavors y Logo UPTAEB)
+│   │   ├── nosotros/         # Fotografías de valores de marca (calidad, corazón, creatividad, cercanía)
 │   │   └── menu/             # Imágenes de productos de la carta y Menú digital descargable (.jpg)
 │   ├── CNAME                 # Configuración de dominio personalizado (batidosflavors.shop)
 │   ├── contacto.html         # Página de contacto, pedidos WhatsApp, Instagram y Google Maps interactivo
 │   ├── favicon.ico           # Acceso directo para navegadores en la raíz
 │   ├── galeria.html          # Galería visual de productos y creaciones
 │   ├── index.html            # Portada principal, hero, destacados y opiniones
+│   ├── interacciones.html    # Encuesta interactiva, FAQ acordeón y muro de calificaciones
 │   ├── menu.html             # Carta de precios completa clasificada por categorías y descarga de flyer
 │   ├── nosotros.html         # Historia de la marca, misión, visión y carrusel continuo en CSS puro
 │   └── styles.css            # Hoja de estilos central y responsiva
@@ -40,6 +42,7 @@ WEB-FLAVORS/
 │   ├── contacto.html         # Contacto adaptado con capturas locales y modal CSS nativo (:target)
 │   ├── galeria.html          # Galería comentada con guía didáctica
 │   ├── index.html            # Portada comentada con explicaciones técnicas detalladas
+│   ├── interacciones.html    # Encuestas y preguntas frecuentes comentadas
 │   ├── menu.html             # Menú y lista de precios comentada
 │   ├── nosotros.html         # Nosotros comentado
 │   └── styles.css            # Hoja de estilos con guía técnica completa y recomendaciones
@@ -62,7 +65,17 @@ Todas las imágenes contenidas en la versión de producción están organizadas 
 | `inicio/` | `inicio-pie-limon.png` | Inicio (`index.html`) | Tarjeta destacada de Pie de Limón Artesanal |
 | `inicio/` | `inicio-fresa-brownie.png` | Inicio (`index.html`) | Tarjeta destacada de Fresas con Crema & Brownie |
 | `inicio/` | `inicio-batido-chocolate.png` | Inicio (`index.html`) | Tarjeta destacada de Batido de Chocolate Clásico |
+| `inicio/` | `topins.png` | Inicio (`index.html`) | Fotografía oficial de toppings y agregados de marca |
+| `nosotros/` | `calidad.jpg` | Nosotros (`nosotros.html`) | Tarjeta de valor: Calidad en ingredientes |
+| `nosotros/` | `corazon.jpg` | Nosotros (`nosotros.html`) | Tarjeta de valor: Hecho con cariño y dedicación |
+| `nosotros/` | `creatividad.jpg` | Nosotros (`nosotros.html`) | Tarjeta de valor: Creatividad en combinaciones |
+| `nosotros/` | `cercania.jpg` | Nosotros (`nosotros.html`) | Tarjeta de valor: Cercanía y atención familiar |
 | `menu/` | `menu-pie-limon.png` | Menú (`menu.html`) | Imagen destacada de Pie de Limón en el menú |
+| `inicio/` | `inicio-frutas-naturales.jpg` | Inicio (`index.html`) | Tarjeta de Frutas naturales en la sección de pilares |
+| `inicio/` | `inicio-yogur-cereal.png` | Inicio (`index.html`) | Tarjeta de Yogurt & lácteos en la sección de pilares |
+| `inicio/` | `inicio-batido-chocolate.png` | Inicio (`index.html`) | Tarjeta de Hecho al momento en la sección de pilares |
+| `menu/` | `menu-batido-chocolate.png` | Menú (`menu.html`) | Encabezado de la categoría Batidos naturales |
+| `menu/` | `topins.png` | Menú (`menu.html`) | Encabezado de la categoría Toppings & extras |
 | `menu/` | `menu-fresa-brownie.png` | Menú (`menu.html`) | Imagen destacada de Fresas con Crema & Brownie |
 | `menu/` | `menu-yogur-cereal.png` | Menú (`menu.html`) | Imagen destacada de Yogurt natural & Frutas |
 | `menu/` | `menu.jpg` | Menú (`menu.html`) | Flyer digital oficial en alta resolución para descarga |

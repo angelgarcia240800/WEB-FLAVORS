@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body id="top">
   <div class="bg-decor" aria-hidden="true">
     <span class="blob blob--1"></span><span class="blob blob--2"></span><span class="blob blob--3"></span><span class="grain"></span>
   </div>
@@ -31,6 +31,7 @@
       <a href="index.html">Inicio</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="menu.html">Menú &amp; Precios</a>
+      <a href="interacciones.html">Interacciones</a>
       <a href="galeria.html" class="is-active">Galería</a>
       <a href="contacto.html">Contacto</a>
       <a href="https://wa.me/584125080900?text=Hola%20Batidos%20Flavors%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="nav__cta">Pedir ahora</a>
@@ -70,13 +71,15 @@
   </main>
 
   <!-- Pie de página -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <!-- Columna 1: Universidad UPTAEB -->
+  <footer id="footer" class="footer">
+        <div class="footer__inner">
+      <!-- Columna 1: Universidad UPTAEB (Logo primero y letras al lado) -->
       <div class="footer__col footer__uni">
-        <img src="assets/logo/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
-        <div class="footer__uni-text">
-          <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+        <div class="footer__uni-brand">
+          <img src="assets/logo/logouniversidad.png" alt="Logo UPTAEB" class="footer__uni-logo" loading="lazy">
+          <div class="footer__uni-text">
+            <p class="uni-name">Universidad Politécnica Territorial de Lara “Andrés Eloy Blanco”</p>
+          </div>
         </div>
       </div>
 
@@ -112,9 +115,15 @@
     <!-- Barra inferior del pie de página -->
     <div class="footer__base">
       <p>© 2026 Batidos Flavors. Todos los derechos reservados.</p>
-      <a href="#" class="footer__top-btn">Volver arriba ↑</a>
+      <a href="#top" class="footer__top-btn">Volver arriba ↑</a>
     </div>
   </footer>
 
+
+  <!-- Botones de navegación flotante (subir / bajar) -->
+  <div class="floating-nav" aria-label="Navegación rápida">
+    <a href="#top" class="floating-btn" title="Ir al inicio" aria-label="Ir al inicio">↑</a>
+    <a href="#footer" class="floating-btn" title="Ir al final" aria-label="Ir al final">↓</a>
+  </div>
 </body>
 </html>
