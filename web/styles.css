@@ -1,10 +1,4 @@
-/* =============================================================================
-   BATIDOS FLAVORS — HOJA DE ESTILOS PRINCIPAL
-   ============================================================================= */
-
-/* =============================================================================
-   1. VARIABLES DE DISEÑO (:root)
-   ============================================================================= */
+/* Variables */
 :root {
   --pink: #e6147f;
   --pink-deep: #b11464;
@@ -32,9 +26,7 @@
   --script: "Dancing Script", cursive, sans-serif;
 }
 
-/* =============================================================================
-   2. ESTILOS BASE Y RESET UNIVERSAL (*, html, body)
-   ============================================================================= */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -81,9 +73,7 @@ h4 {
   font-weight: 700;
 }
 
-/* =============================================================================
-   3. FONDO DECORATIVO (.bg-decor, .blob, .grain)
-   ============================================================================= */
+/* Fondo decorativo */
 .bg-decor {
   position: fixed;
   inset: 0;
@@ -149,9 +139,7 @@ h4 {
   100% { transform: translate(4vw, 3vw) scale(1.15); }
 }
 
-/* =============================================================================
-   4. BARRA DE NAVEGACIÓN (.nav, .nav__brand, .nav__menu, .nav__cta)
-   ============================================================================= */
+/* Navbar */
 .nav {
   position: -webkit-sticky;
   position: sticky;
@@ -246,7 +234,6 @@ h4 {
   color: #ffffff;
 }
 
-/* Menú móvil y botón hamburguesa */
 .nav__check {
   display: none;
 }
@@ -271,9 +258,7 @@ h4 {
   border-radius: 2px;
 }
 
-/* =============================================================================
-   5. BOTONES (.btn, .btn--solid, .btn--ghost, .btn--block)
-   ============================================================================= */
+/* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -332,9 +317,7 @@ h4 {
   padding: 0.9rem;
 }
 
-/* =============================================================================
-   6. PORTADA HERO (.hero, .hero__inner, .hero__title, .hero__lead, .hero__art)
-   ============================================================================= */
+/* Hero */
 .hero {
   position: relative;
   padding: 2.6rem 1.5rem 2.8rem;
@@ -432,7 +415,6 @@ h4 {
   letter-spacing: 0.05em;
 }
 
-/* Imagen del Hero */
 .hero__art {
   display: grid;
   place-items: center;
@@ -480,9 +462,7 @@ h4 {
   border-radius: 50%;
 }
 
-/* =============================================================================
-   7. MARQUESINA Y BANNERS (.marquee, .marquee__track, .page-banner)
-   ============================================================================= */
+/* Marquee */
 .marquee {
   background: var(--grad-hot);
   color: #ffffff;
@@ -537,9 +517,7 @@ h4 {
   margin-top: 0.6rem;
 }
 
-/* =============================================================================
-   8. ESTRUCTURA DE SECCIONES (.section, .section__head, .eyebrow)
-   ============================================================================= */
+/* Secciones */
 .section {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -594,9 +572,7 @@ h4 {
   background: rgba(255, 255, 255, 0.22);
 }
 
-/* =============================================================================
-   9. TARJETAS Y COMPONENTES (.cards, .card, .card__img, .card__body, .tag)
-   ============================================================================= */
+/* Cards */
 .card,
 .feature,
 .quote,
@@ -694,9 +670,7 @@ h4 {
   margin-top: 1.8rem;
 }
 
-/* =============================================================================
-   10. NOSOTROS Y CARRUSEL FOTOGRÁFICO (.nosotros, .carousel, .carousel__track)
-   ============================================================================= */
+/* Nosotros */
 .nosotros {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -806,9 +780,7 @@ h4 {
   box-shadow: var(--shadow-sm);
 }
 
-/* =============================================================================
-   11. VALORES, GALERÍA Y TESTIMONIOS (.feature-grid, .gallery, .quotes, .quote)
-   ============================================================================= */
+/* Valores */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -860,7 +832,7 @@ h4 {
   font-size: 0.92rem;
 }
 
-/* Galería */
+/* Galeria */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -943,9 +915,7 @@ h4 {
   font-size: 0.88rem;
 }
 
-/* =============================================================================
-   12. CATÁLOGO DE PRECIOS (.price-block, .price-cat, .price-row, .price-row__val)
-   ============================================================================= */
+/* Precios */
 .price-block {
   max-width: var(--maxw);
   margin: 0 auto;
@@ -1055,7 +1025,7 @@ h4 {
   padding: 0.8rem 1.1rem;
 }
 
-/* Visor del menú oficial */
+/* Visor menu */
 .visor-menu {
   max-width: 900px;
   margin: 0 auto;
@@ -1105,9 +1075,7 @@ h4 {
   margin-top: 1.8rem;
 }
 
-/* =============================================================================
-   13. CONTACTO, FORMULARIO Y MAPA (.contacto__card, .form-flavors, .contacto__map)
-   ============================================================================= */
+/* Contacto */
 .contacto__card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1252,7 +1220,7 @@ h4 {
   justify-content: center;
 }
 
-/* Formulario de comentarios */
+/* Formulario */
 .comentarios {
   padding-top: 2.4rem;
 }
@@ -1349,9 +1317,7 @@ h4 {
   gap: 1.3rem;
 }
 
-/* =============================================================================
-   14. MODAL DE CONFIRMACIÓN SIN JAVASCRIPT (.modal, #enviado:target)
-   ============================================================================= */
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -1460,9 +1426,7 @@ h4 {
   min-width: 140px;
 }
 
-/* =============================================================================
-   15. PIE DE PÁGINA INSTITUCIONAL (.footer, .footer__inner, 4 columnas)
-   ============================================================================= */
+/* Footer */
 .footer {
   position: relative;
   z-index: 30;
@@ -1492,7 +1456,6 @@ h4 {
   margin-top: 0;
 }
 
-/* Columna 1: Universidad UPTAEB */
 .footer__uni {
   display: flex;
   flex-direction: column;
@@ -1502,7 +1465,7 @@ h4 {
 .footer__uni-brand {
   display: flex;
   flex-direction: row;
-  align-items: flex-start; /* Alinea al ras superior */
+  align-items: flex-start;
   gap: 0.85rem;
   margin-top: 0;
 }
@@ -1523,7 +1486,7 @@ h4 {
 
 .footer__uni-text {
   margin: 0;
-  padding-top: 2px; /* Ajuste optico para alinear con la altura del encabezado */
+  padding-top: 2px;
 }
 
 .uni-name {
@@ -1534,7 +1497,6 @@ h4 {
   margin: 0;
 }
 
-/* Columna 2 y 4: Encabezados */
 .footer__team h4,
 .footer h4 {
   color: #ffffff;
@@ -1557,7 +1519,6 @@ h4 {
   color: rgba(255, 255, 255, 0.78);
 }
 
-/* Columna 3: Batidos Flavors */
 .footer__brand .nav__brand-txt {
   color: #ffffff;
   font-size: 1.15rem;
@@ -1577,7 +1538,6 @@ h4 {
   color: rgba(255, 255, 255, 0.84);
 }
 
-/* Columna 4: Síguenos y contacto */
 .footer__social {
   display: grid;
   gap: 0.5rem;
@@ -1601,7 +1561,6 @@ h4 {
   color: #ff7fb8;
 }
 
-/* Barra inferior del pie de página */
 .footer__base {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   max-width: var(--maxw);
@@ -1616,7 +1575,6 @@ h4 {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Botón volver arriba en la barra final del footer */
 .footer__top-btn {
   display: inline-flex;
   align-items: center;
@@ -1641,9 +1599,7 @@ h4 {
   text-decoration: none;
 }
 
-/* =============================================================================
-   16. BOTONES FLOTANTES DE NAVEGACIÓN RÁPIDA (.floating-nav, .floating-btn)
-   ============================================================================= */
+/* Botones flotantes */
 .floating-nav {
   position: fixed;
   bottom: 24px;
@@ -1683,9 +1639,7 @@ h4 {
   transform: translateY(0) scale(0.95);
 }
 
-/* =============================================================================
-   17. ANIMACIONES CSS PURAS (@keyframes rise, @keyframes spin, etc.)
-   ============================================================================= */
+/* Animaciones */
 @keyframes rise {
   from {
     opacity: 0;
@@ -1721,9 +1675,7 @@ h4 {
   }
 }
 
-/* =============================================================================
-   18. DISEÑO RESPONSIVO (@media queries)
-   ============================================================================= */
+/* Responsive */
 @media (max-width: 980px) {
   .hero__inner {
     grid-template-columns: 1fr;
