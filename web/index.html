@@ -39,19 +39,7 @@
   </div>
 
   <!-- Encabezado y navegación -->
-  <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: ENCABEZADO Y NAVEGACIÓN (<header class="nav">)
-     • CÓMO CAMBIAR EL LOGO:
-       - Modificar el atributo src="assets/logo/logo.png" por la ruta de cualquier otra imagen.
-       - Para cambiar el tamaño del logo en el HTML: modificar width="46" height="46".
-     • CÓMO REORDENAR O AGREGAR PÁGINAS AL MENÚ:
-       - Cambiar de lugar los bloques <a href="...">Nombre</a> para alterar el orden de visualización.
-       - Para agregar una página nueva: copiar una línea <a>, asignarle su href="nueva.html" y su texto.
-       - Para marcar la página activa: añadir la clase class="is-active" en la etiqueta <a> correspondiente.
-     • CÓMO FUNCIONA EL MENÚ MÓVIL SIN JAVASCRIPT:
-       - Emplea la técnica "Checkbox Hack" (<input type="checkbox" id="nav-toggle">).
-       - Al hacer clic en <label for="nav-toggle">, se activa el selector CSS :checked ~ .nav__menu.
-     ========================================================================= -->
+  <!-- Encabezado y navegación -->
   <header class="nav">
     <a href="index.html" class="nav__brand" aria-label="Batidos Flavors — inicio">
       <img src="assets/logo/logo.png" alt="Logo Batidos Flavors" class="logo-mark" width="46" height="46" />
@@ -72,20 +60,7 @@
 
   <main>
 
-    <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: PORTADA PRINCIPAL (<section class="hero">)
-     • CÓMO CAMBIAR EL ORDEN O DISPOSICIÓN DE COLUMNAS:
-       - La sección está maquetada con 2 columnas (texto a la izquierda y logo a la derecha).
-       - Para invertir el orden desde el HTML: cortar el bloque <div class="hero__art">...</div>
-         y pegarlo antes de <div class="hero__copy">.
-       - Para convertirlo en 1 sola columna centrada: en CSS .hero__inner cambiar a grid-template-columns: 1fr;
-     • CÓMO EDITAR TÍTULOS, ESCRITURA MANUSCRITA Y DESCRIPCIÓN:
-       - Editar el texto dentro de <h1 class="hero__title">. La clase .script aplica la tipografía Dancing Script.
-       - Editar la descripción dentro de <p class="hero__lead">.
-     • CÓMO MODIFICAR LAS ESTADÍSTICAS (+30 sabores, 100% natural, etc.):
-       - Modificar las etiquetas <b> (cifra destacada) y <span> (etiqueta descriptiva) dentro de <ul class="hero__stats">.
-       - Para agregar una estadística adicional: duplicar un elemento <li><b>Dato</b><span>Descripción</span></li>.
-     ========================================================================= -->
+    <!-- Portada principal (Hero) -->
     <!-- Portada principal -->
     <section class="hero">
       <div class="hero__mesh" aria-hidden="true"></div>
@@ -122,17 +97,7 @@
     </section>
 
     <!-- Marquesina de especialidades -->
-    <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: MARQUESINA CONTINUA (<div class="marquee">)
-     • CÓMO FUNCIONA EL MOVIMIENTO CONTINUO:
-       - Contiene dos etiquetas <span> con exactamente el mismo texto duplicado dentro de .marquee__track.
-       - Esto permite que la animación @keyframes marquee cree un ciclo infinito fluido sin saltos en blanco.
-     • CÓMO CAMBIAR LOS PRODUCTOS O MENSAJES QUE CIRCULAN:
-       - Editar el texto en AMBOS <span> por igual para mantener la simetría del bucle.
-       - Se pueden añadir nuevos productos o promociones separándolos con el símbolo ✦ o viñetas.
-     • CÓMO MODIFICAR LA VELOCIDAD:
-       - En styles.css, buscar .marquee__track y cambiar animation: marquee 25s linear infinite;
-     ========================================================================= -->
+    <!-- Marquesina continua -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
         <span>Fresas con Crema ✦ Pie de Parchita ✦ Batido de Frutas 100% Naturales ✦ Brownie ✦ Cerelac ✦ Quesillo ✦ Tortas ✦ Yogurt Natural ✦&nbsp;</span>
@@ -141,17 +106,7 @@
     </div>
 
    <!-- Productos destacados -->
-    <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: TARJETAS DESTACADAS (.cards y .card)
-     • CÓMO AGREGAR UN PRODUCTO NUEVO:
-       - Duplicar un bloque completo <article class="card reveal-up">...</article>.
-       - Asignar la nueva imagen en src="assets/inicio/...", el título en <h3> y la descripción en <p>.
-     • CÓMO REORDENAR O ELIMINAR PRODUCTOS:
-       - Mover el bloque <article class="card"> hacia arriba o hacia abajo para cambiar su posición.
-       - Para ocultar un producto temporalmente: envolver el bloque de la tarjeta en comentarios HTML.
-     • CÓMO PERSONALIZAR LA INSIGNIA SUPERIOR (.tag):
-       - Modificar el texto de la etiqueta .tag por "Nuevo", "Recomendado", "Sin Azúcar", etc.
-     ========================================================================= -->
+    <!-- Tarjetas destacadas -->
     <!-- Tarjetas de favoritos -->
     <section class="section">
       <header class="section__head reveal-up">
@@ -194,16 +149,7 @@
     </section>
 
     <!-- Por qué elegirnos -->
-    <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: VALORES Y BENEFICIOS (.feature-grid)
-     • CÓMO MODIFICAR O AGREGAR UN VALOR DE LA MARCA:
-       - Cada beneficio es un contenedor <div class="feature reveal-up"> con:
-         * .feature__ic: Contiene el icono o imagen representativa local (assets/inicio/...).
-         * <h3>: Título del beneficio.
-         * <p>: Explicación detallada.
-       - Para agregar un 5to valor: duplicar un bloque <div class="feature">.
-       - Si se añaden 3 valores en vez de 4: en CSS .feature-grid cambiar a grid-template-columns: repeat(3, 1fr);
-     ========================================================================= -->
+    <!-- Beneficios e ingredientes -->
     <!-- Sección de beneficios / ingredientes -->
     <section class="section ingredientes">
       <header class="section__head reveal-up">
@@ -235,17 +181,7 @@
       </div>
     </section>
 
-    <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: TESTIMONIOS (.quotes y .quote)
-     • CÓMO AGREGAR O EDITAR TESTIMONIOS DE CLIENTES:
-       - Cada opinión utiliza la etiqueta semántica estándar <blockquote class="quote reveal-up">.
-       - Editar la opinión del cliente dentro de <p>.
-       - Editar el nombre del cliente o procedencia dentro de <footer>.
-       - Para agregar más opiniones: duplicar un bloque <blockquote> completo.
-     • CÓMO CAMBIAR LA CUADRÍCULA:
-       - Por defecto se muestran en 3 columnas (.quotes { grid-template-columns: repeat(3, 1fr); }).
-       - Para mostrar 2 columnas más amplias: cambiar en CSS a grid-template-columns: repeat(2, 1fr);
-     ========================================================================= -->
+    <!-- Testimonios de clientes -->
     <!-- Testimonios de clientes -->
     <section class="section testimonios">
       <header class="section__head reveal-up">
@@ -271,18 +207,7 @@
 
   </main>
 
-  <!-- =========================================================================
-     RECOMENDACIONES Y GUÍA PRÁCTICA DE MODIFICACIÓN: PIE DE PÁGINA INSTITUCIONAL (<footer id="footer" class="footer">)
-     • ESTRUCTURA MODULAR DE 4 COLUMNAS:
-       1. Columna 1 (.footer__uni): Logo institucional UPTAEB e identificación universitaria.
-       2. Columna 2 (.footer__team): Equipo de desarrollo del PNF en Informática y tutor académico.
-       3. Columna 3 (.footer__brand): Marca Batidos Flavors, propuesta de valor y dirección en Santa Isabel, Quíbor.
-       4. Columna 4 (.footer__social): Canales oficiales de atención y redes (WhatsApp e Instagram).
-     • CÓMO MODIFICAR DATOS DEL EQUIPO O TUTOR:
-       - Editar los nombres directamente en los párrafos <p> de .footer__team.
-     • CÓMO FUNCIONA EL BOTÓN VOLVER ARRIBA (.footer__top-btn):
-       - Enlace nativo con href="#top" que redirige al <body id="top"> sin una sola línea de JavaScript.
-     ========================================================================= -->
+  <!-- Pie de página institucional -->
   <!-- Pie de página -->
   <footer id="footer" class="footer">
         <div class="footer__inner">
